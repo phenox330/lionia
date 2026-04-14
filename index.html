@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lionia — L'IA integree a vos process</title>
-  <meta name="description" content="Audit, formation sur-mesure et agents IA pour les PME. Adaptés à votre métier, vos outils, vos équipes.">
+  <title>Lionia — L'IA intégrée à vos process</title>
+  <meta name="description" content="Audit, formation sur-mesure et agents IA pour les PME — Adaptés à votre métier, vos outils, vos équipes">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lionia — L'IA intégrée à vos process en 30 jours.">
-  <meta property="og:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes.">
+  <meta property="og:title" content="Lionia — L'IA intégrée à vos process en 30 jours">
+  <meta property="og:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes">
   <meta property="og:image" content="https://liona.fr/og-image.png">
   <meta property="og:url" content="https://liona.fr">
   <meta property="og:locale" content="fr_FR">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Lionia — L'IA intégrée à vos process en 30 jours.">
-  <meta name="twitter:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes.">
+  <meta name="twitter:title" content="Lionia — L'IA intégrée à vos process en 30 jours">
+  <meta name="twitter:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes">
   <meta name="twitter:image" content="https://liona.fr/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ========================================
        CSS VARIABLES
@@ -42,8 +42,8 @@
       --border: rgba(26, 26, 26, 0.08);
       --border-strong: rgba(26, 26, 26, 0.12);
 
-      --font-display: 'Newsreader', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-display: 'Inter', Arial, sans-serif;
+      --font-body: 'Inter', Arial, sans-serif;
 
       --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
       --container: min(1200px, 100% - var(--gutter) * 2);
@@ -87,7 +87,7 @@
        ======================================== */
     h1, h2, h3, h4 {
       font-family: var(--font-display);
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.15;
       letter-spacing: -0.02em;
     }
@@ -123,7 +123,7 @@
     }
 
     .accent { color: var(--amber); }
-    .italic { font-style: italic; }
+    .italic { }
 
     /* ========================================
        LAYOUT
@@ -194,7 +194,7 @@
       padding: 0.625rem 1.5rem;
       background: var(--slate);
       color: var(--cream);
-      border-radius: 100px;
+      border-radius: 4px;
       font-size: 0.875rem;
       font-weight: 500;
       transition: all 0.25s ease;
@@ -202,7 +202,7 @@
 
     .nav-cta:hover {
       background: var(--slate-light);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     /* ========================================
@@ -276,7 +276,7 @@
       padding: clamp(0.75rem, 0.5rem + 0.5vw, 1rem) clamp(1.25rem, 1rem + 1vw, 2rem);
       background: var(--amber);
       color: white;
-      border-radius: 100px;
+      border-radius: 4px;
       font-size: clamp(0.875rem, 0.85rem + 0.15vw, 1rem);
       font-weight: 500;
       transition: all 0.3s ease;
@@ -329,7 +329,7 @@
       padding: 0.375rem 1rem;
       background: var(--amber-subtle);
       border: 1px solid rgba(196, 122, 58, 0.12);
-      border-radius: 100px;
+      border-radius: 4px;
       font-size: 0.8125rem;
       color: var(--slate-light);
       font-weight: 500;
@@ -348,7 +348,7 @@
 
     .problem-card {
       padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
-      border-radius: 16px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--cream);
       transition: all 0.3s ease;
@@ -364,7 +364,7 @@
     .problem-icon {
       width: 48px;
       height: 48px;
-      border-radius: 12px;
+      border-radius: 8px;
       background: var(--amber-subtle);
       display: flex;
       align-items: center;
@@ -391,7 +391,7 @@
       padding: clamp(1.25rem, 1rem + 1.5vw, 2.5rem) clamp(1.25rem, 1rem + 2vw, 3rem);
       background: linear-gradient(135deg, rgba(196, 122, 58, 0.06) 0%, rgba(196, 122, 58, 0.02) 100%);
       border-left: 3px solid var(--amber);
-      border-radius: 0 16px 16px 0;
+      border-radius: 0 8px 8px 0;
     }
 
     .agitation p {
@@ -399,7 +399,6 @@
       font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
       line-height: 1.65;
       color: var(--slate-light);
-      font-style: italic;
     }
 
     /* ========================================
@@ -423,7 +422,7 @@
 
     .benefit-card {
       padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
-      border-radius: 16px;
+      border-radius: 8px;
       background: var(--white);
       border: 1px solid var(--border);
       transition: all 0.3s ease;
@@ -466,7 +465,7 @@
 
     .offer-card {
       padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
-      border-radius: 20px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--cream);
       display: flex;
@@ -504,7 +503,7 @@
       display: inline-block;
       padding: 0.25rem 0.75rem;
       background: var(--amber-subtle);
-      border-radius: 100px;
+      border-radius: 4px;
       font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -556,7 +555,7 @@
       gap: 0.5rem;
       padding: 0.75rem 1.5rem;
       border: 1.5px solid var(--border-strong);
-      border-radius: 100px;
+      border-radius: 4px;
       font-size: 0.9375rem;
       font-weight: 500;
       color: var(--slate);
@@ -576,7 +575,6 @@
       border-top: 1px solid var(--border);
       font-size: 0.8125rem;
       color: var(--muted-light);
-      font-style: italic;
     }
 
     /* ========================================
@@ -592,7 +590,7 @@
 
     .why-card {
       padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
-      border-radius: 16px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--white);
       transition: all 0.3s ease;
@@ -613,7 +611,7 @@
     .why-icon {
       width: 36px;
       height: 36px;
-      border-radius: 10px;
+      border-radius: 8px;
       background: var(--amber-subtle);
       display: flex;
       align-items: center;
@@ -971,11 +969,11 @@
     <div class="container">
       <div class="hero-content">
         <p class="section-label reveal">Formation & Agents IA sur mesure</p>
-        <h1 class="reveal reveal-delay-1">L'IA integree a vos process <span class="italic accent">en 30 jours.</span></h1>
-        <p class="subtitle reveal reveal-delay-2">Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes.</p>
+        <h1 class="reveal reveal-delay-1">L'IA intégrée à vos process <span class="accent">en 30 jours</span></h1>
+        <p class="subtitle reveal reveal-delay-2">Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes</p>
         <div class="cta-group reveal reveal-delay-3">
           <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
-            Reserver un appel decouverte
+            Réserver un appel découverte
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <span class="micro-copy">Gratuit &middot; 30 min &middot; Sans engagement</span>
@@ -984,7 +982,7 @@
           <p>Secteurs d'expertise</p>
           <div class="sector-tags">
             <span class="sector-tag">Finance</span>
-            <span class="sector-tag">Sante</span>
+            <span class="sector-tag">Santé</span>
             <span class="sector-tag">Industrie</span>
             <span class="sector-tag">Cabinets de conseil</span>
             <span class="sector-tag">Cabinets d'avocats</span>
@@ -1002,36 +1000,36 @@
   <section class="bg-white">
     <div class="container">
       <p class="section-label reveal">Le constat</p>
-      <h2 class="reveal reveal-delay-1">Vous savez que l'IA va tout changer.<br><span class="accent italic">Mais par ou commencer ?</span></h2>
+      <h2 class="reveal reveal-delay-1">Vous savez que l'IA va tout changer.<br><span class="accent">Mais par où commencer ?</span></h2>
 
       <div class="problem-grid">
         <div class="problem-card reveal reveal-delay-1">
           <div class="problem-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c47a3a" stroke-width="1.5" stroke-linecap="round"><path d="M12 8v4M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
           </div>
-          <h3>Les formations generiques ne servent a rien.</h3>
-          <p>Vous avez vu des webinaires sur ChatGPT. Votre equipe a teste 2-3 prompts. Et puis plus rien. Parce que personne n'a montre comment l'IA s'applique a VOS process.</p>
+          <h3>Les formations génériques ne servent à rien</h3>
+          <p>Vous avez vu des webinaires sur ChatGPT. Votre équipe a testé 2-3 prompts. Et puis plus rien. Parce que personne n'a montré comment l'IA s'applique à VOS process</p>
         </div>
 
         <div class="problem-card reveal reveal-delay-2">
           <div class="problem-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c47a3a" stroke-width="1.5" stroke-linecap="round"><path d="M13 7h8m0 0v8m0-8-8 8-4-4-6 6"/></svg>
           </div>
-          <h3>Vos concurrents avancent sans vous.</h3>
-          <p>Pendant que vous hesitez, d'autres PME de votre secteur automatisent leur traitement documentaire et produisent des analyses en minutes au lieu de jours.</p>
+          <h3>Vos concurrents avancent sans vous</h3>
+          <p>Pendant que vous hésitez, d'autres PME de votre secteur automatisent leur traitement documentaire et produisent des analyses en minutes au lieu de jours</p>
         </div>
 
         <div class="problem-card reveal reveal-delay-3">
           <div class="problem-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c47a3a" stroke-width="1.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7-1 2 2 4-4"/></svg>
           </div>
-          <h3>Ni le temps, ni les competences en interne.</h3>
-          <p>Recruter un expert IA coute 60 000 euros par an minimum. Former votre equipe seul prend des mois. Et la technologie evolue plus vite que vous.</p>
+          <h3>Ni le temps, ni les compétences en interne</h3>
+          <p>Recruter un expert IA coûte 60 000 euros par an minimum. Former votre équipe seul prend des mois. Et la technologie évolue plus vite que vous</p>
         </div>
       </div>
 
       <div class="agitation reveal">
-        <p>Chaque mois qui passe creuse l'ecart. Les entreprises qui integrent l'IA aujourd'hui gagnent 30 a 40% de productivite sur leurs taches operationnelles. Celles qui attendent devront rattraper leur retard dans l'urgence — plus cher, plus stressant, moins efficace.</p>
+        <p>Chaque mois qui passe creuse l'écart. Les entreprises qui intègrent l'IA aujourd'hui gagnent 30 à 40% de productivité sur leurs tâches opérationnelles. Celles qui attendent devront rattraper leur retard dans l'urgence — plus cher, plus stressant, moins efficace</p>
       </div>
     </div>
   </section>
@@ -1041,27 +1039,27 @@
     <div class="container">
       <div class="solution-header">
         <p class="section-label reveal">Notre approche</p>
-        <h2 class="reveal reveal-delay-1">Un accompagnement sur-mesure,<br><span class="accent italic">pas une formation de plus.</span></h2>
-        <p class="subtitle reveal reveal-delay-2">Lionia ne vous vend pas un cours sur l'IA. On plonge dans vos process, on identifie vos gains les plus rapides, et on rend votre equipe autonome.</p>
+        <h2 class="reveal reveal-delay-1">Un accompagnement sur-mesure,<br><span class="accent">pas une formation de plus</span></h2>
+        <p class="subtitle reveal reveal-delay-2">Lionia ne vous vend pas un cours sur l'IA. On plonge dans vos process, on identifie vos gains les plus rapides, et on rend votre équipe autonome</p>
       </div>
 
       <div class="benefits-grid">
         <div class="benefit-card reveal reveal-delay-1">
           <div class="benefit-number">01</div>
-          <h3>Des resultats des le premier mois.</h3>
-          <p>On commence par un audit de 2-3 jours pour identifier vos quick wins IA. Pas de theorie pendant 6 mois — des gains concrets que votre equipe peut appliquer immediatement.</p>
+          <h3>Des résultats dès le premier mois</h3>
+          <p>On commence par un audit de 2-3 jours pour identifier vos quick wins IA. Pas de théorie pendant 6 mois — des gains concrets que votre équipe peut appliquer immédiatement</p>
         </div>
 
         <div class="benefit-card reveal reveal-delay-2">
           <div class="benefit-number">02</div>
-          <h3>Adapte a VOS process.</h3>
-          <p>On ne fait pas de formation catalogue. On travaille sur vos vrais documents, vos vrais outils, vos vrais problemes. Votre equipe apprend sur ce qu'elle fait deja, mais en mieux.</p>
+          <h3>Adapté à VOS process</h3>
+          <p>On ne fait pas de formation catalogue. On travaille sur vos vrais documents, vos vrais outils, vos vrais problèmes. Votre équipe apprend sur ce qu'elle fait déjà, mais en mieux</p>
         </div>
 
         <div class="benefit-card reveal reveal-delay-3">
           <div class="benefit-number">03</div>
-          <h3>De l'audit a l'autonomie.</h3>
-          <p>L'objectif n'est pas de vous rendre dependant. C'est de rendre votre equipe capable d'utiliser l'IA seule, et de construire les agents qui automatisent vos taches repetitives.</p>
+          <h3>De l'audit à l'autonomie</h3>
+          <p>L'objectif n'est pas de vous rendre dépendant. C'est de rendre votre équipe capable d'utiliser l'IA seule, et de construire les agents qui automatisent vos tâches répétitives</p>
         </div>
       </div>
     </div>
@@ -1071,18 +1069,18 @@
   <section class="bg-white">
     <div class="container">
       <p class="section-label reveal">Nos offres</p>
-      <h2 class="reveal reveal-delay-1">Trois etapes pour integrer l'IA <span class="accent italic">dans votre entreprise.</span></h2>
+      <h2 class="reveal reveal-delay-1">Trois étapes pour intégrer l'IA <span class="accent">dans votre entreprise</span></h2>
 
       <div class="offers-grid">
         <div class="offer-card reveal reveal-delay-1">
-          <span class="offer-tag">Point de depart</span>
+          <span class="offer-tag">Point de départ</span>
           <h3>Audit IA</h3>
-          <p>On analyse vos process, vos outils et vos pain points. Vous recevez un rapport avec les 3 a 5 opportunites IA les plus rentables pour votre activite.</p>
+          <p>On analyse vos process, vos outils et vos pain points. Vous recevez un rapport avec les 3 à 5 opportunités IA les plus rentables pour votre activité</p>
           <ul class="offer-list">
             <li>Cartographie de vos process actuels</li>
-            <li>Identification des quick wins a fort ROI</li>
-            <li>Rapport avec plan d'action priorise</li>
-            <li>Estimation des gains de temps et de couts</li>
+            <li>Identification des quick wins à fort ROI</li>
+            <li>Rapport avec plan d'action priorisé</li>
+            <li>Estimation des gains de temps et de coûts</li>
           </ul>
           <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
             Commencer par l'audit
@@ -1091,17 +1089,17 @@
         </div>
 
         <div class="offer-card reveal reveal-delay-2">
-          <span class="offer-tag">Montee en competence</span>
+          <span class="offer-tag">Montée en compétence</span>
           <h3>Formation sur-mesure</h3>
-          <p>Pas de slides generiques. On forme votre equipe sur vos vrais documents, vos vrais outils, vos vrais clients.</p>
+          <p>Pas de slides génériques. On forme votre équipe sur vos vrais documents, vos vrais outils, vos vrais clients</p>
           <ul class="offer-list">
-            <li>Formation de 1 a 3 jours, sur site ou a distance</li>
-            <li>Exercices sur vos propres cas metier</li>
-            <li>Guides pratiques personnalises par poste</li>
+            <li>Formation de 1 à 3 jours, sur site ou à distance</li>
+            <li>Exercices sur vos propres cas métier</li>
+            <li>Guides pratiques personnalisés par poste</li>
             <li>Support post-formation pendant 30 jours</li>
           </ul>
           <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
-            Decouvrir la formation
+            Découvrir la formation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -1109,18 +1107,18 @@
         <div class="offer-card reveal reveal-delay-3">
           <span class="offer-tag">Automatisation</span>
           <h3>Agents IA sur mesure</h3>
-          <p>On construit des agents IA qui automatisent vos taches repetitives — connectes a vos outils, supervises par votre equipe.</p>
+          <p>On construit des agents IA qui automatisent vos tâches répétitives — connectés à vos outils, supervisés par votre équipe</p>
           <ul class="offer-list">
-            <li>Agent IA developpe sur mesure</li>
-            <li>Integration avec vos outils existants</li>
-            <li>Formation a la supervision de l'agent</li>
+            <li>Agent IA développé sur mesure</li>
+            <li>Intégration avec vos outils existants</li>
+            <li>Formation à la supervision de l'agent</li>
             <li>Maintenance et optimisation continues</li>
           </ul>
           <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
             En savoir plus
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <p class="offer-sovereignty">Option hebergement 100% francais disponible pour vos donnees sensibles.</p>
+          <p class="offer-sovereignty">Option hébergement 100% français disponible pour vos données sensibles</p>
         </div>
       </div>
     </div>
@@ -1130,7 +1128,7 @@
   <section class="bg-cream">
     <div class="container">
       <p class="section-label reveal">Pourquoi Lionia</p>
-      <h2 class="reveal reveal-delay-1">Ce qui nous <span class="accent italic">differencie.</span></h2>
+      <h2 class="reveal reveal-delay-1">Ce qui nous <span class="accent">différencie</span></h2>
 
       <div class="why-grid">
         <div class="why-card reveal reveal-delay-1">
@@ -1138,9 +1136,9 @@
             <span class="why-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c47a3a" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
             </span>
-            Sur-mesure, pas catalogue.
+            Sur-mesure, pas catalogue
           </h3>
-          <p>Chaque entreprise a ses process, ses outils, sa culture. On part de votre realite pour construire un accompagnement qui colle a votre quotidien.</p>
+          <p>Chaque entreprise a ses process, ses outils, sa culture. On part de votre réalité pour construire un accompagnement qui colle à votre quotidien</p>
         </div>
 
         <div class="why-card reveal reveal-delay-2">
@@ -1148,9 +1146,9 @@
             <span class="why-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c47a3a" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg>
             </span>
-            Avancez a votre rythme.
+            Avancez à votre rythme
           </h3>
-          <p>Audit d'abord, formation ensuite, agents quand vous etes prets. Chaque etape prouve sa valeur avant de passer a la suivante.</p>
+          <p>Audit d'abord, formation ensuite, agents quand vous êtes prêts. Chaque étape prouve sa valeur avant de passer à la suivante</p>
         </div>
 
         <div class="why-card reveal reveal-delay-3">
@@ -1158,9 +1156,9 @@
             <span class="why-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c47a3a" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2ZM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7Z"/></svg>
             </span>
-            On connait votre metier.
+            On connaît votre métier
           </h3>
-          <p>Finance, sante, industrie, cabinets — on comprend vos contraintes reglementaires, vos process metier et vos enjeux de confidentialite.</p>
+          <p>Finance, santé, industrie, cabinets — on comprend vos contraintes réglementaires, vos process métier et vos enjeux de confidentialité</p>
         </div>
 
         <div class="why-card reveal reveal-delay-4">
@@ -1168,9 +1166,9 @@
             <span class="why-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c47a3a" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </span>
-            Vos donnees restent les votres.
+            Vos données restent les vôtres
           </h3>
-          <p>Vos donnees d'entreprise ne quittent pas votre perimetre. Pour les plus exigeants, infrastructure 100% francaise avec modeles IA souverains.</p>
+          <p>Vos données d'entreprise ne quittent pas votre périmètre. Pour les plus exigeants, infrastructure 100% française avec modèles IA souverains</p>
         </div>
       </div>
     </div>
@@ -1180,20 +1178,20 @@
   <section class="bg-white">
     <div class="container">
       <p class="section-label reveal" style="text-align:center">En chiffres</p>
-      <h2 class="reveal reveal-delay-1" style="text-align:center">Des resultats concrets, <span class="accent italic">pas des promesses.</span></h2>
+      <h2 class="reveal reveal-delay-1" style="text-align:center">Des résultats concrets, <span class="accent">pas des promesses</span></h2>
 
       <div class="stats-row">
         <div class="stat reveal reveal-delay-1">
           <div class="stat-number">30%</div>
-          <div class="stat-label">de temps gagne en moyenne sur le traitement documentaire</div>
+          <div class="stat-label">de temps gagné en moyenne sur le traitement documentaire</div>
         </div>
         <div class="stat reveal reveal-delay-2">
           <div class="stat-number">2-3j</div>
-          <div class="stat-label">pour identifier les opportunites IA de votre entreprise</div>
+          <div class="stat-label">pour identifier les opportunités IA de votre entreprise</div>
         </div>
         <div class="stat reveal reveal-delay-3">
           <div class="stat-number">0</div>
-          <div class="stat-label">competence technique requise pour suivre nos formations</div>
+          <div class="stat-label">compétence technique requise pour suivre nos formations</div>
         </div>
       </div>
     </div>
@@ -1202,8 +1200,8 @@
   <!-- ===================== FAQ ===================== -->
   <section class="bg-cream">
     <div class="container">
-      <p class="section-label reveal" style="text-align:center">Questions frequentes</p>
-      <h2 class="reveal reveal-delay-1" style="text-align:center">Tout ce que vous devez <span class="accent italic">savoir.</span></h2>
+      <p class="section-label reveal" style="text-align:center">Questions fréquentes</p>
+      <h2 class="reveal reveal-delay-1" style="text-align:center">Tout ce que vous devez <span class="accent">savoir</span></h2>
 
       <div class="faq-list">
         <div class="faq-item reveal">
@@ -1212,37 +1210,37 @@
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>L'audit prend 2-3 jours. La formation 1 a 3 jours selon vos besoins. Les agents IA se developpent en 4 a 8 semaines. Vous choisissez votre rythme — chaque etape est independante.</p>
+            <p>L'audit prend 2-3 jours. La formation 1 à 3 jours selon vos besoins. Les agents IA se développent en 4 à 8 semaines. Vous choisissez votre rythme — chaque étape est indépendante</p>
           </div>
         </div>
 
         <div class="faq-item reveal reveal-delay-1">
           <button class="faq-question" onclick="toggleFaq(this)">
-            Est-ce que vous intervenez a distance ou sur site ?
+            Est-ce que vous intervenez à distance ou sur site ?
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Les deux. L'audit et la formation peuvent se faire dans vos locaux ou a distance. On s'adapte a votre organisation.</p>
+            <p>Les deux. L'audit et la formation peuvent se faire dans vos locaux ou à distance. On s'adapte à votre organisation</p>
           </div>
         </div>
 
         <div class="faq-item reveal reveal-delay-2">
           <button class="faq-question" onclick="toggleFaq(this)">
-            Mon equipe a besoin de competences techniques ?
+            Mon équipe a besoin de compétences techniques ?
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Non. Nos formations sont concues pour des profils non-techniques. On part du niveau reel de chaque participant et on avance a son rythme.</p>
+            <p>Non. Nos formations sont conçues pour des profils non-techniques. On part du niveau réel de chaque participant et on avance à son rythme</p>
           </div>
         </div>
 
         <div class="faq-item reveal reveal-delay-3">
           <button class="faq-question" onclick="toggleFaq(this)">
-            Quel budget prevoir ?
+            Quel budget prévoir ?
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Chaque accompagnement est sur-mesure, on en discute lors de l'appel decouverte. L'audit est notre porte d'entree et represente un investissement accessible pour une PME. Pas de surprise — on valide le budget ensemble avant de commencer.</p>
+            <p>Chaque accompagnement est sur-mesure, on en discute lors de l'appel découverte. L'audit est notre porte d'entrée et représente un investissement accessible pour une PME. Pas de surprise — on valide le budget ensemble avant de commencer</p>
           </div>
         </div>
 
@@ -1252,17 +1250,17 @@
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Absolument. La plupart de nos clients commencent par l'audit IA. C'est la meilleure facon de voir concretement ce que l'IA peut apporter a votre entreprise avant d'aller plus loin.</p>
+            <p>Absolument. La plupart de nos clients commencent par l'audit IA. C'est la meilleure façon de voir concrètement ce que l'IA peut apporter à votre entreprise avant d'aller plus loin</p>
           </div>
         </div>
 
         <div class="faq-item reveal">
           <button class="faq-question" onclick="toggleFaq(this)">
-            Nos donnees sont-elles en securite ?
+            Nos données sont-elles en sécurité ?
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>On propose une option hebergement 100% francais avec des modeles IA souverains. Vos donnees ne quittent jamais votre perimetre. On adapte le niveau de confidentialite a vos exigences.</p>
+            <p>On propose une option hébergement 100% français avec des modèles IA souverains. Vos données ne quittent jamais votre périmètre. On adapte le niveau de confidentialité à vos exigences</p>
           </div>
         </div>
       </div>
@@ -1272,12 +1270,12 @@
   <!-- ===================== FINAL CTA ===================== -->
   <section class="final-cta bg-dark" id="booking">
     <div class="container--narrow">
-      <p class="section-label reveal" style="color: var(--amber)">Pret a passer a l'action ?</p>
-      <h2 class="reveal reveal-delay-1">Integrez l'IA dans votre entreprise.<br><span style="color: var(--amber); font-style: italic;">Concretement.</span></h2>
-      <p class="subtitle reveal reveal-delay-2">Reservez un appel decouverte de 30 minutes. On echange sur vos enjeux, on identifie vos premieres opportunites IA, et on vous dit honnetement si on peut vous aider.</p>
+      <p class="section-label reveal" style="color: var(--amber)">Prêt à passer à l'action ?</p>
+      <h2 class="reveal reveal-delay-1">Intégrez l'IA dans votre entreprise<br><span style="color: var(--amber);">Concrètement</span></h2>
+      <p class="subtitle reveal reveal-delay-2">Réservez un appel découverte de 30 minutes. On échange sur vos enjeux, on identifie vos premières opportunités IA, et on vous dit honnêtement si on peut vous aider</p>
       <div class="reveal reveal-delay-3">
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
-          Reserver mon appel decouverte
+          Réserver mon appel découverte
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -1289,7 +1287,7 @@
   <footer>
     <div class="footer-inner">
       <a href="#" class="logo">lion<span>ia</span></a>
-      <p>&copy; 2026 Lionia. Tous droits reserves.</p>
+      <p>&copy; 2026 Lionia — Tous droits réservés</p>
     </div>
   </footer>
 
