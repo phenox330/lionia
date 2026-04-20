@@ -176,6 +176,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1.5rem;
     }
 
     .logo {
@@ -190,6 +191,21 @@
       color: var(--amber);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover { color: var(--slate); }
+
     .nav-cta {
       padding: 0.625rem 1.5rem;
       background: var(--slate);
@@ -201,8 +217,8 @@
     }
 
     .nav-cta:hover {
-      background: var(--slate-light);
-      transform: translateY(-2px);
+      background: var(--amber);
+      transform: translateY(-1px);
     }
 
     /* ========================================
@@ -959,8 +975,11 @@
   <!-- ===================== NAV ===================== -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="#" class="logo">lion<span>IA</span></a>
-      <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Prendre rendez-vous</a>
+      <a href="/" class="logo">lion<span>IA</span></a>
+      <div class="nav-right">
+        <a href="/about" class="nav-link">À propos</a>
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Prendre rendez-vous</a>
+      </div>
     </div>
   </nav>
 
