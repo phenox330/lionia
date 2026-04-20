@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lionia — L'IA integree a vos process</title>
+  <meta name="description" content="Audit, formation sur-mesure et agents IA pour les PME. Adaptés à votre métier, vos outils, vos équipes.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lionia — L'IA intégrée à vos process en 30 jours.">
+  <meta property="og:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes.">
+  <meta property="og:image" content="https://liona.fr/og-image.png">
+  <meta property="og:url" content="https://liona.fr">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lionia — L'IA intégrée à vos process en 30 jours.">
+  <meta name="twitter:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes.">
+  <meta name="twitter:image" content="https://liona.fr/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS VARIABLES — Webflow Design System
+       ======================================== */
+    :root {
+      --white: #ffffff;
+      --black: #080808;
+      --gray-800: #222222;
+      --gray-700: #363636;
+      --gray-500: #5a5a5a;
+      --gray-300: #ababab;
+      --border: #d8d8d8;
+      --border-hover: #898989;
+
+      --blue: #146ef5;
+      --blue-400: #3b89ff;
+      --blue-300: #006acc;
+      --blue-hover: #0055d4;
+      --blue-bg: rgba(20, 110, 245, 0.08);
+
+      --purple: #7a3dff;
+      --green: #00d722;
+      --orange: #ff6b00;
+
+      --font: 'Inter', Arial, sans-serif;
+
+      --shadow-card: rgba(0,0,0,0) 0px 84px 24px, rgba(0,0,0,0.01) 0px 54px 22px, rgba(0,0,0,0.04) 0px 30px 18px, rgba(0,0,0,0.08) 0px 13px 13px, rgba(0,0,0,0.09) 0px 3px 7px;
+      --shadow-light: rgba(0,0,0,0) 0px 40px 12px, rgba(0,0,0,0.01) 0px 24px 10px, rgba(0,0,0,0.03) 0px 14px 8px, rgba(0,0,0,0.05) 0px 6px 6px, rgba(0,0,0,0.06) 0px 2px 4px;
+
+      --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
+      --container: min(1200px, 100% - var(--gutter) * 2);
+      --container-narrow: min(800px, 100% - var(--gutter) * 2);
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.60;
+      letter-spacing: -0.16px;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    ::selection {
+      background: var(--blue-bg);
+      color: var(--black);
+    }
+
+    /* ========================================
+       TYPOGRAPHY — Webflow Scale
+       ======================================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font);
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.8px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 2rem + 3vw, 80px);
+    }
+
+    h2 {
+      font-size: clamp(32px, 1.5rem + 2.5vw, 56px);
+      letter-spacing: normal;
+    }
+
+    h3 {
+      font-size: clamp(20px, 1rem + 0.75vw, 24px);
+      font-weight: 500;
+      line-height: 1.30;
+      letter-spacing: normal;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--gray-700);
+      line-height: 1.50;
+    }
+
+    .section-label {
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--blue);
+      margin-bottom: 16px;
+      line-height: 1.30;
+    }
+
+    .accent { color: var(--blue); }
+
+    /* ========================================
+       LAYOUT
+       ======================================== */
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .container--narrow {
+      width: var(--container-narrow);
+      margin-inline: auto;
+    }
+
+    section {
+      padding: clamp(64px, 3rem + 5vw, 120px) 0;
+    }
+
+    .bg-white { background: var(--white); }
+    .bg-gray { background: #f8f8f8; }
+    .bg-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ========================================
+       NAV
+       ======================================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--border);
+      padding: 12px 0;
+    }
+
+    .nav-inner {
+      width: var(--container);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: var(--black);
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.16px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding-top: clamp(80px, 4rem + 3vw, 120px);
+      padding-bottom: clamp(40px, 1rem + 3vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    /* ASCII Art — full bleed right */
+    .hero-ascii {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,1) 50%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,1) 50%);
+    }
+
+    .hero-ascii canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero h1 {
+      margin-bottom: clamp(16px, 0.75rem + 0.75vw, 24px);
+    }
+
+    .hero .subtitle {
+      max-width: 540px;
+      margin-bottom: clamp(24px, 1rem + 1.5vw, 40px);
+    }
+
+    .cta-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--blue);
+      color: white;
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.16px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-hover);
+      transform: translateY(-6px);
+    }
+
+    .btn-primary svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(3px);
+    }
+
+    .micro-copy {
+      font-size: 14px;
+      color: var(--gray-300);
+      font-weight: 400;
+    }
+
+    .hero-sectors {
+      margin-top: clamp(32px, 1.5rem + 2vw, 64px);
+      padding-top: clamp(20px, 1rem + 1.5vw, 40px);
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-sectors p {
+      font-size: 10px;
+      color: var(--gray-300);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      line-height: 1.30;
+    }
+
+    .sector-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .sector-tag {
+      padding: 6px 14px;
+      background: var(--blue-bg);
+      border: 1px solid rgba(20, 110, 245, 0.12);
+      border-radius: var(--radius-sm);
+      font-size: 12.8px;
+      font-weight: 550;
+      text-transform: uppercase;
+      color: var(--blue);
+      letter-spacing: 0;
+    }
+
+    /* ========================================
+       PROBLEM SECTION
+       ======================================== */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: clamp(16px, 0.5rem + 2vw, 24px);
+      margin-top: clamp(24px, 1rem + 2vw, 48px);
+      container-type: inline-size;
+    }
+
+    .problem-card {
+      padding: clamp(20px, 1rem + 1.5vw, 32px);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: all 0.25s ease;
+      container-type: inline-size;
+    }
+
+    .problem-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-light);
+    }
+
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--blue-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .problem-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .problem-card p {
+      color: var(--gray-500);
+      font-size: 16px;
+      line-height: 1.60;
+    }
+
+    /* ========================================
+       AGITATION
+       ======================================== */
+    .agitation {
+      margin-top: clamp(32px, 1.5rem + 2vw, 56px);
+      padding: clamp(20px, 1rem + 1.5vw, 40px) clamp(20px, 1rem + 2vw, 48px);
+      background: var(--blue-bg);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .agitation p {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.50;
+      color: var(--gray-800);
+    }
+
+    /* ========================================
+       SOLUTION
+       ======================================== */
+    .solution-header {
+      max-width: 700px;
+      margin-bottom: clamp(32px, 1.5rem + 2vw, 56px);
+    }
+
+    .solution-header h2 {
+      margin-bottom: 20px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: clamp(16px, 0.5rem + 1.5vw, 24px);
+      container-type: inline-size;
+    }
+
+    .benefit-card {
+      padding: clamp(24px, 1rem + 1.5vw, 36px);
+      border-radius: var(--radius-md);
+      background: #f8f8f8;
+      border: 1px solid var(--border);
+      transition: all 0.25s ease;
+      container-type: inline-size;
+    }
+
+    .benefit-card:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-6px);
+    }
+
+    .benefit-number {
+      font-family: var(--font);
+      font-size: clamp(36px, 1.5rem + 2vw, 56px);
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1.04;
+      margin-bottom: 16px;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .benefit-card p {
+      color: var(--gray-500);
+      font-size: 16px;
+      line-height: 1.60;
+    }
+
+    /* ========================================
+       OFFERS
+       ======================================== */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: clamp(16px, 0.5rem + 1.5vw, 24px);
+      margin-top: clamp(24px, 1rem + 2vw, 48px);
+      container-type: inline-size;
+    }
+
+    .offer-card {
+      padding: clamp(24px, 1rem + 2vw, 40px);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      container-type: inline-size;
+    }
+
+    .offer-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .offer-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .offer-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-6px);
+    }
+
+    .offer-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--blue-bg);
+      border-radius: var(--radius-sm);
+      font-size: 12.8px;
+      font-weight: 550;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: var(--blue);
+      margin-bottom: 20px;
+      width: fit-content;
+      line-height: 1.20;
+    }
+
+    .offer-card h3 {
+      font-size: clamp(20px, 1.1rem + 0.5vw, 24px);
+      margin-bottom: 16px;
+    }
+
+    .offer-card > p {
+      color: var(--gray-500);
+      margin-bottom: 24px;
+      font-size: 16px;
+    }
+
+    .offer-list {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .offer-list li {
+      padding: 8px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 16px;
+      color: var(--gray-700);
+    }
+
+    .offer-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.16px;
+      color: var(--black);
+      transition: all 0.2s ease;
+      width: fit-content;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateX(6px);
+    }
+
+    .offer-sovereignty {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--gray-300);
+    }
+
+    /* ========================================
+       WHY LIONIA
+       ======================================== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+      gap: clamp(16px, 0.5rem + 1.5vw, 24px);
+      margin-top: clamp(24px, 1rem + 2vw, 48px);
+      container-type: inline-size;
+    }
+
+    .why-card {
+      padding: clamp(24px, 1rem + 1.5vw, 36px);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: all 0.25s ease;
+      container-type: inline-size;
+    }
+
+    .why-card:hover {
+      box-shadow: var(--shadow-light);
+      transform: translateY(-6px);
+    }
+
+    .why-card h3 {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .why-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--blue-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .why-card p {
+      color: var(--gray-500);
+      font-size: 16px;
+      line-height: 1.60;
+      padding-left: calc(36px + 12px);
+    }
+
+    @container (max-width: 360px) {
+      .why-card p {
+        padding-left: 0;
+      }
+    }
+
+    /* ========================================
+       STATS
+       ======================================== */
+    .stats-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: 0;
+      margin-top: clamp(24px, 1rem + 2vw, 48px);
+      text-align: center;
+    }
+
+    .stat {
+      padding: clamp(16px, 0.75rem + 1.5vw, 32px);
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-family: var(--font);
+      font-size: clamp(40px, 2rem + 2vw, 56px);
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1.04;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--gray-500);
+      font-size: 14px;
+      line-height: 1.50;
+    }
+
+    /* ========================================
+       FAQ
+       ======================================== */
+    .faq-list {
+      margin-top: clamp(24px, 1rem + 2vw, 48px);
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: clamp(16px, 0.75rem + 0.5vw, 24px) 0;
+      font-family: var(--font);
+      font-size: clamp(16px, 0.9rem + 0.3vw, 20px);
+      font-weight: 500;
+      text-align: left;
+      color: var(--black);
+      transition: color 0.2s ease;
+    }
+
+    .faq-question:hover {
+      color: var(--blue);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-left: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .faq-icon svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .faq-item.open .faq-icon svg {
+      transform: rotate(45deg);
+      stroke: white;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 24px;
+    }
+
+    .faq-answer p {
+      color: var(--gray-500);
+      font-size: 16px;
+      line-height: 1.60;
+      max-width: 680px;
+    }
+
+    /* ========================================
+       FINAL CTA
+       ======================================== */
+    .final-cta {
+      text-align: center;
+      padding: clamp(80px, 4rem + 5vw, 140px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(20, 110, 245, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta h2 {
+      color: var(--white);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .final-cta .subtitle {
+      color: var(--gray-300);
+      max-width: min(550px, 100%);
+      margin-inline: auto;
+      margin-bottom: clamp(24px, 1rem + 1.5vw, 40px);
+      position: relative;
+    }
+
+    .final-cta .btn-primary {
+      position: relative;
+      font-size: 16px;
+      padding: 16px 32px;
+    }
+
+    .final-cta .micro-copy {
+      margin-top: 16px;
+      position: relative;
+      color: var(--gray-500);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    footer {
+      padding: clamp(24px, 1rem + 1.5vw, 40px) 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: var(--black);
+      color: var(--gray-500);
+    }
+
+    .footer-inner {
+      width: var(--container);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .footer-inner .logo {
+      color: var(--white);
+      font-size: 20px;
+    }
+
+    /* ========================================
+       ANIMATIONS
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+
+    /* Webflow breakpoint: 992px */
+    @media (max-width: 992px) {
+      .hero-ascii {
+        width: 50%;
+        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.8) 60%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.8) 60%);
+      }
+    }
+
+    /* Webflow breakpoint: 768px */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-ascii {
+        width: 100%;
+        height: 100%;
+        opacity: 0.15;
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+
+      .cta-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sector-tags {
+        gap: 6px;
+      }
+
+      .sector-tag {
+        font-size: 11px;
+        padding: 4px 10px;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .why-card h3 {
+        font-size: 18px;
+      }
+    }
+
+    /* Webflow breakpoint: 479px */
+    @media (max-width: 479px) {
+      .nav-cta {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Disable hover on touch */
+    @media (hover: none) {
+      .problem-card:hover,
+      .benefit-card:hover,
+      .offer-card:hover,
+      .why-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .offer-card:hover::before {
+        transform: scaleX(0);
+      }
+
+      .btn-primary:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">lion<span>ia</span></a>
+      <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Prendre rendez-vous</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero bg-white">
+    <div class="container">
+      <div class="hero-content">
+        <p class="section-label reveal">Formation & Agents IA sur mesure</p>
+        <h1 class="reveal reveal-delay-1">L'IA integree a vos process <span class="accent">en 30 jours.</span></h1>
+        <p class="subtitle reveal reveal-delay-2">Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes.</p>
+        <div class="cta-group reveal reveal-delay-3">
+          <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
+            Reserver un appel decouverte
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <span class="micro-copy">Gratuit &middot; 30 min &middot; Sans engagement</span>
+        </div>
+        <div class="hero-sectors reveal reveal-delay-4">
+          <p>Secteurs d'expertise</p>
+          <div class="sector-tags">
+            <span class="sector-tag">Finance</span>
+            <span class="sector-tag">Sante</span>
+            <span class="sector-tag">Industrie</span>
+            <span class="sector-tag">Cabinets de conseil</span>
+            <span class="sector-tag">Cabinets d'avocats</span>
+            <span class="sector-tag">Cabinets comptables</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-ascii">
+      <canvas id="ascii-canvas"></canvas>
+    </div>
+  </section>
+
+  <!-- ===================== PROBLEM ===================== -->
+  <section class="bg-gray">
+    <div class="container">
+      <p class="section-label reveal">Le constat</p>
+      <h2 class="reveal reveal-delay-1">Vous savez que l'IA va tout changer.<br><span class="accent">Mais par ou commencer ?</span></h2>
+
+      <div class="problem-grid">
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#146ef5" stroke-width="1.5" stroke-linecap="round"><path d="M12 8v4M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+          </div>
+          <h3>Les formations generiques ne servent a rien.</h3>
+          <p>Vous avez vu des webinaires sur ChatGPT. Votre equipe a teste 2-3 prompts. Et puis plus rien. Parce que personne n'a montre comment l'IA s'applique a VOS process.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#146ef5" stroke-width="1.5" stroke-linecap="round"><path d="M13 7h8m0 0v8m0-8-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3>Vos concurrents avancent sans vous.</h3>
+          <p>Pendant que vous hesitez, d'autres PME de votre secteur automatisent leur traitement documentaire et produisent des analyses en minutes au lieu de jours.</p>
+        </div>
+
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#146ef5" stroke-width="1.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7-1 2 2 4-4"/></svg>
+          </div>
+          <h3>Ni le temps, ni les competences en interne.</h3>
+          <p>Recruter un expert IA coute 60 000 euros par an minimum. Former votre equipe seul prend des mois. Et la technologie evolue plus vite que vous.</p>
+        </div>
+      </div>
+
+      <div class="agitation reveal">
+        <p>Chaque mois qui passe creuse l'ecart. Les entreprises qui integrent l'IA aujourd'hui gagnent 30 a 40% de productivite sur leurs taches operationnelles. Celles qui attendent devront rattraper leur retard dans l'urgence — plus cher, plus stressant, moins efficace.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOLUTION ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <div class="solution-header">
+        <p class="section-label reveal">Notre approche</p>
+        <h2 class="reveal reveal-delay-1">Un accompagnement sur-mesure,<br><span class="accent">pas une formation de plus.</span></h2>
+        <p class="subtitle reveal reveal-delay-2">Lionia ne vous vend pas un cours sur l'IA. On plonge dans vos process, on identifie vos gains les plus rapides, et on rend votre equipe autonome.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card reveal reveal-delay-1">
+          <div class="benefit-number">01</div>
+          <h3>Des resultats des le premier mois.</h3>
+          <p>On commence par un audit de 2-3 jours pour identifier vos quick wins IA. Pas de theorie pendant 6 mois — des gains concrets que votre equipe peut appliquer immediatement.</p>
+        </div>
+
+        <div class="benefit-card reveal reveal-delay-2">
+          <div class="benefit-number">02</div>
+          <h3>Adapte a VOS process.</h3>
+          <p>On ne fait pas de formation catalogue. On travaille sur vos vrais documents, vos vrais outils, vos vrais problemes. Votre equipe apprend sur ce qu'elle fait deja, mais en mieux.</p>
+        </div>
+
+        <div class="benefit-card reveal reveal-delay-3">
+          <div class="benefit-number">03</div>
+          <h3>De l'audit a l'autonomie.</h3>
+          <p>L'objectif n'est pas de vous rendre dependant. C'est de rendre votre equipe capable d'utiliser l'IA seule, et de construire les agents qui automatisent vos taches repetitives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OFFERS ===================== -->
+  <section class="bg-gray">
+    <div class="container">
+      <p class="section-label reveal">Nos offres</p>
+      <h2 class="reveal reveal-delay-1">Trois etapes pour integrer l'IA <span class="accent">dans votre entreprise.</span></h2>
+
+      <div class="offers-grid">
+        <div class="offer-card reveal reveal-delay-1">
+          <span class="offer-tag">Point de depart</span>
+          <h3>Audit IA</h3>
+          <p>On analyse vos process, vos outils et vos pain points. Vous recevez un rapport avec les 3 a 5 opportunites IA les plus rentables pour votre activite.</p>
+          <ul class="offer-list">
+            <li>Cartographie de vos process actuels</li>
+            <li>Identification des quick wins a fort ROI</li>
+            <li>Rapport avec plan d'action priorise</li>
+            <li>Estimation des gains de temps et de couts</li>
+          </ul>
+          <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
+            Commencer par l'audit
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="offer-card reveal reveal-delay-2">
+          <span class="offer-tag">Montee en competence</span>
+          <h3>Formation sur-mesure</h3>
+          <p>Pas de slides generiques. On forme votre equipe sur vos vrais documents, vos vrais outils, vos vrais clients.</p>
+          <ul class="offer-list">
+            <li>Formation de 1 a 3 jours, sur site ou a distance</li>
+            <li>Exercices sur vos propres cas metier</li>
+            <li>Guides pratiques personnalises par poste</li>
+            <li>Support post-formation pendant 30 jours</li>
+          </ul>
+          <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
+            Decouvrir la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="offer-card reveal reveal-delay-3">
+          <span class="offer-tag">Automatisation</span>
+          <h3>Agents IA sur mesure</h3>
+          <p>On construit des agents IA qui automatisent vos taches repetitives — connectes a vos outils, supervises par votre equipe.</p>
+          <ul class="offer-list">
+            <li>Agent IA developpe sur mesure</li>
+            <li>Integration avec vos outils existants</li>
+            <li>Formation a la supervision de l'agent</li>
+            <li>Maintenance et optimisation continues</li>
+          </ul>
+          <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
+            En savoir plus
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p class="offer-sovereignty">Option hebergement 100% francais disponible pour vos donnees sensibles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY LIONIA ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <p class="section-label reveal">Pourquoi Lionia</p>
+      <h2 class="reveal reveal-delay-1">Ce qui nous <span class="accent">differencie.</span></h2>
+
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <h3>
+            <span class="why-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#146ef5" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            </span>
+            Sur-mesure, pas catalogue.
+          </h3>
+          <p>Chaque entreprise a ses process, ses outils, sa culture. On part de votre realite pour construire un accompagnement qui colle a votre quotidien.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-2">
+          <h3>
+            <span class="why-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#146ef5" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg>
+            </span>
+            Avancez a votre rythme.
+          </h3>
+          <p>Audit d'abord, formation ensuite, agents quand vous etes prets. Chaque etape prouve sa valeur avant de passer a la suivante.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-3">
+          <h3>
+            <span class="why-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#146ef5" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2ZM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7Z"/></svg>
+            </span>
+            On connait votre metier.
+          </h3>
+          <p>Finance, sante, industrie, cabinets — on comprend vos contraintes reglementaires, vos process metier et vos enjeux de confidentialite.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-4">
+          <h3>
+            <span class="why-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#146ef5" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            Vos donnees restent les votres.
+          </h3>
+          <p>Vos donnees d'entreprise ne quittent pas votre perimetre. Pour les plus exigeants, infrastructure 100% francaise avec modeles IA souverains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="bg-gray stats-section">
+    <div class="container">
+      <p class="section-label reveal" style="text-align:center">En chiffres</p>
+      <h2 class="reveal reveal-delay-1" style="text-align:center">Des resultats concrets, <span class="accent">pas des promesses.</span></h2>
+
+      <div class="stats-row">
+        <div class="stat reveal reveal-delay-1">
+          <div class="stat-number">30%</div>
+          <div class="stat-label">de temps gagne en moyenne sur le traitement documentaire</div>
+        </div>
+        <div class="stat reveal reveal-delay-2">
+          <div class="stat-number">2-3j</div>
+          <div class="stat-label">pour identifier les opportunites IA de votre entreprise</div>
+        </div>
+        <div class="stat reveal reveal-delay-3">
+          <div class="stat-number">0</div>
+          <div class="stat-label">competence technique requise pour suivre nos formations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <p class="section-label reveal" style="text-align:center">Questions frequentes</p>
+      <h2 class="reveal reveal-delay-1" style="text-align:center">Tout ce que vous devez <span class="accent">savoir.</span></h2>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Combien de temps dure un accompagnement ?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>L'audit prend 2-3 jours. La formation 1 a 3 jours selon vos besoins. Les agents IA se developpent en 4 a 8 semaines. Vous choisissez votre rythme — chaque etape est independante.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Est-ce que vous intervenez a distance ou sur site ?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Les deux. L'audit et la formation peuvent se faire dans vos locaux ou a distance. On s'adapte a votre organisation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Mon equipe a besoin de competences techniques ?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Non. Nos formations sont concues pour des profils non-techniques. On part du niveau reel de chaque participant et on avance a son rythme.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quel budget prevoir ?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Chaque accompagnement est sur-mesure, on en discute lors de l'appel decouverte. L'audit est notre porte d'entree et represente un investissement accessible pour une PME. Pas de surprise — on valide le budget ensemble avant de commencer.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-4">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            On peut commencer par un seul service ?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolument. La plupart de nos clients commencent par l'audit IA. C'est la meilleure facon de voir concretement ce que l'IA peut apporter a votre entreprise avant d'aller plus loin.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Nos donnees sont-elles en securite ?
+            <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>On propose une option hebergement 100% francais avec des modeles IA souverains. Vos donnees ne quittent jamais votre perimetre. On adapte le niveau de confidentialite a vos exigences.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="final-cta bg-dark" id="booking">
+    <div class="container--narrow">
+      <p class="section-label reveal" style="color: var(--blue)">Pret a passer a l'action ?</p>
+      <h2 class="reveal reveal-delay-1">Integrez l'IA dans votre entreprise.<br><span style="color: var(--blue);">Concretement.</span></h2>
+      <p class="subtitle reveal reveal-delay-2">Reservez un appel decouverte de 30 minutes. On echange sur vos enjeux, on identifie vos premieres opportunites IA, et on vous dit honnetement si on peut vous aider.</p>
+      <div class="reveal reveal-delay-3">
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
+          Reserver mon appel decouverte
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <p class="micro-copy reveal reveal-delay-4">Gratuit &middot; 30 min &middot; Sans engagement</p>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#" class="logo">lion<span>ia</span></a>
+      <p>&copy; 2026 Lionia. Tous droits reserves.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ASCII art breathing animation
+    (() => {
+      const canvas = document.getElementById('ascii-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      const chars = '.·:;+=xX#@'.split('');
+      const cols = 52;
+      const rows = 32;
+      const blueRGB = { r: 20, g: 110, b: 245 };
+      const blackRGB = { r: 8, g: 8, b: 8 };
+
+      function resize() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width * window.devicePixelRatio;
+        canvas.height = rect.height * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function lionShape(nx, ny) {
+        const dx = nx - 0.5, dy = ny - 0.48;
+        const headDist = Math.sqrt(dx * dx + dy * dy);
+        let v = Math.max(0, 1 - headDist / 0.42);
+
+        const angle = Math.atan2(dy, dx);
+        const maneRadius = 0.38 + 0.08 * Math.sin(angle * 8) + 0.04 * Math.sin(angle * 13);
+        const maneDist = Math.sqrt(dx * dx + dy * dy);
+        const mane = Math.max(0, 1 - maneDist / maneRadius) * 0.7;
+        v = Math.max(v, mane);
+
+        const eyeL = Math.sqrt((nx - 0.38) ** 2 + (ny - 0.42) ** 2);
+        const eyeR = Math.sqrt((nx - 0.62) ** 2 + (ny - 0.42) ** 2);
+        if (eyeL < 0.035 || eyeR < 0.035) v = 1;
+
+        const noseDist = Math.sqrt((nx - 0.5) ** 2 + (ny - 0.54) ** 2);
+        if (noseDist < 0.025) v = 0.9;
+
+        return v;
+      }
+
+      let time = 0;
+
+      function draw() {
+        time += 0.012;
+        const rect = canvas.parentElement.getBoundingClientRect();
+        const w = rect.width;
+        const h = rect.height;
+        const cellW = w / cols;
+        const cellH = h / rows;
+        const fontSize = Math.min(cellW, cellH) * 0.92;
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.font = `${fontSize}px monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        const breathe = Math.sin(time * 0.8) * 0.5 + 0.5;
+        const breathe2 = Math.sin(time * 1.3 + 1) * 0.5 + 0.5;
+
+        for (let row = 0; row < rows; row++) {
+          for (let col = 0; col < cols; col++) {
+            const nx = col / (cols - 1);
+            const ny = row / (rows - 1);
+
+            let v = lionShape(nx, ny);
+
+            const dx = nx - 0.5, dy = ny - 0.48;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const ripple = Math.sin(dist * 14 - time * 2.5) * 0.15 * breathe;
+            const wave = Math.sin(nx * 6 + time * 1.2) * Math.sin(ny * 5 + time * 0.9) * 0.1 * breathe2;
+
+            v += ripple + wave;
+            v = Math.max(0, Math.min(1, v));
+
+            const breatheScale = 1 + breathe * 0.06;
+            const snx = 0.5 + (nx - 0.5) / breatheScale;
+            const sny = 0.48 + (ny - 0.48) / breatheScale;
+            const breatheV = lionShape(snx, sny);
+            v = v * 0.6 + breatheV * 0.4;
+
+            if (v < 0.05) continue;
+
+            const charIdx = Math.floor(v * (chars.length - 1));
+            const char = chars[Math.min(charIdx, chars.length - 1)];
+
+            const t = v;
+            const r = Math.round(blackRGB.r + (blueRGB.r - blackRGB.r) * t);
+            const g = Math.round(blackRGB.g + (blueRGB.g - blackRGB.g) * t);
+            const b = Math.round(blackRGB.b + (blueRGB.b - blackRGB.b) * t);
+            const alpha = 0.12 + v * 0.55;
+
+            ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+            ctx.fillText(char, col * cellW + cellW / 2, row * cellH + cellH / 2);
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    })();
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
