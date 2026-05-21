@@ -19,3 +19,5 @@ logo-*.png
 .vscode/
 .idea/
 *.swp
+.vercel
+.env*.local
