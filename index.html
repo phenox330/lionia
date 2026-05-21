@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lionia — L'IA intégrée à vos process</title>
-  <meta name="description" content="Audit, formation sur-mesure et agents IA pour les PME — Adaptés à votre métier, vos outils, vos équipes">
+  <meta name="description" content="Audit, formation sur-mesure et agents IA pour les PME. Adaptés à votre métier, vos outils, vos équipes">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Open Graph / Social -->
@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="https://liona.fr/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* ========================================
        CSS VARIABLES
@@ -42,8 +42,8 @@
       --border: rgba(26, 26, 26, 0.08);
       --border-strong: rgba(26, 26, 26, 0.12);
 
-      --font-display: 'Inter', Arial, sans-serif;
-      --font-body: 'Inter', Arial, sans-serif;
+      --font-display: 'Space Grotesk', Arial, sans-serif;
+      --font-body: 'Space Grotesk', Arial, sans-serif;
 
       --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
       --container: min(1200px, 100% - var(--gutter) * 2);
@@ -180,10 +180,11 @@
     }
 
     .logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: -0.03em;
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
       color: var(--slate);
     }
 
@@ -219,6 +220,158 @@
     .nav-cta:hover {
       background: var(--amber);
       transform: translateY(-1px);
+    }
+
+    /* ========================================
+       NAV — SERVICES MEGA-MENU
+       ======================================== */
+    .nav-services { position: static; }
+
+    .nav-services-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-light);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      user-select: none;
+    }
+
+    .nav-services-trigger:hover,
+    .nav-services.open .nav-services-trigger {
+      color: var(--amber);
+    }
+
+    .nav-services-trigger svg {
+      transition: transform 0.25s ease;
+    }
+
+    .nav-services.open .nav-services-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    nav.menu-open {
+      background: rgba(250, 249, 245, 0.97) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .mega-menu {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      padding: 2rem 0 1.75rem;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+    }
+
+    nav.scrolled .mega-menu { top: 56px; }
+
+    .nav-services.open .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+    }
+
+    .mega-inner {
+      width: var(--container);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+
+    .mega-col {
+      padding: 0 1.75rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .mega-col:last-child { border-right: none; }
+
+    .mega-col-head { margin-bottom: 1.25rem; }
+
+    .mega-tagline {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+
+    .mega-label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--slate);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .mega-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .mega-items {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 1.25rem;
+    }
+
+    .mega-item {
+      display: block;
+      padding: 0.5625rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+
+    .mega-item:hover { background: var(--cream-dark); }
+
+    .mega-item-title {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--slate);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .mega-item-sub {
+      font-size: 0.6875rem;
+      color: var(--muted);
+    }
+
+    .mega-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--amber);
+      padding: 0 0.75rem;
+      transition: gap 0.2s ease;
+    }
+
+    .mega-cta:hover { gap: 8px; }
+
+    @media (max-width: 960px) {
+      .nav-services { display: none; }
     }
 
     /* ========================================
@@ -649,6 +802,74 @@
     }
 
     /* ========================================
+       SOCIAL PROOF BAR (below hero)
+       ======================================== */
+    .proof-bar {
+      background: var(--white);
+      border-block: 1px solid var(--border);
+      padding: clamp(2rem, 1.5rem + 2vw, 3rem) 0;
+    }
+
+    .proof-stats {
+      width: var(--container);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 1.4fr;
+      gap: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
+      align-items: center;
+    }
+
+    .proof-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .proof-stat-num {
+      font-size: clamp(1.5rem, 1.2rem + 0.7vw, 1.875rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--amber);
+      line-height: 1;
+    }
+
+    .proof-stat-lbl {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .proof-quote {
+      padding-left: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+      border-left: 1px solid var(--border);
+    }
+
+    .proof-quote-text {
+      font-size: 0.875rem;
+      color: var(--slate-light);
+      line-height: 1.6;
+      margin-bottom: 0.625rem;
+    }
+
+    .proof-quote-author {
+      font-size: 0.75rem;
+      color: var(--muted-light);
+    }
+
+    .proof-quote-author strong {
+      color: var(--slate);
+      font-weight: 500;
+    }
+
+    @media (max-width: 860px) {
+      .proof-stats { grid-template-columns: 1fr 1fr; }
+      .proof-quote { grid-column: 1 / -1; padding-left: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .proof-stats { grid-template-columns: 1fr; }
+    }
+
+    /* ========================================
        STATS
        ======================================== */
     .stats-row {
@@ -825,7 +1046,7 @@
 
     .footer-inner .logo {
       color: var(--cream);
-      font-size: 1.25rem;
+      font-size: 0.9375rem;
     }
 
     /* ========================================
@@ -975,8 +1196,94 @@
   <!-- ===================== NAV ===================== -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="/" class="logo">lion<span>IA</span></a>
+      <a href="/" class="logo">LIONIA<span>.</span></a>
       <div class="nav-right">
+        <div class="nav-services" id="nav-services">
+          <button class="nav-services-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="mega-menu" role="menu">
+            <div class="mega-inner">
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Identifiez vos vrais gains</p>
+                  <p class="mega-label">Audit &amp; Diagnostic</p>
+                  <p class="mega-desc">Avant de déployer quoi que ce soit, on comprend votre métier. Vous repartez avec un plan d'action</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/audit" class="mega-item">
+                    <span class="mega-item-title">Audit IA express</span>
+                    <span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span>
+                  </a>
+                  <a href="/audit" class="mega-item">
+                    <span class="mega-item-title">Diagnostic maturité IA</span>
+                    <span class="mega-item-sub">Où en est vraiment votre organisation face à l'IA</span>
+                  </a>
+                  <a href="/audit" class="mega-item">
+                    <span class="mega-item-title">Feuille de route stratégique</span>
+                    <span class="mega-item-sub">Priorisez vos actions IA sur 6 à 12 mois</span>
+                  </a>
+                </div>
+                <a href="/audit" class="mega-cta">
+                  Commencer par un audit
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Formez vos équipes sur vos cas réels</p>
+                  <p class="mega-label">Formation sur-mesure</p>
+                  <p class="mega-desc">Vos vrais documents, vos vrais clients, vos vrais outils. Opérationnel dès le premier jour</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/formation" class="mega-item">
+                    <span class="mega-item-title">Fondamentaux IA</span>
+                    <span class="mega-item-sub">De zéro à opérationnel en 1 journée</span>
+                  </a>
+                  <a href="/formation" class="mega-item">
+                    <span class="mega-item-title">Formation par métier</span>
+                    <span class="mega-item-sub">RH, Finance, Commercial, Juridique, Direction</span>
+                  </a>
+                  <a href="/formation" class="mega-item">
+                    <span class="mega-item-title">Formation Dirigeants</span>
+                    <span class="mega-item-sub">Gouvernance IA, sécurité des données, feuille de route</span>
+                  </a>
+                </div>
+                <a href="/formation" class="mega-cta">
+                  Voir toutes les formations
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Automatisez l'essentiel</p>
+                  <p class="mega-label">Agents IA sur mesure</p>
+                  <p class="mega-desc">Des agents IA connectés à vos outils existants, supervisés par votre équipe</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/agents" class="mega-item">
+                    <span class="mega-item-title">Agent traitement documentaire</span>
+                    <span class="mega-item-sub">Analysez 100 documents en quelques minutes</span>
+                  </a>
+                  <a href="/agents" class="mega-item">
+                    <span class="mega-item-title">Agent commercial</span>
+                    <span class="mega-item-sub">Qualification de leads et relances automatisées</span>
+                  </a>
+                  <a href="/agents" class="mega-item">
+                    <span class="mega-item-title">Agent reporting</span>
+                    <span class="mega-item-sub">Synthèses et tableaux de bord générés en temps réel</span>
+                  </a>
+                </div>
+                <a href="/agents" class="mega-cta">
+                  Découvrir les agents IA
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/formation" class="nav-link">Formation</a>
         <a href="/about" class="nav-link">À propos</a>
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Prendre rendez-vous</a>
       </div>
@@ -987,12 +1294,12 @@
   <section class="hero bg-cream">
     <div class="container">
       <div class="hero-content">
-        <p class="section-label reveal">Formation & Agents IA sur mesure</p>
-        <h1 class="reveal reveal-delay-1">L'IA intégrée à vos process <span class="accent">en 30 jours</span></h1>
-        <p class="subtitle reveal reveal-delay-2">Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes</p>
+        <p class="section-label reveal">Audit · Formation · Agents IA sur mesure</p>
+        <h1 class="reveal reveal-delay-1">Arrêtez de regarder vos concurrents <span class="accent">prendre de l'avance sur l'IA</span></h1>
+        <p class="subtitle reveal reveal-delay-2">On audite vos process, on forme vos équipes sur vos vrais cas métier, et on construit les agents IA qui font le boulot répétitif. Premier livrable en 30 jours</p>
         <div class="cta-group reveal reveal-delay-3">
           <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
-            Réserver un appel découverte
+            Réserver mon audit découverte
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <span class="micro-copy">Gratuit &middot; 30 min &middot; Sans engagement</span>
@@ -1015,8 +1322,30 @@
     </div>
   </section>
 
+  <!-- ===================== SOCIAL PROOF BAR ===================== -->
+  <section class="proof-bar reveal">
+    <div class="proof-stats">
+      <div class="proof-stat">
+        <span class="proof-stat-num">80+</span>
+        <span class="proof-stat-lbl">PME accompagnées<br>depuis 2024</span>
+      </div>
+      <div class="proof-stat">
+        <span class="proof-stat-num">30%</span>
+        <span class="proof-stat-lbl">de temps gagné en moyenne<br>sur les tâches opérationnelles</span>
+      </div>
+      <div class="proof-stat">
+        <span class="proof-stat-num">6 sem.</span>
+        <span class="proof-stat-lbl">pour livrer un agent IA<br>opérationnel</span>
+      </div>
+      <div class="proof-quote">
+        <p class="proof-quote-text">"En 1 journée, mon équipe RH a appris à rédiger des fiches de poste avec l'IA. On gagne 3h par semaine. Le lendemain, c'était opérationnel"</p>
+        <p class="proof-quote-author"><strong>Marie D.</strong> · DRH · Cabinet RH, 40 personnes</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== PROBLEM ===================== -->
-  <section class="bg-white">
+  <section class="bg-cream">
     <div class="container">
       <p class="section-label reveal">Le constat</p>
       <h2 class="reveal reveal-delay-1">Vous savez que l'IA va tout changer.<br><span class="accent">Mais par où commencer ?</span></h2>
@@ -1048,38 +1377,7 @@
       </div>
 
       <div class="agitation reveal">
-        <p>Chaque mois qui passe creuse l'écart. Les entreprises qui intègrent l'IA aujourd'hui gagnent 30 à 40% de productivité sur leurs tâches opérationnelles. Celles qui attendent devront rattraper leur retard dans l'urgence — plus cher, plus stressant, moins efficace</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SOLUTION ===================== -->
-  <section class="bg-cream">
-    <div class="container">
-      <div class="solution-header">
-        <p class="section-label reveal">Notre approche</p>
-        <h2 class="reveal reveal-delay-1">Un accompagnement sur-mesure,<br><span class="accent">pas une formation de plus</span></h2>
-        <p class="subtitle reveal reveal-delay-2">Lionia ne vous vend pas un cours sur l'IA. On plonge dans vos process, on identifie vos gains les plus rapides, et on rend votre équipe autonome</p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="benefit-card reveal reveal-delay-1">
-          <div class="benefit-number">01</div>
-          <h3>Des résultats dès le premier mois</h3>
-          <p>On commence par un audit de 2-3 jours pour identifier vos quick wins IA. Pas de théorie pendant 6 mois — des gains concrets que votre équipe peut appliquer immédiatement</p>
-        </div>
-
-        <div class="benefit-card reveal reveal-delay-2">
-          <div class="benefit-number">02</div>
-          <h3>Adapté à VOS process</h3>
-          <p>On ne fait pas de formation catalogue. On travaille sur vos vrais documents, vos vrais outils, vos vrais problèmes. Votre équipe apprend sur ce qu'elle fait déjà, mais en mieux</p>
-        </div>
-
-        <div class="benefit-card reveal reveal-delay-3">
-          <div class="benefit-number">03</div>
-          <h3>De l'audit à l'autonomie</h3>
-          <p>L'objectif n'est pas de vous rendre dépendant. C'est de rendre votre équipe capable d'utiliser l'IA seule, et de construire les agents qui automatisent vos tâches répétitives</p>
-        </div>
+        <p>Chaque mois qui passe creuse l'écart. Les entreprises qui intègrent l'IA aujourd'hui gagnent 30 à 40% de productivité sur leurs tâches opérationnelles. Celles qui attendent devront rattraper leur retard dans l'urgence, plus cher, plus stressant, moins efficace</p>
       </div>
     </div>
   </section>
@@ -1110,7 +1408,7 @@
         <div class="offer-card reveal reveal-delay-2">
           <span class="offer-tag">Montée en compétence</span>
           <h3>Formation sur-mesure</h3>
-          <p>Pas de slides génériques. On forme votre équipe sur vos vrais documents, vos vrais outils, vos vrais clients</p>
+          <p>On forme votre équipe sur vos vrais documents, vos vrais outils, vos vrais clients</p>
           <ul class="offer-list">
             <li>Formation de 1 à 3 jours, sur site ou à distance</li>
             <li>Exercices sur vos propres cas métier</li>
@@ -1126,7 +1424,7 @@
         <div class="offer-card reveal reveal-delay-3">
           <span class="offer-tag">Automatisation</span>
           <h3>Agents IA sur mesure</h3>
-          <p>On construit des agents IA qui automatisent vos tâches répétitives — connectés à vos outils, supervisés par votre équipe</p>
+          <p>On construit des agents IA qui automatisent vos tâches répétitives, connectés à vos outils, supervisés par votre équipe</p>
           <ul class="offer-list">
             <li>Agent IA développé sur mesure</li>
             <li>Intégration avec vos outils existants</li>
@@ -1143,11 +1441,12 @@
     </div>
   </section>
 
-  <!-- ===================== WHY LIONIA ===================== -->
+  <!-- ===================== APPROACH ===================== -->
   <section class="bg-cream">
     <div class="container">
-      <p class="section-label reveal">Pourquoi Lionia</p>
-      <h2 class="reveal reveal-delay-1">Ce qui nous <span class="accent">différencie</span></h2>
+      <p class="section-label reveal">Notre approche</p>
+      <h2 class="reveal reveal-delay-1">Notre méthode, <span class="accent">pragmatique, sectorielle, souveraine</span></h2>
+      <p class="subtitle reveal reveal-delay-2" style="margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); max-width: 620px;">On ne vend pas de l'IA en kit. On part de votre réalité métier, on avance par étapes que vous validez, et vos données ne quittent jamais votre périmètre</p>
 
       <div class="why-grid">
         <div class="why-card reveal reveal-delay-1">
@@ -1177,7 +1476,7 @@
             </span>
             On connaît votre métier
           </h3>
-          <p>Finance, santé, industrie, cabinets — on comprend vos contraintes réglementaires, vos process métier et vos enjeux de confidentialité</p>
+          <p>Finance, santé, industrie, cabinets. On comprend vos contraintes réglementaires, vos process métier et vos enjeux de confidentialité</p>
         </div>
 
         <div class="why-card reveal reveal-delay-4">
@@ -1202,15 +1501,15 @@
       <div class="stats-row">
         <div class="stat reveal reveal-delay-1">
           <div class="stat-number">30%</div>
-          <div class="stat-label">de temps gagné en moyenne sur le traitement documentaire</div>
+          <div class="stat-label">de temps gagné chez nos clients PME sur leurs tâches documentaires</div>
         </div>
         <div class="stat reveal reveal-delay-2">
           <div class="stat-number">2-3j</div>
-          <div class="stat-label">pour identifier les opportunités IA de votre entreprise</div>
+          <div class="stat-label">pour vous remettre un audit avec vos 3 à 5 opportunités prioritaires</div>
         </div>
         <div class="stat reveal reveal-delay-3">
           <div class="stat-number">0</div>
-          <div class="stat-label">compétence technique requise pour suivre nos formations</div>
+          <div class="stat-label">compétence technique requise, nos formations sont calibrées pour les profils non-tech</div>
         </div>
       </div>
     </div>
@@ -1229,7 +1528,7 @@
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>L'audit prend 2-3 jours. La formation 1 à 3 jours selon vos besoins. Les agents IA se développent en 4 à 8 semaines. Vous choisissez votre rythme — chaque étape est indépendante</p>
+            <p>L'audit prend 2-3 jours. La formation 1 à 3 jours selon vos besoins. Les agents IA se développent en 4 à 8 semaines. Vous choisissez votre rythme, chaque étape est indépendante</p>
           </div>
         </div>
 
@@ -1259,7 +1558,7 @@
             <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Chaque accompagnement est sur-mesure, on en discute lors de l'appel découverte. L'audit est notre porte d'entrée et représente un investissement accessible pour une PME. Pas de surprise — on valide le budget ensemble avant de commencer</p>
+            <p>Chaque accompagnement est sur-mesure, on en discute lors de l'appel découverte. L'audit est notre porte d'entrée et représente un investissement accessible pour une PME</p>
           </div>
         </div>
 
@@ -1289,9 +1588,9 @@
   <!-- ===================== FINAL CTA ===================== -->
   <section class="final-cta bg-dark" id="booking">
     <div class="container--narrow">
-      <p class="section-label reveal" style="color: var(--amber)">Prêt à passer à l'action ?</p>
-      <h2 class="reveal reveal-delay-1">Intégrez l'IA dans votre entreprise<br><span style="color: var(--amber);">Concrètement</span></h2>
-      <p class="subtitle reveal reveal-delay-2">Réservez un appel découverte de 30 minutes. On échange sur vos enjeux, on identifie vos premières opportunités IA, et on vous dit honnêtement si on peut vous aider</p>
+      <p class="section-label reveal" style="color: var(--amber)">Premier pas</p>
+      <h2 class="reveal reveal-delay-1">Quel process voulez-vous<br><span style="color: var(--amber);">ne plus jamais refaire à la main ?</span></h2>
+      <p class="subtitle reveal reveal-delay-2">30 minutes pour comprendre votre situation, identifier 1 ou 2 quick wins, et vous dire honnêtement si on peut vous aider</p>
       <div class="reveal reveal-delay-3">
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
           Réserver mon appel découverte
@@ -1299,14 +1598,15 @@
         </a>
       </div>
       <p class="micro-copy reveal reveal-delay-4">Gratuit &middot; 30 min &middot; Sans engagement</p>
+      <p class="micro-copy reveal reveal-delay-4" style="margin-top: 1.5rem; max-width: 380px; margin-inline: auto; opacity: 0.7;">Si votre cas n'est pas adapté à l'IA, on vous le dit. C'est ça qu'on appelle "sans engagement"</p>
     </div>
   </section>
 
   <!-- ===================== FOOTER ===================== -->
   <footer>
     <div class="footer-inner">
-      <a href="#" class="logo">lion<span>ia</span></a>
-      <p>&copy; 2026 Lionia — Tous droits réservés</p>
+      <a href="/" class="logo">LIONIA<span>.</span></a>
+      <p>&copy; 2026 Lionia · Tous droits réservés</p>
     </div>
   </footer>
 
@@ -1317,6 +1617,36 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
     });
+
+    // Services mega-menu (hover-open with grace delay)
+    (() => {
+      const services = document.getElementById('nav-services');
+      if (!services) return;
+      const trigger = services.querySelector('.nav-services-trigger');
+      let closeTimer = null;
+      const open = () => {
+        clearTimeout(closeTimer);
+        services.classList.add('open');
+        nav.classList.add('menu-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      };
+      const close = () => {
+        closeTimer = setTimeout(() => {
+          services.classList.remove('open');
+          nav.classList.remove('menu-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }, 120);
+      };
+      services.addEventListener('mouseenter', open);
+      services.addEventListener('mouseleave', close);
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        services.classList.contains('open') ? close() : open();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && services.classList.contains('open')) close();
+      });
+    })();
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {

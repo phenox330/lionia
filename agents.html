@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lionia — Agents IA sur mesure pour PME</title>
+  <meta name="description" content="Des agents IA qui exécutent des tâches réelles, connectés à vos outils existants et supervisés par votre équipe. ROI amorti en 6 semaines en moyenne">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lionia — Agents IA sur mesure pour PME">
+  <meta property="og:description" content="Des agents IA qui exécutent des tâches réelles, connectés à vos outils existants">
+  <meta property="og:image" content="https://liona.fr/og-image.png">
+  <meta property="og:url" content="https://liona.fr/agents">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lionia — Agents IA sur mesure pour PME">
+  <meta name="twitter:description" content="Des agents IA qui travaillent pour vous, pas à votre place">
+  <meta name="twitter:image" content="https://liona.fr/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #faf9f5;
+      --cream-dark: #f0ede4;
+      --white: #ffffff;
+      --slate: #1a1a1a;
+      --slate-light: #3d3935;
+      --muted: #6b6561;
+      --muted-light: #9a9590;
+      --amber: #c47a3a;
+      --amber-light: #d4935e;
+      --amber-subtle: rgba(196, 122, 58, 0.08);
+      --amber-glow: rgba(196, 122, 58, 0.15);
+      --border: rgba(26, 26, 26, 0.08);
+      --border-strong: rgba(26, 26, 26, 0.12);
+      --font-display: 'Space Grotesk', Arial, sans-serif;
+      --font-body: 'Space Grotesk', Arial, sans-serif;
+      --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
+      --container: min(1200px, 100% - var(--gutter) * 2);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: var(--font-body); font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); line-height: 1.65; color: var(--slate); background: var(--cream); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    ::selection { background: var(--amber-glow); color: var(--slate); }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(2.4rem, 2rem + 2vw, 4.2rem); letter-spacing: -0.03em; line-height: 1.08; }
+    h2 { font-size: clamp(1.9rem, 1.6rem + 1.4vw, 3rem); letter-spacing: -0.025em; line-height: 1.12; }
+    .section-label { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 0.625rem; }
+    .accent { color: var(--amber); }
+
+    .container { width: var(--container); margin-inline: auto; }
+    section { padding: clamp(3.5rem, 3rem + 3vw, 5rem) 0; }
+    .bg-cream { background: var(--cream); }
+    .bg-white { background: var(--white); }
+    .bg-dark { background: var(--slate); color: var(--cream); }
+
+    /* ========================================
+       NAV
+       ======================================== */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: clamp(0.75rem, 0.5rem + 0.5vw, 1.25rem) 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease; }
+    nav.scrolled { background: rgba(250, 249, 245, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); padding: clamp(0.5rem, 0.375rem + 0.25vw, 0.875rem) 0; }
+    .nav-inner { width: var(--container); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .logo { font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.125rem; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: var(--slate); }
+    .logo span { color: var(--amber); }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; font-size: 0.875rem; }
+    .nav-links a { color: var(--muted); font-weight: 400; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--slate); }
+    .nav-links a.active { color: var(--amber); font-weight: 500; }
+    .nav-links a.nav-cta,
+    .nav-cta {
+      padding: 0.625rem 1.375rem;
+      background: var(--slate); color: var(--cream);
+      border-radius: 4px; font-size: 0.875rem; font-weight: 500;
+      transition: all 0.25s ease;
+    }
+    .nav-links a.nav-cta:hover,
+    .nav-cta:hover { background: var(--amber); color: var(--cream); transform: translateY(-1px); }
+
+    /* Services mega-menu */
+    .nav-services { position: static; }
+    .nav-services-trigger { display: inline-flex; align-items: center; gap: 0.25rem; font-family: inherit; font-size: 0.875rem; font-weight: 500; color: var(--slate-light); background: none; border: none; padding: 0; cursor: pointer; transition: color 0.2s ease; user-select: none; }
+    .nav-services-trigger:hover, .nav-services.open .nav-services-trigger { color: var(--amber); }
+    .nav-services-trigger svg { transition: transform 0.25s ease; }
+    .nav-services.open .nav-services-trigger svg { transform: rotate(180deg); }
+    nav.menu-open { background: rgba(250, 249, 245, 0.97) !important; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); }
+    .mega-menu { position: fixed; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08); padding: 2rem 0 1.75rem; z-index: 99; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s; }
+    nav.scrolled .mega-menu { top: 56px; }
+    .nav-services.open .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s; }
+    .mega-inner { width: var(--container); margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+    .mega-col { padding: 0 1.75rem; border-right: 1px solid var(--border); }
+    .mega-col:last-child { border-right: none; }
+    .mega-col-head { margin-bottom: 1.25rem; }
+    .mega-tagline { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 4px; }
+    .mega-label { font-size: 0.9375rem; font-weight: 600; color: var(--slate); letter-spacing: -0.02em; margin-bottom: 6px; }
+    .mega-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+    .mega-items { display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.25rem; }
+    .mega-item { display: block; padding: 0.5625rem 0.75rem; border-radius: 6px; transition: background 0.15s ease; }
+    .mega-item:hover { background: var(--cream-dark); }
+    .mega-item-title { font-size: 0.8125rem; font-weight: 500; color: var(--slate); display: block; margin-bottom: 2px; }
+    .mega-item-sub { font-size: 0.6875rem; color: var(--muted); }
+    .mega-cta { display: inline-flex; align-items: center; gap: 5px; font-size: 0.75rem; font-weight: 600; color: var(--amber); padding: 0 0.75rem; transition: gap 0.2s ease; }
+    .mega-cta:hover { gap: 8px; }
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: clamp(0.75rem, 0.5rem + 0.4vw, 0.9375rem) clamp(1.375rem, 1rem + 0.8vw, 2rem); background: var(--amber); color: white; border-radius: 4px; font-size: clamp(0.8125rem, 0.8rem + 0.15vw, 0.9375rem); font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(196, 122, 58, 0.28); }
+    .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); }
+    .btn-primary svg { transition: transform 0.3s ease; }
+    .btn-primary:hover svg { transform: translateX(3px); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8125rem 1.25rem; border: 1.5px solid var(--border-strong); color: var(--slate); border-radius: 4px; font-size: 0.875rem; font-weight: 500; transition: all 0.25s ease; }
+    .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9375rem 1.5rem; border: 1.5px solid rgba(255, 255, 255, 0.15); color: var(--cream); border-radius: 4px; font-size: 0.9375rem; font-weight: 500; transition: all 0.25s ease; }
+    .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero { padding-top: clamp(7rem, 6rem + 3vw, 9rem); padding-bottom: clamp(3rem, 2.5rem + 2vw, 4.5rem); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -10%; right: -5%; width: 55%; height: 80%; background: radial-gradient(ellipse at center, rgba(196, 122, 58, 0.07) 0%, transparent 70%); pointer-events: none; }
+    .hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(26, 26, 26, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 26, 26, 0.02) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .hero .container { position: relative; z-index: 2; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 1rem + 2.5vw, 4rem); align-items: center; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; background: var(--amber-subtle); border: 1px solid rgba(196, 122, 58, 0.15); border-radius: 100px; margin-bottom: 1.5rem; }
+    .hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+    .hero-pill span:last-child { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+    .hero h1 { margin-bottom: 1.375rem; }
+    .hero .subtitle { font-size: clamp(1rem, 0.95rem + 0.35vw, 1.2rem); color: var(--muted); line-height: 1.75; max-width: 480px; margin-bottom: 2rem; }
+    .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .hero-stats { display: flex; gap: 1.75rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .hero-stat { display: flex; align-items: baseline; gap: 0.375rem; }
+    .hero-stat-num { font-size: 1.1875rem; font-weight: 600; color: var(--amber); letter-spacing: -0.02em; }
+    .hero-stat-lbl { font-size: 0.75rem; color: var(--muted-light); }
+
+    /* Dark agent preview card */
+    .agent-card-wrap { position: relative; }
+    .agent-card { background: var(--slate); border-radius: 12px; padding: 1.75rem; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12); }
+    .agent-card-dots { display: flex; gap: 0.375rem; margin-bottom: 1.25rem; }
+    .agent-card-dots span { width: 10px; height: 10px; border-radius: 50%; display: block; }
+    .agent-card-dots span:nth-child(1) { background: #ff5f56; }
+    .agent-card-dots span:nth-child(2) { background: #ffbd2e; }
+    .agent-card-dots span:nth-child(3) { background: #27c93f; }
+    .agent-card-title { font-size: 0.6875rem; font-weight: 600; color: var(--muted-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .agent-step { display: flex; align-items: center; gap: 0.75rem; padding: 0.5625rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .agent-step:last-of-type { border-bottom: none; }
+    .agent-step-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .agent-step-dot.done { background: #27c93f; }
+    .agent-step-dot.active { background: var(--amber); box-shadow: 0 0 0 3px rgba(196, 122, 58, 0.2); animation: agent-pulse 2s ease-in-out infinite; }
+    .agent-step-dot.pending { background: rgba(255, 255, 255, 0.15); }
+    @keyframes agent-pulse { 0%, 100% { box-shadow: 0 0 0 3px rgba(196, 122, 58, 0.2); } 50% { box-shadow: 0 0 0 6px rgba(196, 122, 58, 0.1); } }
+    .agent-step-label { font-size: 0.6875rem; font-weight: 600; color: var(--muted-light); min-width: 64px; }
+    .agent-step-value { font-size: 0.8125rem; color: var(--cream-dark); }
+    .agent-step-value.pending { color: var(--muted); }
+    .agent-summary { margin-top: 1.125rem; padding: 0.75rem 0.875rem; background: rgba(196, 122, 58, 0.12); border-radius: 6px; display: flex; align-items: center; gap: 0.5rem; }
+    .agent-summary .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+    .agent-summary span:last-child { font-size: 0.75rem; color: var(--amber-light); }
+
+    .hero-badge { position: absolute; top: -16px; right: -16px; background: var(--amber); color: white; border-radius: 8px; padding: 0.75rem 1.125rem; box-shadow: 0 8px 24px rgba(196, 122, 58, 0.3); }
+    .hero-badge-num { font-size: 1.25rem; font-weight: 600; line-height: 1; }
+    .hero-badge-lbl { font-size: 0.625rem; font-weight: 500; opacity: 0.85; margin-top: 2px; }
+
+    /* ========================================
+       SECTION HEADERS
+       ======================================== */
+    .section-header { margin-bottom: 2.5rem; }
+    .section-header h2 { margin-bottom: 0.5rem; }
+    .section-header .lead { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; max-width: 520px; }
+    .section-header-center { text-align: center; margin-bottom: 2.5rem; }
+
+    /* ========================================
+       AGENT CATALOGUE (tabs)
+       ======================================== */
+    .agent-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .tab-btn { padding: 0.625rem 1.25rem; border-radius: 6px; border: 1.5px solid var(--border); background: var(--white); color: var(--muted); font-size: 0.8125rem; font-weight: 500; cursor: pointer; transition: all 0.25s ease; }
+    .tab-btn:hover { color: var(--slate); border-color: var(--border-strong); }
+    .tab-btn.active { border-color: var(--amber); background: var(--amber); color: white; }
+
+    .agent-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+    .agent-main { background: var(--cream); border-radius: 10px; border: 1px solid var(--border); padding: 2rem; position: relative; overflow: hidden; }
+    .agent-main::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--amber); }
+    .agent-tag { display: inline-block; padding: 0.25rem 0.625rem; background: var(--amber-subtle); border-radius: 4px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 0.875rem; }
+    .agent-title { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; color: var(--slate); margin-bottom: 0.5rem; }
+    .agent-pitch { font-size: 0.875rem; color: var(--amber); font-weight: 500; margin-bottom: 1rem; }
+    .agent-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .agent-kpis { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .agent-kpi { flex: 1; min-width: 130px; padding: 0.875rem 1rem; background: var(--white); border-radius: 6px; border: 1px solid var(--border); }
+    .agent-kpi-num { font-size: 1.5rem; font-weight: 600; color: var(--amber); letter-spacing: -0.02em; margin-bottom: 4px; }
+    .agent-kpi-lbl { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+    .agent-tools { padding: 0.75rem 0.875rem; background: var(--white); border-radius: 6px; border: 1px solid var(--border); }
+    .agent-tools-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-light); margin-bottom: 0.5rem; }
+    .agent-tools p { font-size: 0.8125rem; color: var(--slate-light); margin-bottom: 4px; }
+    .agent-tools p:last-child { margin-bottom: 0; }
+
+    .agent-usecases { background: var(--cream); border-radius: 10px; border: 1px solid var(--border); padding: 1.75rem; }
+    .agent-usecases-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); margin-bottom: 1.125rem; }
+    .usecases-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .usecase { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.875rem 1rem; background: var(--white); border-radius: 8px; border: 1px solid var(--border); }
+    .usecase-num { width: 22px; height: 22px; border-radius: 50%; background: var(--amber-subtle); display: flex; align-items: center; justify-content: center; font-size: 0.625rem; font-weight: 700; color: var(--amber); flex-shrink: 0; margin-top: 1px; }
+    .usecase-text { font-size: 0.8125rem; color: var(--slate-light); line-height: 1.55; }
+
+    /* ========================================
+       PROCESS
+       ======================================== */
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 1rem; }
+    .process-card { padding: 1.5rem 1.25rem; border-radius: 8px; background: var(--white); border: 1px solid var(--border); transition: all 0.3s ease; }
+    .process-card:hover { transform: translateY(-3px); border-color: rgba(196, 122, 58, 0.2); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05); }
+    .process-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.75rem; }
+    .process-num { font-size: 1.75rem; font-weight: 300; color: var(--amber); line-height: 1; }
+    .process-dur { font-size: 0.625rem; font-weight: 600; color: var(--muted-light); text-transform: uppercase; letter-spacing: 0.07em; text-align: right; }
+    .process-card h3 { font-size: 0.875rem; font-weight: 500; letter-spacing: -0.015em; color: var(--slate); margin-bottom: 0.5rem; }
+    .process-card p { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
+
+    /* ========================================
+       GARANTIES
+       ======================================== */
+    .garanties-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 1.5rem + 2vw, 4.5rem); align-items: start; }
+    .garanties-left h2 { margin-bottom: 1rem; }
+    .garanties-left p { font-size: 0.9375rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.75rem; }
+    .garanties-list { display: flex; flex-direction: column; gap: 0.875rem; }
+    .garantie-item { padding: 1.375rem 1.5rem; border-radius: 8px; background: var(--cream); border: 1px solid var(--border); transition: all 0.3s ease; }
+    .garantie-item:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(0, 0, 0, 0.05); }
+    .garantie-inner { display: flex; gap: 0.875rem; align-items: flex-start; }
+    .garantie-icon { width: 28px; height: 28px; border-radius: 6px; background: var(--amber-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .garantie-icon svg { color: var(--amber); }
+    .garantie-item h3 { font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.015em; color: var(--slate); margin-bottom: 0.375rem; }
+    .garantie-item p { font-size: 0.8125rem; color: var(--muted); line-height: 1.65; }
+
+    /* ========================================
+       FAQ
+       ======================================== */
+    .faq-wrap { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; font-family: var(--font-display); font-size: 0.9375rem; font-weight: 400; text-align: left; color: var(--slate); background: none; border: none; cursor: pointer; transition: color 0.2s ease; }
+    .faq-question:hover { color: var(--amber); }
+    .faq-item.open .faq-question { color: var(--amber); }
+    .faq-icon { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border-strong); background: transparent; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease; }
+    .faq-item.open .faq-icon { border-color: var(--amber); background: var(--amber); }
+    .faq-icon svg { stroke: var(--slate); transition: transform 0.3s ease, stroke 0.3s ease; }
+    .faq-item.open .faq-icon svg { transform: rotate(45deg); stroke: white; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 320px; }
+    .faq-answer p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; padding-bottom: 1.25rem; }
+
+    /* ========================================
+       CTA FINAL
+       ======================================== */
+    .final-cta { text-align: center; position: relative; overflow: hidden; padding: clamp(4rem, 3rem + 4vw, 6.25rem) 0; }
+    .final-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 500px; background: radial-gradient(ellipse at center, rgba(196, 122, 58, 0.07) 0%, transparent 70%); pointer-events: none; }
+    .final-cta .container { position: relative; z-index: 2; }
+    .final-cta h2 { color: var(--cream); margin-bottom: 1rem; }
+    .final-cta .subtitle { font-size: 0.9375rem; color: var(--muted-light); line-height: 1.7; max-width: 480px; margin: 0 auto 2rem; }
+    .final-cta-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+    .micro-copy { font-size: 0.75rem; color: var(--muted); }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    footer { padding: clamp(1.25rem, 1rem + 1vw, 1.75rem) 0; border-top: 1px solid rgba(255, 255, 255, 0.06); background: var(--slate); color: var(--muted); }
+    .footer-inner { width: var(--container); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; font-size: 0.8125rem; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-inner .logo { color: var(--cream); font-size: 0.9375rem; }
+
+    /* ========================================
+       REVEAL
+       ======================================== */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-badge { top: -12px; right: -12px; }
+      .agent-detail { grid-template-columns: 1fr; }
+      .garanties-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .nav-services { display: none; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { gap: 1rem; }
+      .nav-links a:not(.active):not(.nav-cta) { display: none; }
+      .footer-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .agent-card { padding: 1.25rem; }
+      .agent-main, .agent-usecases { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">LIONIA<span>.</span></a>
+      <div class="nav-links">
+        <div class="nav-services" id="nav-services">
+          <button class="nav-services-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="mega-menu" role="menu">
+            <div class="mega-inner">
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Identifiez vos vrais gains</p>
+                  <p class="mega-label">Audit &amp; Diagnostic</p>
+                  <p class="mega-desc">Avant de déployer quoi que ce soit, on comprend votre métier. Vous repartez avec un plan d'action</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Diagnostic maturité IA</span><span class="mega-item-sub">Où en est vraiment votre organisation face à l'IA</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Feuille de route stratégique</span><span class="mega-item-sub">Priorisez vos actions IA sur 6 à 12 mois</span></a>
+                </div>
+                <a href="/audit" class="mega-cta">Commencer par un audit
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Formez vos équipes sur vos cas réels</p>
+                  <p class="mega-label">Formation sur-mesure</p>
+                  <p class="mega-desc">Vos vrais documents, vos vrais clients, vos vrais outils. Opérationnel dès le premier jour</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Fondamentaux IA</span><span class="mega-item-sub">De zéro à opérationnel en 1 journée</span></a>
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Formation par métier</span><span class="mega-item-sub">RH, Finance, Commercial, Juridique, Direction</span></a>
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Formation Dirigeants</span><span class="mega-item-sub">Gouvernance IA, sécurité des données, feuille de route</span></a>
+                </div>
+                <a href="/formation" class="mega-cta">Voir toutes les formations
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Automatisez l'essentiel</p>
+                  <p class="mega-label">Agents IA sur mesure</p>
+                  <p class="mega-desc">Des agents IA connectés à vos outils existants, supervisés par votre équipe</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent traitement documentaire</span><span class="mega-item-sub">Analysez 100 documents en quelques minutes</span></a>
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent commercial</span><span class="mega-item-sub">Qualification de leads et relances automatisées</span></a>
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent reporting</span><span class="mega-item-sub">Synthèses et tableaux de bord générés en temps réel</span></a>
+                </div>
+                <a href="/agents" class="mega-cta">Découvrir les agents IA
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/">Accueil</a>
+        <a href="/audit">Audit</a>
+        <a href="/formation">Formation</a>
+        <a href="/agents" class="active">Agents IA</a>
+        <a href="/about">À propos</a>
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Réserver un appel</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero bg-cream">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-pill reveal">
+            <span class="dot"></span>
+            <span>Connecté à vos outils · Hébergement 🇫🇷 disponible</span>
+          </div>
+          <h1 class="reveal reveal-delay-1">Des agents IA qui<br>travaillent pour vous<br><span class="accent">pendant que vous dormez</span></h1>
+          <p class="subtitle reveal reveal-delay-2">
+            Un agent IA qui lit vos contrats, qualifie vos leads, génère vos reportings. Comme un collaborateur, mais 40× plus rapide et actif 24/7. Connecté à vos outils existants, supervisé par votre équipe
+          </p>
+          <div class="hero-ctas reveal reveal-delay-3">
+            <a href="#contact" class="btn-primary">
+              Je veux automatiser mes process
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/audit" class="btn-secondary">Commencer par un audit</a>
+          </div>
+          <div class="hero-stats reveal reveal-delay-4">
+            <div class="hero-stat"><span class="hero-stat-num">6 sem.</span><span class="hero-stat-lbl">pour livrer un agent opérationnel</span></div>
+            <div class="hero-stat"><span class="hero-stat-num">ROI</span><span class="hero-stat-lbl">amorti en 6 semaines en moyenne</span></div>
+            <div class="hero-stat"><span class="hero-stat-num">0</span><span class="hero-stat-lbl">ligne de code requise de votre côté</span></div>
+          </div>
+        </div>
+
+        <div class="agent-card-wrap reveal reveal-delay-2">
+          <div class="agent-card">
+            <div class="agent-card-dots"><span></span><span></span><span></span></div>
+            <p class="agent-card-title">Agent · Traitement documentaire</p>
+            <div class="agent-step">
+              <span class="agent-step-dot done"></span>
+              <span class="agent-step-label">Entrée</span>
+              <span class="agent-step-value">47 contrats fournisseurs reçus</span>
+            </div>
+            <div class="agent-step">
+              <span class="agent-step-dot done"></span>
+              <span class="agent-step-label">Extraction</span>
+              <span class="agent-step-value">Clauses, montants, échéances…</span>
+            </div>
+            <div class="agent-step">
+              <span class="agent-step-dot done"></span>
+              <span class="agent-step-label">Analyse</span>
+              <span class="agent-step-value">Détection des anomalies et risques</span>
+            </div>
+            <div class="agent-step">
+              <span class="agent-step-dot active"></span>
+              <span class="agent-step-label">Synthèse</span>
+              <span class="agent-step-value">Rapport structuré généré</span>
+            </div>
+            <div class="agent-step">
+              <span class="agent-step-dot pending"></span>
+              <span class="agent-step-label">Export</span>
+              <span class="agent-step-value pending">Envoi vers votre CRM / Drive</span>
+            </div>
+            <div class="agent-summary">
+              <span class="dot"></span>
+              <span>Temps de traitement : 4 min 12s · Économie estimée : 6h</span>
+            </div>
+          </div>
+          <div class="hero-badge">
+            <div class="hero-badge-num">24/7</div>
+            <div class="hero-badge-lbl">ACTIF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CATALOGUE AGENTS ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal">Nos agents</p>
+        <h2 class="reveal reveal-delay-1">Trois agents qui couvrent<br><span class="accent">vos cas d'usage les plus courants</span></h2>
+        <p class="lead reveal reveal-delay-2">Chaque agent est développé sur mesure. Ces exemples sont des points de départ, pas des produits finis</p>
+      </div>
+
+      <div class="agent-tabs" id="agent-tabs">
+        <button class="tab-btn active" data-tab="0">Traitement documentaire</button>
+        <button class="tab-btn" data-tab="1">Commercial &amp; Leads</button>
+        <button class="tab-btn" data-tab="2">Reporting &amp; Pilotage</button>
+      </div>
+
+      <div class="agent-detail" id="agent-detail"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal">Notre méthode</p>
+        <h2 class="reveal reveal-delay-1">De l'idée à l'agent opérationnel<br><span class="accent">en 6 semaines</span></h2>
+        <p class="lead reveal reveal-delay-2">Un processus itératif et transparent. Vous validez chaque étape, rien n'est livré sans votre accord</p>
+      </div>
+      <div class="process-grid">
+        <article class="process-card reveal reveal-delay-1">
+          <div class="process-top"><span class="process-num">01</span><span class="process-dur">1 semaine</span></div>
+          <h3>Cadrage du cas d'usage</h3>
+          <p>On part de votre audit (ou on en fait un express) pour identifier le cas d'usage qui offre le meilleur rapport effort/valeur. On valide ensemble la faisabilité et le ROI attendu</p>
+        </article>
+        <article class="process-card reveal reveal-delay-2">
+          <div class="process-top"><span class="process-num">02</span><span class="process-dur">2 à 4 semaines</span></div>
+          <h3>Développement de l'agent</h3>
+          <p>Notre équipe développe l'agent en itérations courtes. Vous validez chaque étape. Aucune livraison en boîte noire, vous voyez l'agent évoluer et le testez sur vos vrais cas</p>
+        </article>
+        <article class="process-card reveal reveal-delay-3">
+          <div class="process-top"><span class="process-num">03</span><span class="process-dur">1 semaine</span></div>
+          <h3>Intégration et tests</h3>
+          <p>L'agent est connecté à vos outils existants. On réalise des tests intensifs sur vos données réelles. Chaque anomalie est corrigée avant la mise en production</p>
+        </article>
+        <article class="process-card reveal reveal-delay-4">
+          <div class="process-top"><span class="process-num">04</span><span class="process-dur">1 jour</span></div>
+          <h3>Formation et supervision</h3>
+          <p>Votre équipe apprend à superviser l'agent, à comprendre ses outputs et à le corriger si besoin. L'IA travaille pour vous, mais vous gardez la main à tout moment</p>
+        </article>
+        <article class="process-card reveal reveal-delay-4">
+          <div class="process-top"><span class="process-num">05</span><span class="process-dur">Continu</span></div>
+          <h3>Maintenance et optimisation</h3>
+          <p>On monitore les performances, on améliore l'agent au fil du temps et on vous alerte si quelque chose change. Votre agent s'améliore avec l'usage</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GARANTIES ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <div class="garanties-grid">
+        <div class="garanties-left">
+          <p class="section-label reveal">Nos garanties</p>
+          <h2 class="reveal reveal-delay-1">Une IA qui travaille pour vous,<br><span class="accent">pas à votre place</span></h2>
+          <p class="reveal reveal-delay-2">On ne livre pas des agents IA pour impressionner votre CODIR. On livre des outils qui font gagner du temps à vos équipes, et qu'elles comprennent et maîtrisent</p>
+          <a href="#contact" class="btn-primary reveal reveal-delay-3">
+            Discutons de votre cas d'usage
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="garanties-list">
+          <div class="garantie-item reveal reveal-delay-1">
+            <div class="garantie-inner">
+              <div class="garantie-icon"><svg class="garantie-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <div>
+                <h3>Hébergement 100% français disponible</h3>
+                <p>Pour les secteurs sensibles (santé, finance, juridique), on déploie les agents sur des infrastructures souveraines. Vos données ne quittent pas le territoire</p>
+              </div>
+            </div>
+          </div>
+          <div class="garantie-item reveal reveal-delay-2">
+            <div class="garantie-inner">
+              <div class="garantie-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <div>
+                <h3>Vous gardez la main à tout moment</h3>
+                <p>Chaque agent peut être mis en pause, modifié ou désactivé par votre équipe sans intervention de notre part. Aucune dépendance technologique</p>
+              </div>
+            </div>
+          </div>
+          <div class="garantie-item reveal reveal-delay-3">
+            <div class="garantie-inner">
+              <div class="garantie-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <div>
+                <h3>Formation à la supervision incluse</h3>
+                <p>Votre équipe comprend ce que l'agent fait, comment il prend ses décisions et comment intervenir. L'IA est un outil supervisé, pas une boîte noire</p>
+              </div>
+            </div>
+          </div>
+          <div class="garantie-item reveal reveal-delay-4">
+            <div class="garantie-inner">
+              <div class="garantie-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <div>
+                <h3>ROI mesuré et documenté</h3>
+                <p>On définit ensemble les métriques de succès avant de commencer. À la livraison, on vous présente les gains mesurés sur vos vraies données</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="faq-wrap">
+        <div class="section-header-center">
+          <p class="section-label reveal">Questions fréquentes</p>
+          <h2 class="reveal reveal-delay-1">Ce que vous voulez <span class="accent">savoir sur les agents IA</span></h2>
+        </div>
+        <div id="faq-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="final-cta bg-dark" id="contact">
+    <div class="container">
+      <p class="section-label reveal">Automatisons ensemble</p>
+      <h2 class="reveal reveal-delay-1">Quel process voulez-vous<br><span class="accent">ne plus jamais refaire à la main ?</span></h2>
+      <p class="subtitle reveal reveal-delay-2">30 minutes pour identifier votre cas d'usage prioritaire et estimer le ROI. Gratuit, sans engagement. Si votre cas n'est pas adapté à un agent IA, on vous le dit</p>
+      <div class="final-cta-actions reveal reveal-delay-3">
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
+          Réserver mon appel découverte
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/audit" class="btn-ghost">Commencer par un audit</a>
+      </div>
+      <p class="micro-copy reveal reveal-delay-4">Gratuit · 30 min · Réponse sous 24h</p>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="logo">LIONIA<span>.</span></a>
+      <p>&copy; 2026 Lionia · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Services mega-menu
+    (() => {
+      const services = document.getElementById('nav-services');
+      if (!services) return;
+      const trigger = services.querySelector('.nav-services-trigger');
+      let closeTimer = null;
+      const open = () => { clearTimeout(closeTimer); services.classList.add('open'); nav.classList.add('menu-open'); trigger.setAttribute('aria-expanded', 'true'); };
+      const close = () => { closeTimer = setTimeout(() => { services.classList.remove('open'); nav.classList.remove('menu-open'); trigger.setAttribute('aria-expanded', 'false'); }, 120); };
+      services.addEventListener('mouseenter', open);
+      services.addEventListener('mouseleave', close);
+      trigger.addEventListener('click', (e) => { e.preventDefault(); services.classList.contains('open') ? close() : open(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && services.classList.contains('open')) close(); });
+    })();
+
+    // ========================================
+    // AGENT TABS
+    // ========================================
+    const agentsData = [
+      {
+        tag: 'Agent 01',
+        title: 'Traitement documentaire',
+        pitch: 'Analysez des centaines de documents en quelques minutes',
+        desc: 'Contrats, factures, appels d\'offres, rapports clients : l\'agent extrait les informations clés, détecte les anomalies et produit une synthèse structurée. Ce qui prenait une journée à un collaborateur prend désormais 5 minutes',
+        usecases: [
+          'Extraction de clauses et échéances dans des contrats fournisseurs',
+          'Analyse de rapports financiers et détection d\'écarts',
+          'Traitement de candidatures RH et pré-sélection',
+          'Classement et indexation automatique de documents',
+        ],
+        kpis: [
+          { n: '×40', l: 'plus rapide qu\'un traitement manuel' },
+          { n: '99%', l: 'de précision sur les extractions structurées' },
+        ],
+        outils: ['Drive · SharePoint · Dropbox', 'CRM · ERP · base interne'],
+      },
+      {
+        tag: 'Agent 02',
+        title: 'Commercial & Leads',
+        pitch: 'Qualifiez vos leads et relancez sans effort',
+        desc: 'L\'agent analyse les leads entrants, les qualifie selon vos critères, rédige les relances personnalisées et met à jour votre CRM. Vos commerciaux se concentrent sur la vente, l\'agent gère l\'administration',
+        usecases: [
+          'Qualification automatique des leads selon votre ICP',
+          'Rédaction de relances personnalisées par profil',
+          'Synthèse des échanges email avant chaque rendez-vous',
+          'Mise à jour automatique de votre CRM après chaque interaction',
+        ],
+        kpis: [
+          { n: '-70%', l: 'de temps admin pour vos commerciaux' },
+          { n: '+30%', l: 'de taux de réponse sur les relances' },
+        ],
+        outils: ['HubSpot · Salesforce · Pipedrive', 'Gmail · Outlook · LinkedIn'],
+      },
+      {
+        tag: 'Agent 03',
+        title: 'Reporting & Pilotage',
+        pitch: 'Vos tableaux de bord se rédigent tout seuls',
+        desc: 'L\'agent agrège vos données depuis vos différentes sources, produit les synthèses hebdomadaires ou mensuelles et envoie les rapports aux bonnes personnes au bon moment. Le management gagne en clarté sans passer des heures sur Excel',
+        usecases: [
+          'Rapport de performance commerciale hebdomadaire automatisé',
+          'Synthèse RH mensuelle (absences, coûts, recrutements)',
+          'Dashboard financier consolidé depuis plusieurs sources',
+          'Alertes automatiques en cas d\'écart par rapport aux objectifs',
+        ],
+        kpis: [
+          { n: '5h', l: 'économisées par semaine par manager' },
+          { n: 'J+0', l: 'livraison le matin du jour demandé' },
+        ],
+        outils: ['Excel · Google Sheets · Notion', 'ERP · BI · bases de données internes'],
+      },
+    ];
+
+    const detailEl = document.getElementById('agent-detail');
+    function renderAgent(i) {
+      const a = agentsData[i];
+      detailEl.innerHTML = `
+        <div class="agent-main">
+          <span class="agent-tag">${a.tag}</span>
+          <h3 class="agent-title">${a.title}</h3>
+          <p class="agent-pitch">${a.pitch}</p>
+          <p class="agent-desc">${a.desc}</p>
+          <div class="agent-kpis">
+            ${a.kpis.map(k => `
+              <div class="agent-kpi">
+                <div class="agent-kpi-num">${k.n}</div>
+                <div class="agent-kpi-lbl">${k.l}</div>
+              </div>
+            `).join('')}
+          </div>
+          <div class="agent-tools">
+            <p class="agent-tools-label">Intégrations courantes</p>
+            ${a.outils.map(o => `<p>${o}</p>`).join('')}
+          </div>
+        </div>
+        <div class="agent-usecases">
+          <p class="agent-usecases-label">Cas d'usage typiques</p>
+          <div class="usecases-list">
+            ${a.usecases.map((u, idx) => `
+              <div class="usecase">
+                <span class="usecase-num">${idx + 1}</span>
+                <span class="usecase-text">${u}</span>
+              </div>
+            `).join('')}
+          </div>
+          <a href="#contact" class="btn-primary" style="padding: 0.75rem 1.375rem; font-size: 0.8125rem;">
+            Je veux cet agent pour mon entreprise
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      `;
+    }
+
+    document.querySelectorAll('#agent-tabs .tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#agent-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderAgent(Number(btn.dataset.tab));
+      });
+    });
+    renderAgent(0);
+
+    // ========================================
+    // FAQ
+    // ========================================
+    const faqData = [
+      { q: 'Un agent IA, c\'est quoi concrètement ?', a: 'Un agent IA est un programme qui exécute des tâches complexes de façon autonome : lire des documents, extraire des données, rédiger des textes, envoyer des notifications, mettre à jour vos outils. Contrairement à un simple chatbot, il agit dans votre système d\'information, pas juste dans une fenêtre de conversation' },
+      { q: 'Faut-il changer nos outils pour intégrer un agent ?', a: 'Non. On connecte l\'agent à vos outils existants : Drive, SharePoint, CRM, ERP, messagerie. L\'objectif est de ne rien casser et de s\'intégrer proprement dans vos flux actuels' },
+      { q: 'Comment nos données sont-elles protégées ?', a: 'On signe un accord de traitement des données avant tout développement. Pour les secteurs sensibles, on propose un hébergement sur infrastructure française. Les données utilisées pour entraîner ou configurer l\'agent vous appartiennent intégralement' },
+      { q: 'Que se passe-t-il si l\'agent fait une erreur ?', a: 'C\'est prévu. Chaque agent intègre des mécanismes de contrôle et d\'alerte. Votre équipe est formée à superviser les outputs et à intervenir. On monitore les performances en continu et on corrige rapidement' },
+      { q: 'Quel est le budget minimum pour un agent IA ?', a: 'Ça dépend du cas d\'usage et de la complexité des intégrations. On commence toujours par un audit pour estimer le ROI avant de chiffrer. Si les gains ne justifient pas l\'investissement, on vous le dit clairement' },
+    ];
+
+    const faqEl = document.getElementById('faq-list');
+    faqEl.innerHTML = faqData.map((f, i) => `
+      <div class="faq-item${i === 0 ? ' open' : ''}" data-faq="${i}">
+        <button class="faq-question" aria-expanded="${i === 0 ? 'true' : 'false'}">
+          ${f.q}
+          <span class="faq-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer"><p>${f.a}</p></div>
+      </div>
+    `).join('');
+
+    faqEl.querySelectorAll('.faq-item').forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        faqEl.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
