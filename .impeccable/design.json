@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-21T00:00:00Z",
+  "title": "Design System: Lionia",
+  "extensions": {
+    "colorMeta": {
+      "parchment-cream": {
+        "role": "neutral",
+        "displayName": "Parchment Cream",
+        "canonical": "oklch(97.5% 0.006 80)",
+        "tonalRamp": [
+          "oklch(20% 0.005 80)",
+          "oklch(32% 0.005 80)",
+          "oklch(44% 0.005 80)",
+          "oklch(56% 0.005 80)",
+          "oklch(68% 0.005 80)",
+          "oklch(80% 0.005 80)",
+          "oklch(90% 0.006 80)",
+          "oklch(97.5% 0.006 80)"
+        ]
+      },
+      "stone-linen": {
+        "role": "neutral",
+        "displayName": "Stone Linen",
+        "canonical": "oklch(94% 0.008 80)",
+        "tonalRamp": [
+          "oklch(18% 0.005 80)",
+          "oklch(30% 0.006 80)",
+          "oklch(42% 0.006 80)",
+          "oklch(54% 0.007 80)",
+          "oklch(66% 0.007 80)",
+          "oklch(78% 0.008 80)",
+          "oklch(88% 0.008 80)",
+          "oklch(94% 0.008 80)"
+        ]
+      },
+      "plain-white": {
+        "role": "neutral",
+        "displayName": "Plain White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(20% 0 0)",
+          "oklch(32% 0 0)",
+          "oklch(44% 0 0)",
+          "oklch(56% 0 0)",
+          "oklch(68% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(92% 0 0)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(20% 0.005 60)",
+        "tonalRamp": [
+          "oklch(15% 0.005 60)",
+          "oklch(20% 0.005 60)",
+          "oklch(32% 0.006 60)",
+          "oklch(44% 0.006 60)",
+          "oklch(56% 0.007 60)",
+          "oklch(68% 0.007 60)",
+          "oklch(82% 0.006 60)",
+          "oklch(94% 0.005 60)"
+        ]
+      },
+      "soft-ink": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(30% 0.008 50)",
+        "tonalRamp": [
+          "oklch(15% 0.006 50)",
+          "oklch(22% 0.007 50)",
+          "oklch(30% 0.008 50)",
+          "oklch(42% 0.008 50)",
+          "oklch(54% 0.008 50)",
+          "oklch(68% 0.008 50)",
+          "oklch(82% 0.007 50)",
+          "oklch(94% 0.006 50)"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "oklch(48% 0.008 60)",
+        "tonalRamp": [
+          "oklch(18% 0.006 60)",
+          "oklch(30% 0.007 60)",
+          "oklch(38% 0.008 60)",
+          "oklch(48% 0.008 60)",
+          "oklch(60% 0.008 60)",
+          "oklch(72% 0.008 60)",
+          "oklch(84% 0.007 60)",
+          "oklch(94% 0.006 60)"
+        ]
+      },
+      "pale-stone": {
+        "role": "neutral",
+        "displayName": "Pale Stone",
+        "canonical": "oklch(66% 0.008 60)",
+        "tonalRamp": [
+          "oklch(20% 0.006 60)",
+          "oklch(32% 0.007 60)",
+          "oklch(44% 0.008 60)",
+          "oklch(54% 0.008 60)",
+          "oklch(66% 0.008 60)",
+          "oklch(78% 0.007 60)",
+          "oklch(88% 0.007 60)",
+          "oklch(96% 0.006 60)"
+        ]
+      },
+      "burnt-amber": {
+        "role": "primary",
+        "displayName": "Burnt Amber",
+        "canonical": "oklch(62% 0.12 55)",
+        "tonalRamp": [
+          "oklch(25% 0.06 55)",
+          "oklch(35% 0.08 55)",
+          "oklch(45% 0.10 55)",
+          "oklch(55% 0.11 55)",
+          "oklch(62% 0.12 55)",
+          "oklch(72% 0.10 55)",
+          "oklch(84% 0.07 55)",
+          "oklch(94% 0.03 55)"
+        ]
+      },
+      "light-amber": {
+        "role": "primary",
+        "displayName": "Light Amber",
+        "canonical": "oklch(70% 0.11 55)",
+        "tonalRamp": [
+          "oklch(30% 0.07 55)",
+          "oklch(42% 0.09 55)",
+          "oklch(52% 0.10 55)",
+          "oklch(60% 0.11 55)",
+          "oklch(70% 0.11 55)",
+          "oklch(80% 0.09 55)",
+          "oklch(88% 0.06 55)",
+          "oklch(96% 0.02 55)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only. One per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section openings. Marks the structural break of a new section." },
+      "title": { "displayName": "Title", "purpose": "Card headings, sub-section titles. One step down from headline." },
+      "subtitle": { "displayName": "Subtitle", "purpose": "Supporting line under a headline. Sits in stone color." },
+      "body": { "displayName": "Body", "purpose": "Prose. Capped at 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "Uppercase tracked section eyebrow. Once per section, in burnt amber." },
+      "mono": { "displayName": "Mono", "purpose": "Logo and rare metadata. Never body copy." }
+    },
+    "shadows": [
+      { "name": "ambient-soft",     "value": "0 8px 32px rgba(0, 0, 0, 0.04)",          "purpose": "Default lift for cards on a cream section." },
+      { "name": "ambient-medium",   "value": "0 16px 64px rgba(0, 0, 0, 0.06)",         "purpose": "Standard card elevation." },
+      { "name": "ambient-high",     "value": "0 24px 80px rgba(0, 0, 0, 0.06)",         "purpose": "Hero card, founder card. Broadest cast." },
+      { "name": "amber-cta-rest",   "value": "0 4px 20px rgba(196, 122, 58, 0.25)",     "purpose": "Default shadow under the amber primary button." },
+      { "name": "amber-cta-hover",  "value": "0 6px 30px rgba(196, 122, 58, 0.35)",     "purpose": "Hover state of the amber primary button." },
+      { "name": "amber-reveal",     "value": "0 16px 64px rgba(196, 122, 58, 0.08)",    "purpose": "Bloom under offer cards on hover." },
+      { "name": "nav-hairline",     "value": "0 1px 0 rgba(26, 26, 26, 0.08)",          "purpose": "Single-pixel divider under the scrolled nav." }
+    ],
+    "motion": [
+      { "name": "ease-standard",    "value": "ease",                                 "purpose": "Default easing for all interactive transitions." },
+      { "name": "duration-fast",    "value": "0.2s",                                 "purpose": "Color and small property changes." },
+      { "name": "duration-medium",  "value": "0.3s",                                 "purpose": "Button and card hover states." },
+      { "name": "duration-slow",    "value": "0.4s",                                 "purpose": "Nav scrolled state, section expand/collapse." },
+      { "name": "lift-button",      "value": "translateY(-2px)",                     "purpose": "Hover lift on buttons. Never more, never less." },
+      { "name": "lift-card",        "value": "translateY(-4px)",                     "purpose": "Hover lift on offer cards." },
+      { "name": "nudge-arrow",      "value": "translateX(3px)",                      "purpose": "Inline arrow icon nudge on button hover." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "479px" },
+      { "name": "tablet", "value": "768px" },
+      { "name": "desktop", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single filled CTA. Amber on cream, amber-tinted shadow at rest.",
+      "html": "<button class=\"ds-btn-primary\">Réserver un appel découverte<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line><polyline points=\"12 5 19 12 12 19\"></polyline></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: clamp(0.75rem, 0.5rem + 0.5vw, 1rem) clamp(1.25rem, 1rem + 1vw, 2rem); background: #c47a3a; color: #ffffff; border: none; border-radius: 4px; font-family: 'Space Grotesk', Arial, sans-serif; font-size: clamp(0.875rem, 0.85rem + 0.15vw, 1rem); font-weight: 500; box-shadow: 0 4px 20px rgba(196, 122, 58, 0.25); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; } .ds-btn-primary:hover { background: #d4935e; transform: translateY(-2px); box-shadow: 0 6px 30px rgba(196, 122, 58, 0.35); } .ds-btn-primary:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 3px; } .ds-btn-primary svg { width: 18px; height: 18px; transition: transform 0.3s ease; } .ds-btn-primary:hover svg { transform: translateX(3px); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary CTA alternative. Transparent fill, 1.5px ink-hairline border.",
+      "html": "<button class=\"ds-btn-outline\">En savoir plus</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: transparent; color: #1a1a1a; border: 1.5px solid rgba(26, 26, 26, 0.12); border-radius: 4px; font-family: 'Space Grotesk', Arial, sans-serif; font-size: 0.9375rem; font-weight: 500; cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease; } .ds-btn-outline:hover { background: #faf9f5; border-color: rgba(26, 26, 26, 0.35); transform: translateY(-2px); } .ds-btn-outline:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "section-label",
+      "description": "Uppercase tracked burnt-amber eyebrow. Marks the start of a section, once.",
+      "html": "<span class=\"ds-section-label\">Comment ça marche</span>",
+      "css": ".ds-section-label { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #c47a3a; display: inline-block; }"
+    },
+    {
+      "name": "Eyebrow Tag",
+      "kind": "chip",
+      "refersTo": "tag-eyebrow",
+      "description": "Pill-shaped tag inside offer cards. Amber wash background, burnt amber text.",
+      "html": "<span class=\"ds-tag-eyebrow\">Point de départ</span>",
+      "css": ".ds-tag-eyebrow { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(196, 122, 58, 0.08); color: #c47a3a; border-radius: 4px; font-family: 'Space Grotesk', Arial, sans-serif; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }"
+    },
+    {
+      "name": "Soft Card",
+      "kind": "card",
+      "refersTo": "card-soft",
+      "description": "Elevated white card used for hero and founder content.",
+      "html": "<article class=\"ds-card-soft\"><h3 class=\"ds-card-soft__title\">Anthony Gombert</h3><p class=\"ds-card-soft__body\">Fondateur de Lionia. Quinze ans à industrialiser des process IA dans des PME françaises avant d'en faire un cabinet.</p></article>",
+      "css": ".ds-card-soft { background: #ffffff; border: 1px solid rgba(26, 26, 26, 0.08); border-radius: 12px; padding: 2rem; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.06); font-family: 'Space Grotesk', Arial, sans-serif; color: #1a1a1a; } .ds-card-soft__title { font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem); font-weight: 500; line-height: 1.15; margin: 0 0 0.75rem; } .ds-card-soft__body { font-size: 0.9375rem; line-height: 1.65; color: #6b6561; margin: 0; }"
+    },
+    {
+      "name": "Offer Card",
+      "kind": "card",
+      "refersTo": "card-offer",
+      "description": "Tier card with amber top-bar reveal on hover. Used for the three offers (audit, formation, agents).",
+      "html": "<article class=\"ds-card-offer\"><span class=\"ds-card-offer__tag\">Point de départ</span><h3 class=\"ds-card-offer__title\">Audit IA</h3><p class=\"ds-card-offer__desc\">Identifiez vos gains IA en 2 à 3 jours. Rapport priorisé, plan d'action, estimation des gains.</p><a href=\"#\" class=\"ds-card-offer__cta\">Commencer par l'audit →</a></article>",
+      "css": ".ds-card-offer { position: relative; background: #faf9f5; border: 1px solid rgba(26, 26, 26, 0.08); border-radius: 8px; padding: clamp(1.5rem, 1rem + 2vw, 2.5rem); font-family: 'Space Grotesk', Arial, sans-serif; color: #1a1a1a; overflow: hidden; transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease; } .ds-card-offer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #c47a3a; transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; } .ds-card-offer:hover { border-color: rgba(196, 122, 58, 0.2); box-shadow: 0 16px 64px rgba(196, 122, 58, 0.08); transform: translateY(-4px); } .ds-card-offer:hover::before { transform: scaleX(1); } .ds-card-offer__tag { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(196, 122, 58, 0.08); color: #c47a3a; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; } .ds-card-offer__title { font-size: clamp(1.35rem, 1.2rem + 0.5vw, 1.6rem); font-weight: 500; line-height: 1.15; margin: 0 0 1rem; } .ds-card-offer__desc { font-size: 0.9375rem; line-height: 1.65; color: #6b6561; margin: 0 0 1.5rem; } .ds-card-offer__cta { display: inline-flex; align-items: center; gap: 0.25rem; color: #c47a3a; font-size: 0.9375rem; font-weight: 500; text-decoration: none; transition: gap 0.2s ease; } .ds-card-offer__cta:hover { gap: 0.5rem; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed top nav. Transparent at rest, cream + blur on scroll.",
+      "html": "<nav class=\"ds-nav ds-nav--scrolled\"><div class=\"ds-nav__inner\"><a href=\"/\" class=\"ds-nav__logo\">LION<span>IA</span></a><div class=\"ds-nav__right\"><a href=\"/formation\" class=\"ds-nav__link\">Formation</a><a href=\"/audit\" class=\"ds-nav__link\">Audit</a><a href=\"/agents\" class=\"ds-nav__link\">Agents</a><a href=\"/about\" class=\"ds-nav__link\">About</a><button class=\"ds-nav__cta\">Réserver un appel</button></div></div></nav>",
+      "css": ".ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: clamp(0.5rem, 0.375rem + 0.25vw, 0.875rem) 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease; } .ds-nav--scrolled { background: rgba(250, 249, 245, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08); } .ds-nav__inner { width: min(1200px, 100% - clamp(1rem, 0.5rem + 2vw, 2rem) * 2); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; } .ds-nav__logo { font-family: 'Space Mono', ui-monospace, Menlo, monospace; font-size: 1.125rem; font-weight: 700; text-transform: uppercase; color: #1a1a1a; text-decoration: none; } .ds-nav__logo span { color: #c47a3a; } .ds-nav__right { display: flex; align-items: center; gap: 1.75rem; } .ds-nav__link { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 0.875rem; color: #6b6561; font-weight: 400; text-decoration: none; transition: color 0.2s ease; } .ds-nav__link:hover { color: #1a1a1a; } .ds-nav__cta { padding: 0.5rem 1rem; background: #1a1a1a; color: #faf9f5; border: none; border-radius: 4px; font-family: 'Space Grotesk', Arial, sans-serif; font-size: 0.8125rem; font-weight: 500; cursor: pointer; transition: background 0.2s ease; } .ds-nav__cta:hover { background: #3d3935; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Field synthesized from system tokens (no input components in current code).",
+      "html": "<label class=\"ds-input-wrap\"><span class=\"ds-input-label\">Email professionnel</span><input class=\"ds-input\" type=\"email\" placeholder=\"vous@entreprise.fr\"></label>",
+      "css": ".ds-input-wrap { display: flex; flex-direction: column; gap: 0.375rem; font-family: 'Space Grotesk', Arial, sans-serif; } .ds-input-label { font-size: 0.8125rem; font-weight: 500; color: #1a1a1a; letter-spacing: -0.005em; } .ds-input { padding: 0.75rem 1rem; background: #ffffff; color: #1a1a1a; border: 1px solid rgba(26, 26, 26, 0.12); border-radius: 4px; font-family: 'Space Grotesk', Arial, sans-serif; font-size: 0.9375rem; font-weight: 400; line-height: 1.4; transition: border-color 0.2s ease, box-shadow 0.2s ease; } .ds-input::placeholder { color: #9a9590; } .ds-input:hover { border-color: rgba(26, 26, 26, 0.25); } .ds-input:focus-visible { outline: none; border-color: #c47a3a; box-shadow: 0 0 0 3px rgba(196, 122, 58, 0.15); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le studio méthodique",
+    "overview": "Lionia is built like a methodical studio: precision applied to warmth, not warmth applied to precision. The surface is parchment cream, not screen white. The text is ink, not pure black. The accent is burnt amber, not optimistic orange. Everything has been picked to read as 'considered' before it reads as 'designed'. A French SME director arriving from a LinkedIn link should feel they've opened a careful document, not a tech-startup landing page.\n\nThe system commits to a single hue family (warm earth tones across the entire surface) and lets typography carry hierarchy. Heading weight contrast, generous line-height, and uppercase tracked labels do the structural work. Shadows are broad and ambient, never tight or theatrical. Hovers move 2px, not 8. Buttons translate, never bounce.\n\nWhat this system explicitly rejects: gradient-on-black AI startup aesthetics, navy-and-gold cabinet de conseil rigidity, infopreneur neon highlights and oversized CTAs. None of those vocabularies appear here. The page must read like the deliverable a Lionia client would actually receive.",
+    "keyCharacteristics": [
+      "Parchment cream surface (#faf9f5) as the canvas; near-black ink (#1a1a1a) for text; burnt amber (#c47a3a) as the singular accent",
+      "Space Grotesk across the entire system (weights 400–700), Space Mono reserved for the logo and key meta moments",
+      "Sharp small radii: 4px on buttons, 8px on offer cards, 12px on signature cards. No border-radius: 1rem softness.",
+      "Broad ambient shadows, low opacity (0.04–0.08). Amber-tinted shadows reserved for amber elements.",
+      "Uppercase tracked labels (0.12em letter-spacing) on section eyebrows; never as decoration, always to mark a structural break.",
+      "Hover language: translateY(-2px) on buttons, translateY(-4px) on offer cards, translateX(3px) on inline arrow icons. Quiet, consistent, predictable."
+    ],
+    "rules": [
+      { "name": "The One Hue Rule",            "section": "colors",     "body": "Lionia commits to a single warm hue family across the entire surface. No secondary accent color is introduced. Status colors (success green, error red) appear only when a real status exists, never as decoration. Prohibited: introducing blue, purple, teal, or any color outside the cream/ink/amber family for visual variety." },
+      { "name": "The Sparse Amber Rule",       "section": "colors",     "body": "Burnt amber is the only accent and must cover ≤10% of any given screen. Its rarity is the point. Prohibited: full-amber sections, amber backgrounds on large surfaces, amber as anything other than ink emphasis or CTA fill." },
+      { "name": "The No-Pure-Black Rule",      "section": "colors",     "body": "Text is ink (#1a1a1a), not #000. The faint warmth keeps the page coherent with the cream surface. Pure black breaks the warmth and reads as sharper than this system wants to read." },
+      { "name": "The Single-Family Rule",      "section": "typography", "body": "Space Grotesk carries the entire system. No serif display face, no secondary sans. Voice comes from weight contrast (500/600 vs. 400) and size contrast (≥1.25 step), not from family mixing. Space Mono is permitted only on the logo and on rare mono-marked metadata; it is not a body-text alternative." },
+      { "name": "The Eyebrow Rule",            "section": "typography", "body": "Uppercase tracked labels mark the start of a new section once, in burnt amber, at 0.8125rem and 0.12em letter-spacing. They are not decoration. They are not repeated within a section. They are not used in body copy." },
+      { "name": "The Tight-Display Rule",      "section": "typography", "body": "Display and headline type carry negative letter-spacing (-0.02em to -0.03em). Body and subtitle type do not. Tight tracking at scale, normal tracking at reading size." },
+      { "name": "The Broad-Diffuse Rule",      "section": "elevation", "body": "Every shadow is wider than it is tall (typical: 64–80px blur for 16–24px y-offset). Tight 4px-blur drop shadows are prohibited; they read as 2014-era card UI, not 2026 considered surface." },
+      { "name": "The Tinted-Shadow Rule",      "section": "elevation", "body": "Amber-tinted shadows appear only under amber elements. Cards, surfaces, and neutral elements always cast neutral shadows. Mixing breaks the 'ambient light on paper' mental model." },
+      { "name": "The Two-Pixel Rule",          "section": "elevation", "body": "Hover lifts are always translateY(-2px) on buttons, translateY(-4px) on cards. Never more. Never less. The consistency is the system." },
+      { "name": "The One-CTA-Color Rule",      "section": "elevation", "body": "Only the burnt amber .btn-primary exists as a filled button. Outline buttons are the only other variant. Prohibited: secondary filled buttons in any other color, ghost buttons with colored borders, gradient fills." }
+    ],
+    "dos": [
+      "Do use Parchment Cream (#faf9f5) as the default page surface. White (#ffffff) is reserved for elevated cards that need to lift.",
+      "Do keep burnt amber rare. ≤10% of any screen. If more than one amber-filled element appears on screen at the same time, demote one to ink.",
+      "Do use Space Grotesk across the entire system. Voice comes from weight contrast (400 vs. 500 vs. 600) and size contrast, never from family mixing.",
+      "Do cast broad ambient shadows (64–80px blur, ≤8% opacity) under cards. Tinted amber shadows under amber elements only.",
+      "Do hover with translateY(-2px) on buttons and translateY(-4px) on cards. Match the system, don't invent new physics.",
+      "Do lead each section with a single uppercase tracked burnt amber label (section-label). Use it once, then don't repeat inside the section.",
+      "Do keep body line length within 65–75ch. Use container--narrow (min(800px, ...)) for prose sections.",
+      "Do write copy like the LANDING_PAGE.md voice guide: direct, confident, concrete. '30 jours', '2-3 jours d'audit', 'rapport priorisé' beats 'transformation digitale'."
+    ],
+    "donts": [
+      "Don't introduce a second accent color. No blue, no teal, no purple, no green for 'variety'. One hue family across the entire system. This rules out the generic AI startup aesthetic (gradient violet/cyan, neon-on-black, dark mode by default) called out in PRODUCT.md.",
+      "Don't drop into the cabinet de conseil français rigide (PRODUCT.md anti-reference). No navy-and-gold. No serif corporate. No stock-photo handshake. Lionia is moderne, not vieille école.",
+      "Don't ship growth-hacker marketing moves (PRODUCT.md anti-reference): no oversized neon CTAs, no urgency banners ('Plus que 2 places !'), no fluorescent highlights, no testimonial carousels.",
+      "Don't use #000 or #fff for text or background. Text is Ink (#1a1a1a); surfaces are Parchment Cream or Plain White, both tinted toward warm. Pure black breaks the warmth.",
+      "Don't use border-radius greater than 12px on functional elements. Lionia is sharp-soft, not pillowy.",
+      "Don't use border-left greater than 1px as a colored stripe accent. Forbidden across the system. Use full borders, background tints, or numbered leaders instead.",
+      "Don't use gradient text (background-clip: text). Emphasis comes from weight, size, or color, never from a gradient mask.",
+      "Don't stack tight drop shadows (0 2px 4px rgba(0,0,0,0.2)). All shadows are broad and diffuse. Tight shadows read as 2014 card UI.",
+      "Don't use Space Mono for body copy. It is the logo face and an occasional metadata mark. Never paragraphs.",
+      "Don't repeat the uppercase tracked label inside a section as decoration. Once per section, at the start, then no more.",
+      "Don't introduce additional shadow recipes. The vocabulary in §4 is closed; if a new use case appears, pick the nearest existing recipe rather than inventing.",
+      "Don't wrap every section in a card. Most sections are typographic events on the open cream surface. Cards are reserved for offers, founder, and format groupings."
+    ]
+  }
+}

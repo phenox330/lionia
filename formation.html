@@ -1301,12 +1301,303 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
 
     /* ========================================
+       PILIERS DÉTAILLÉS
+       ======================================== */
+    .piliers-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pilier-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pilier-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--amber);
+    }
+
+    .pilier-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .pilier-header-left {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pilier-block .pilier-tag {
+      display: inline-block;
+      padding: 0.25rem 0.625rem;
+      background: var(--amber-subtle);
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber);
+    }
+
+    .pilier-block h3 {
+      font-size: 1.375rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--slate);
+    }
+
+    .pilier-block .pilier-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      max-width: 460px;
+    }
+
+    .formations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: 0.75rem;
+    }
+
+    .formation-row {
+      padding: 1rem 1.125rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .formation-row:hover {
+      border-color: rgba(196, 122, 58, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .formation-row h4 {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--slate);
+      line-height: 1.3;
+    }
+
+    .formation-row p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+
+    .formation-meta {
+      display: flex;
+      gap: 0.375rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+
+    .formation-meta span {
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-light);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 0.1875rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .formation-meta span.is-price {
+      color: var(--amber);
+      border-color: rgba(196, 122, 58, 0.2);
+      background: var(--amber-subtle);
+    }
+
+    /* ========================================
+       MÉTHODE PÉDAGOGIQUE
+       ======================================== */
+    .methode-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .methode-step {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .methode-step-num {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .methode-step h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--slate);
+      margin-bottom: 0.75rem;
+    }
+
+    .methode-step p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .methode-step p:last-child { margin-bottom: 0; }
+
+    .methode-step strong {
+      color: var(--slate);
+      font-weight: 500;
+    }
+
+    /* ========================================
+       PROFILS D'APPRENANTS
+       ======================================== */
+    .profils-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .profil-card {
+      padding: 1.75rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profil-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196, 122, 58, 0.2);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .profil-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--amber-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .profil-icon svg { color: var(--amber); }
+
+    .profil-card h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .profil-card .profil-desc {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .profil-path {
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--slate-light);
+    }
+
+    .profil-path strong {
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    /* ========================================
+       BÉNÉFICES MESURABLES
+       ======================================== */
+    .benefices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: 1rem;
+    }
+
+    .benefice-card {
+      padding: 1.5rem 1.25rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .benefice-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(196, 122, 58, 0.2);
+    }
+
+    .benefice-num {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--amber);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .benefice-card h3 {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .benefice-card p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ========================================
        RESPONSIVE
        ======================================== */
     @media (max-width: 960px) {
       .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
       .parcours-detail { grid-template-columns: 1fr; }
       .pourquoi-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .methode-grid { grid-template-columns: 1fr; }
+      .profils-grid { grid-template-columns: 1fr; }
       .hero-badge { top: -12px; right: -12px; }
     }
 
@@ -1485,59 +1776,261 @@
     </div>
   </section>
 
-  <!-- ===================== PARCOURS ===================== -->
+  <!-- ===================== 3 PILIERS DÉTAILLÉS ===================== -->
   <section id="parcours" class="bg-cream">
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Nos parcours</p>
-        <h2 class="reveal reveal-delay-1">Trois portes d'entrée, <span class="accent">une seule exigence : du concret</span></h2>
-        <p class="lead reveal reveal-delay-2">Pas trois étapes obligatoires. Commencez là où vous en êtes, chaque parcours est indépendant</p>
+        <h2 class="reveal reveal-delay-1">Des formations IA structurées <span class="accent">en 3 piliers</span></h2>
+        <p class="lead reveal reveal-delay-2">De l'initiation à l'expertise métier. Pas 3 étapes obligatoires mais 3 portes d'entrée, selon vos compétences et vos besoins</p>
       </div>
 
-      <div class="parcours-tabs" id="parcours-tabs">
-        <button class="tab-btn active" data-tab="0">Fondamentaux IA</button>
-        <button class="tab-btn" data-tab="1">Formation Métier</button>
-        <button class="tab-btn" data-tab="2">Formation Dirigeants</button>
-      </div>
+      <div class="piliers-stack">
+        <!-- Pilier 01 -->
+        <div class="pilier-block reveal reveal-delay-1">
+          <header class="pilier-header">
+            <div class="pilier-header-left">
+              <span class="pilier-tag">Pilier 01</span>
+              <h3>Acculturation IA</h3>
+            </div>
+            <p class="pilier-desc">Les fondamentaux et la culture IA, pour toutes les équipes</p>
+          </header>
+          <div class="formations-grid">
+            <article class="formation-row">
+              <h4>IA Niveau 1 — Fondamentaux</h4>
+              <p>Maîtriser les bases de l'IA générative et réaliser vos premiers cas d'usage professionnels</p>
+              <div class="formation-meta">
+                <span>1 jour · 7h</span>
+                <span>Présentiel</span>
+                <span class="is-price">800 € HT</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>IA Niveau 2 — Production de contenus</h4>
+              <p>Prompt Engineering avancé, créer vos premiers workflows intelligents et automatiser vos productions</p>
+              <div class="formation-meta">
+                <span>1 jour · 7h</span>
+                <span>Présentiel</span>
+                <span class="is-price">800 € HT</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>Stratégie IA Dirigeants</h4>
+              <p>Cartographiez vos usages, sécurisez vos pratiques et construisez votre feuille de route IA à 6-12 mois</p>
+              <div class="formation-meta">
+                <span>1 jour · 7h</span>
+                <span>Présentiel ou distanciel</span>
+                <span class="is-price">800 € HT</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>Cybersécurité &amp; IA</h4>
+              <p>Phishing, deepfakes, RGPD, sécurité des prompts. Protégez votre organisation face aux nouvelles menaces</p>
+              <div class="formation-meta">
+                <span>1 jour · 7h</span>
+                <span>Présentiel</span>
+                <span class="is-price">Sur devis</span>
+              </div>
+            </article>
+          </div>
+        </div>
 
-      <div class="parcours-detail" id="parcours-detail">
-        <!-- Filled by JS from data below -->
+        <!-- Pilier 02 -->
+        <div class="pilier-block reveal reveal-delay-2">
+          <header class="pilier-header">
+            <div class="pilier-header-left">
+              <span class="pilier-tag">Pilier 02</span>
+              <h3>Compétences transversales</h3>
+            </div>
+            <p class="pilier-desc">L'IA appliquée aux fonctions clés de votre PME</p>
+          </header>
+          <div class="formations-grid">
+            <article class="formation-row">
+              <h4>IA &amp; RH</h4>
+              <p>Recrutement, onboarding, GPEC, gestion des talents augmentés par l'IA, de façon conforme et efficace</p>
+              <div class="formation-meta">
+                <span>1 à 2 jours</span>
+                <span>Présentiel</span>
+                <span class="is-price">Sur devis</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>IA &amp; Réseaux sociaux</h4>
+              <p>Créer du contenu engageant 3× plus vite. Stratégie éditoriale, génération visuels, planification</p>
+              <div class="formation-meta">
+                <span>1 jour · 7h</span>
+                <span>Présentiel</span>
+                <span class="is-price">800 € HT</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>Agents IA no-code</h4>
+              <p>Concevoir et déployer vos premiers agents IA avec Make, n8n, Dust. Workflows automatisés reproductibles</p>
+              <div class="formation-meta">
+                <span>1 jour · 7h</span>
+                <span>Présentiel</span>
+                <span class="is-price">800 € HT</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>Microsoft Copilot</h4>
+              <p>De l'initiation à l'industrialisation. Tirer parti de Copilot 365 dans vos outils Microsoft quotidiens</p>
+              <div class="formation-meta">
+                <span>1 à 2 jours</span>
+                <span>Présentiel ou distanciel</span>
+                <span class="is-price">Sur devis</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Pilier 03 -->
+        <div class="pilier-block reveal reveal-delay-3">
+          <header class="pilier-header">
+            <div class="pilier-header-left">
+              <span class="pilier-tag">Pilier 03</span>
+              <h3>Formations IA Entreprise</h3>
+            </div>
+            <p class="pilier-desc">Programmes sectoriels sur-mesure, conçus avec vous</p>
+          </header>
+          <div class="formations-grid">
+            <article class="formation-row">
+              <h4>IA &amp; Ingénierie pédagogique</h4>
+              <p>Concevoir des formations augmentées par l'IA, industrialiser votre production pédagogique</p>
+              <div class="formation-meta">
+                <span>1 à 3 jours</span>
+                <span>Intra-entreprise</span>
+                <span class="is-price">Sur devis</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>IA &amp; Club de sport, association</h4>
+              <p>Moderniser la gestion, automatiser le suivi, piloter par la data. Du smart au performance</p>
+              <div class="formation-meta">
+                <span>1 à 3 jours</span>
+                <span>Intra-entreprise</span>
+                <span class="is-price">Sur devis</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>Programmes sectoriels</h4>
+              <p>Santé, finance, juridique, industrie, retail. Construits autour de vos process et contraintes métier</p>
+              <div class="formation-meta">
+                <span>2 à 5 jours</span>
+                <span>Intra-entreprise</span>
+                <span class="is-price">Sur devis</span>
+              </div>
+            </article>
+            <article class="formation-row">
+              <h4>Format à la carte</h4>
+              <p>Inter ou intra, présentiel ou distanciel, format mixte. On s'adapte à votre organisation</p>
+              <div class="formation-meta">
+                <span>Variable</span>
+                <span>Tous formats</span>
+                <span class="is-price">Sur devis</span>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== POUR QUI ===================== -->
+  <!-- ===================== MÉTHODE PÉDAGOGIQUE ===================== -->
   <section class="bg-white">
     <div class="container">
-      <p class="section-label reveal">Pour qui</p>
-      <div class="section-header-inline">
-        <h2 class="reveal reveal-delay-1">Nos formations sont faites <span class="accent">pour vous</span></h2>
-        <p class="reveal reveal-delay-2">Que vous gériez 200 personnes ou que vous soyez seul sur votre poste. Aucun prérequis technique</p>
+      <div class="section-header">
+        <p class="section-label reveal">La méthode Lionia</p>
+        <h2 class="reveal reveal-delay-1">Notre approche pédagogique, <span class="accent">de la curiosité aux compétences opérationnelles</span></h2>
+        <p class="lead reveal reveal-delay-2">Quel que soit votre point de départ, on transforme l'apprentissage en réflexe métier dès la fin de la formation</p>
       </div>
-      <div class="pourqui-grid">
-        <article class="pourqui-card reveal reveal-delay-1">
-          <p class="pourqui-num">Profil 01</p>
-          <h3>Dirigeant · DG</h3>
-          <p>Vous voulez comprendre les enjeux stratégiques, sécuriser les usages dans votre organisation et repartir avec une feuille de route actionnée</p>
-          <a href="#contact" class="pourqui-link">Formation Dirigeants →</a>
+      <div class="methode-grid">
+        <article class="methode-step reveal reveal-delay-1">
+          <div class="methode-step-num">01</div>
+          <h3>Décrypter &amp; Comprendre</h3>
+          <p>On pose les bases pour lever le voile sur l'IA. L'objectif : comprendre le <strong>pourquoi</strong> et le <strong>quoi</strong>. Historique, panorama des outils (ChatGPT, Claude, Gemini, Copilot), distinction entre IA classique et générative, cas d'usage de votre secteur</p>
+          <p>Vous repartez avec une <strong>vision claire et sans jargon</strong> du paysage technologique actuel</p>
         </article>
-        <article class="pourqui-card reveal reveal-delay-2">
-          <p class="pourqui-num">Profil 02</p>
-          <h3>Responsable RH</h3>
-          <p>Recrutement, onboarding, GPEC, gestion des talents. Chaque tâche RH peut être augmentée par l'IA de façon conforme et efficace</p>
-          <a href="#contact" class="pourqui-link">Formation Métier RH →</a>
+        <article class="methode-step reveal reveal-delay-2">
+          <div class="methode-step-num">02</div>
+          <h3>Pratiquer &amp; Appliquer</h3>
+          <p>La théorie laisse place à l'action via des <strong>ateliers interactifs</strong>. On manipule les outils, on rédige des prompts efficaces, et surtout on identifie les cas d'usage concrets qui s'appliquent directement à votre métier. En présentiel, les échanges sont plus riches</p>
+          <p>Vous quittez la formation avec une <strong>feuille de route personnalisée</strong> et des réflexes immédiatement utilisables</p>
         </article>
-        <article class="pourqui-card reveal reveal-delay-3">
-          <p class="pourqui-num">Profil 03</p>
-          <h3>Direction commerciale</h3>
-          <p>Qualification de leads, relances, propositions commerciales, reporting. Libérez 30% du temps administratif de vos équipes commerciales</p>
-          <a href="#contact" class="pourqui-link">Formation Métier Commercial →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3 PROFILS D'APPRENANTS ===================== -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal">Quel parcours choisir</p>
+        <h2 class="reveal reveal-delay-1">Trois profils d'apprenants, <span class="accent">un parcours pour chacun</span></h2>
+        <p class="lead reveal reveal-delay-2">Aucun prérequis technique. On part du niveau réel de chaque participant, et on construit autour de vos vrais cas métier</p>
+      </div>
+      <div class="profils-grid">
+        <article class="profil-card reveal reveal-delay-1">
+          <div class="profil-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08 4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08 4.24-4.24"/></svg>
+          </div>
+          <h3>Je découvre l'IA</h3>
+          <p class="profil-desc">Aucune expérience IA. Salarié, indépendant ou dirigeant qui veut comprendre, structurer ses premiers usages et gagner du temps au quotidien</p>
+          <p class="profil-path"><strong>Niveau 1</strong> (1 jour) puis <strong>Niveau 2</strong> (1 jour) si besoin d'aller plus loin</p>
         </article>
-        <article class="pourqui-card reveal reveal-delay-4">
-          <p class="pourqui-num">Profil 04</p>
-          <h3>Tous collaborateurs</h3>
-          <p>Aucun prérequis technique. En 1 journée, opérationnel sur les outils IA les plus utiles à votre poste, avec vos propres exemples</p>
-          <a href="#contact" class="pourqui-link">Formation Fondamentaux →</a>
+        <article class="profil-card reveal reveal-delay-2">
+          <div class="profil-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Je veux gagner du temps</h3>
+          <p class="profil-desc">Vous connaissez les bases. Vous voulez maintenant industrialiser, automatiser et appliquer l'IA aux process clés de votre fonction métier</p>
+          <p class="profil-path"><strong>Niveau 2</strong> puis <strong>Compétences transversales</strong> selon votre poste (RH, contenus, Copilot, Agents IA)</p>
+        </article>
+        <article class="profil-card reveal reveal-delay-3">
+          <div class="profil-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Je veux me protéger</h3>
+          <p class="profil-desc">Sécurisez vos usages IA et formez vos équipes face aux nouvelles menaces : phishing, deepfakes, fuites de données, IA Act</p>
+          <p class="profil-path"><strong>Cybersécurité &amp; IA</strong> (1 jour) en intra-entreprise pour toute l'équipe</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BÉNÉFICES MESURABLES ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal">Bénéfices mesurables</p>
+        <h2 class="reveal reveal-delay-1">Ce qu'une formation IA change <span class="accent">concrètement dans votre quotidien</span></h2>
+        <p class="lead reveal reveal-delay-2">Maîtrisez les outils d'IA générative et appliquez-les dès le premier jour dans votre métier. Voici ce que mesurent nos clients PME</p>
+      </div>
+      <div class="benefices-grid">
+        <article class="benefice-card reveal reveal-delay-1">
+          <div class="benefice-num">5 à 15h</div>
+          <h3>libérées par semaine</h3>
+          <p>Automatisez relances, comptes rendus, rapports et tâches administratives avec ChatGPT, Copilot et Make</p>
+        </article>
+        <article class="benefice-card reveal reveal-delay-2">
+          <div class="benefice-num">+30%</div>
+          <h3>de productivité</h3>
+          <p>Vos équipes produisent plus vite et mieux : contenus marketing, supports, offres commerciales générés avec l'IA</p>
+        </article>
+        <article class="benefice-card reveal reveal-delay-3">
+          <div class="benefice-num">100%</div>
+          <h3>vos cas métier</h3>
+          <p>Apprentissage sur vos vrais documents, vos vrais outils, vos vrais clients. Aucun exemple générique</p>
+        </article>
+        <article class="benefice-card reveal reveal-delay-4">
+          <div class="benefice-num">RGPD</div>
+          <h3>&amp; cybersécurité intégrés</h3>
+          <p>Protection des données, IA Act, risques liés aux prompts. La productivité ne se paie pas en sécurité</p>
+        </article>
+        <article class="benefice-card reveal reveal-delay-4">
+          <div class="benefice-num">OPCO</div>
+          <h3>financement disponible</h3>
+          <p>OPCO, France Travail, FNE-Formation. On vous accompagne dans les démarches pour un reste à charge minimal</p>
         </article>
       </div>
     </div>
@@ -1716,135 +2209,6 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ========================================
-    // PARCOURS TABS
-    // ========================================
-    const parcoursData = [
-      {
-        tag: 'Parcours 01 · 1 journée',
-        title: 'Fondamentaux IA',
-        pitch: 'Pour ceux qui partent de zéro ou veulent structurer un usage déjà instinctif',
-        desc: 'En une journée, vos collaborateurs passent de "j\'ai entendu parler de ChatGPT" à "je l\'utilise tous les jours de façon efficace et sécurisée"',
-        duree: '1 jour · 7h',
-        format: 'Présentiel ou distanciel',
-        public: 'Tous profils · Aucun prérequis',
-        prix: 'Sur devis',
-        modules: [
-          'IA générative : ce que c\'est vraiment, ce que ça change pour vous',
-          'Prompt Engineering structuré : rôle, contexte, objectif, format',
-          'Sécurité des données et RGPD appliqués à votre métier',
-          'Mise en pratique sur vos propres documents et cas réels',
-        ],
-        livrables: [
-          'Guide de prompts personnalisé par poste',
-          'Fiche de bonnes pratiques RGPD',
-          'Accès à notre bibliothèque de cas métier',
-        ],
-        cta: 'Je veux former mes équipes aux fondamentaux',
-      },
-      {
-        tag: 'Parcours 02 · 2 jours',
-        title: 'Formation Métier',
-        pitch: 'Pour aller au-delà des bases et appliquer l\'IA aux réalités de votre fonction',
-        desc: 'RH, Direction commerciale, Finance, Communication. Chaque formation est construite autour des cas d\'usage de votre fonction, avec vos outils, vos fichiers, votre vocabulaire métier',
-        duree: '2 jours · 14h',
-        format: 'Présentiel recommandé',
-        public: 'Par fonction métier',
-        prix: 'Sur devis',
-        modules: [
-          'Cartographie des tâches à fort potentiel IA dans votre fonction',
-          'Prompt Engineering avancé et chaînes de prompts',
-          'Automatisation légère : Make, Zapier connectés à vos outils',
-          'Cas pratiques sur vos documents réels (contrats, reporting, fiches de poste…)',
-          'Construction de vos premiers workflows IA opérationnels',
-        ],
-        livrables: [
-          '3 workflows IA documentés et prêts à l\'emploi',
-          'Guide de prompts métier sur-mesure',
-          'Support post-formation 30 jours',
-        ],
-        cta: 'Je veux une formation adaptée à mon métier',
-      },
-      {
-        tag: 'Parcours 03 · 1 journée',
-        title: 'Formation Dirigeants',
-        pitch: 'Pour les dirigeants et cadres qui veulent piloter, pas subir, la transformation IA',
-        desc: 'L\'IA est déjà dans votre organisation, souvent sans cadre ni gouvernance. En une journée, cartographiez les usages, sécurisez les pratiques et repartez avec une feuille de route IA sur 6 à 12 mois',
-        duree: '1 jour · 7h',
-        format: 'Présentiel ou distanciel',
-        public: 'Dirigeants · DG · Cadres',
-        prix: 'Sur devis',
-        modules: [
-          'État des lieux : IA générative, agents IA, où en est le marché',
-          'Cartographie des usages IA dans votre organisation (existants et manquants)',
-          'Risques et opportunités : RGPD, IA Act, souveraineté des données',
-          'Construction de votre feuille de route IA et plan de gouvernance',
-        ],
-        livrables: [
-          'Cartographie des usages IA de votre organisation',
-          'Feuille de route IA 6-12 mois',
-          'Principes de charte interne IA',
-        ],
-        cta: 'Je veux piloter l\'IA dans mon organisation',
-      },
-    ];
-
-    const detailEl = document.getElementById('parcours-detail');
-    function renderParcours(i) {
-      const p = parcoursData[i];
-      detailEl.innerHTML = `
-        <div class="parcours-card parcours-card-main">
-          <span class="parcours-tag">${p.tag}</span>
-          <h3 class="parcours-title">${p.title}</h3>
-          <p class="parcours-pitch">${p.pitch}</p>
-          <p class="parcours-desc">${p.desc}</p>
-          <div class="parcours-meta">
-            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Durée</p><p class="parcours-meta-val">${p.duree}</p></div>
-            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Format</p><p class="parcours-meta-val">${p.format}</p></div>
-            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Public</p><p class="parcours-meta-val">${p.public}</p></div>
-            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Tarif</p><p class="parcours-meta-val">${p.prix}</p></div>
-          </div>
-          <a href="#contact" class="btn-primary" style="padding: 0.75rem 1.375rem; font-size: 0.8125rem;">
-            ${p.cta}
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="parcours-side">
-          <div>
-            <p class="parcours-side-label">Programme</p>
-            <ul class="program-list">
-              ${p.modules.map((m, idx) => `
-                <li>
-                  <span class="program-num">${idx + 1}</span>
-                  <span class="program-text">${m}</span>
-                </li>
-              `).join('')}
-            </ul>
-          </div>
-          <div>
-            <p class="parcours-side-label">Livrables inclus</p>
-            <div class="livrables-list">
-              ${p.livrables.map(l => `
-                <div>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color: var(--amber); flex-shrink: 0;"><path d="M20 6L9 17l-5-5"/></svg>
-                  <span>${l}</span>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    document.querySelectorAll('#parcours-tabs .tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('#parcours-tabs .tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderParcours(Number(btn.dataset.tab));
-      });
-    });
-    renderParcours(0);
 
     // ========================================
     // FAQ ACCORDION

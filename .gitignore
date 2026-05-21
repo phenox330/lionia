@@ -9,6 +9,9 @@ formation-*.png
 home-*.png
 logo-*.png
 
+# Agent skills (installed via npx skills add — regenerate per-dev)
+.agents/
+
 # macOS
 .DS_Store
 

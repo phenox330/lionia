@@ -802,6 +802,152 @@
     }
 
     /* ========================================
+       FORMATION PILLARS (between Approach and Stats)
+       ======================================== */
+    .formation-intro {
+      max-width: 620px;
+      margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .pillar-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196, 122, 58, 0.2);
+      box-shadow: 0 14px 44px rgba(0, 0, 0, 0.05);
+    }
+
+    .pillar-card:hover::before { transform: scaleX(1); }
+
+    .pillar-tag {
+      display: inline-block;
+      padding: 0.25rem 0.625rem;
+      background: var(--amber-subtle);
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber);
+      margin-bottom: 0.875rem;
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-card .pillar-pitch {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .pillar-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .pillar-card ul li {
+      font-size: 0.8125rem;
+      color: var(--slate-light);
+      line-height: 1.55;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .pillar-card ul li::before {
+      content: '→';
+      color: var(--amber);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 600;
+    }
+
+    /* Tools strip */
+    .tools-strip {
+      padding: 1.5rem 1.75rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .tools-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      flex: 1;
+    }
+
+    .tools-list span {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3125rem 0.75rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--slate-light);
+    }
+
+    .formation-bottom-cta {
+      text-align: center;
+    }
+
+    /* ========================================
        SOCIAL PROOF BAR (below hero)
        ======================================== */
     .proof-bar {
@@ -1492,8 +1638,77 @@
     </div>
   </section>
 
-  <!-- ===================== STATS ===================== -->
+  <!-- ===================== FORMATION ===================== -->
   <section class="bg-white">
+    <div class="container">
+      <p class="section-label reveal">Formations IA</p>
+      <h2 class="reveal reveal-delay-1">Trois piliers pour passer <span class="accent">de la théorie à la pratique</span></h2>
+      <p class="subtitle reveal reveal-delay-2 formation-intro">De l'initiation pour vos équipes aux programmes sectoriels métier. Sur vos vrais cas, dès le premier jour. Aucun prérequis technique</p>
+
+      <div class="pillars-grid">
+        <article class="pillar-card reveal reveal-delay-1">
+          <span class="pillar-tag">Pilier 01</span>
+          <h3>Acculturation IA</h3>
+          <p class="pillar-pitch">Les fondamentaux pour que votre équipe parle IA, gagne du temps et sécurise ses usages dès le premier jour</p>
+          <ul>
+            <li>Niveau 1 — Fondamentaux de l'IA générative</li>
+            <li>Niveau 2 — Produire contenus rédactionnels et visuels</li>
+            <li>Stratégie IA Dirigeants — Cadrer et sécuriser</li>
+            <li>Cybersécurité — Phishing, deepfakes, RGPD</li>
+          </ul>
+        </article>
+
+        <article class="pillar-card reveal reveal-delay-2">
+          <span class="pillar-tag">Pilier 02</span>
+          <h3>Compétences transversales</h3>
+          <p class="pillar-pitch">Appliquez l'IA aux fonctions clés de votre PME : RH, commercial, communication, gouvernance</p>
+          <ul>
+            <li>IA &amp; RH — Recrutement, onboarding, GPEC</li>
+            <li>IA &amp; Réseaux sociaux — Contenu 3× plus vite</li>
+            <li>Agents IA no-code — Make, n8n, Dust</li>
+            <li>Microsoft Copilot — Initiation à industrialisation</li>
+          </ul>
+        </article>
+
+        <article class="pillar-card reveal reveal-delay-3">
+          <span class="pillar-tag">Pilier 03</span>
+          <h3>Formations IA Entreprise</h3>
+          <p class="pillar-pitch">Programmes sectoriels sur-mesure, construits autour de vos process, vos outils, vos cas réels</p>
+          <ul>
+            <li>IA &amp; Ingénierie pédagogique</li>
+            <li>IA &amp; Club de sport, association</li>
+            <li>Programmes santé, juridique, industrie</li>
+            <li>Inter ou intra, présentiel ou distanciel</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="tools-strip reveal">
+        <p class="tools-label">Outils maîtrisés</p>
+        <div class="tools-list">
+          <span>ChatGPT</span>
+          <span>Claude</span>
+          <span>Gemini</span>
+          <span>Copilot</span>
+          <span>Mistral</span>
+          <span>Make</span>
+          <span>n8n</span>
+          <span>Midjourney</span>
+          <span>Canva</span>
+        </div>
+      </div>
+
+      <div class="formation-bottom-cta reveal">
+        <a href="/formation" class="btn-primary">
+          Voir toutes nos formations
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="bg-cream">
     <div class="container">
       <p class="section-label reveal" style="text-align:center">En chiffres</p>
       <h2 class="reveal reveal-delay-1" style="text-align:center">Des résultats concrets, <span class="accent">pas des promesses</span></h2>
@@ -1516,7 +1731,7 @@
   </section>
 
   <!-- ===================== FAQ ===================== -->
-  <section class="bg-cream">
+  <section class="bg-white">
     <div class="container">
       <p class="section-label reveal" style="text-align:center">Questions fréquentes</p>
       <h2 class="reveal reveal-delay-1" style="text-align:center">Tout ce que vous devez <span class="accent">savoir</span></h2>
