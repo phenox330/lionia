@@ -201,7 +201,7 @@
     .nav-cta:hover {
       background: var(--amber);
       color: var(--cream);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     /* ========================================
@@ -653,7 +653,7 @@
     }
 
     .problem-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(196, 122, 58, 0.18);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
     }
@@ -921,7 +921,7 @@
     }
 
     .pourqui-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(196, 122, 58, 0.2);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
     }
@@ -1073,7 +1073,7 @@
     }
 
     .temo-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: var(--border-strong);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
     }
@@ -1387,7 +1387,7 @@
 
     .formation-row:hover {
       border-color: rgba(196, 122, 58, 0.2);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .formation-row h4 {
@@ -1498,7 +1498,7 @@
     }
 
     .profil-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(196, 122, 58, 0.2);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
     }
@@ -1614,6 +1614,32 @@
       .parcours-meta { grid-template-columns: 1fr; }
       .hero-card { padding: 1.5rem; }
       .section-header-inline { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ========================================
+       ACCESSIBILITY: FOCUS + REDUCED MOTION
+       ======================================== */
+    :focus { outline: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .btn-primary:focus-visible {
+      outline-color: var(--slate);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>

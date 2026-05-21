@@ -203,7 +203,7 @@
     .nav-cta:hover {
       background: var(--amber);
       color: var(--cream);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     /* ========================================
@@ -646,7 +646,7 @@
     }
 
     .intervenant-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: var(--border-strong);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
     }
@@ -854,6 +854,32 @@
 
       .section-header-inline { flex-direction: column; align-items: flex-start; }
     }
+
+    /* ========================================
+       ACCESSIBILITY: FOCUS + REDUCED MOTION
+       ======================================== */
+    :focus { outline: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .btn-primary:focus-visible {
+      outline-color: var(--slate);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -992,7 +1018,7 @@
         <article class="founder-card reveal reveal-delay-1">
           <div class="founder-body">
             <div class="founder-top">
-              <img class="avatar-lg" src="/uploads/emmanuel-bardet.jpeg" alt="Emmanuel Bardet">
+              <img class="avatar-lg" src="/uploads/emmanuel-bardet.jpeg" alt="Emmanuel Bardet" loading="lazy" decoding="async">
               <a href="https://linkedin.com/in/emmanuel" target="_blank" rel="noopener" class="linkedin-btn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                 LinkedIn
@@ -1010,7 +1036,7 @@
         <article class="founder-card reveal reveal-delay-2">
           <div class="founder-body">
             <div class="founder-top">
-              <img class="avatar-lg" src="/uploads/anthony-gombert.png" alt="Anthony Gombert">
+              <img class="avatar-lg" src="/uploads/anthony-gombert.png" alt="Anthony Gombert" loading="lazy" decoding="async">
               <a href="https://linkedin.com/in/anthony-gombert" target="_blank" rel="noopener" class="linkedin-btn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                 LinkedIn
@@ -1040,7 +1066,7 @@
         <!-- Intervenant 1: Ellina -->
         <article class="intervenant-card reveal reveal-delay-1">
           <div class="intervenant-top">
-            <img class="avatar-sm" src="/uploads/ellina-chhay.jpeg" alt="Ellina Chhay">
+            <img class="avatar-sm" src="/uploads/ellina-chhay.jpeg" alt="Ellina Chhay" loading="lazy" decoding="async">
             <a href="https://linkedin.com/in/ellina-chhay" target="_blank" rel="noopener" class="linkedin-btn linkedin-btn--sm">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn
@@ -1058,7 +1084,7 @@
   <!-- ===================== FINAL CTA ===================== -->
   <section class="final-cta bg-dark" id="contact">
     <div class="container--narrow">
-      <p class="section-label reveal" style="color: var(--amber)">Échangeons</p>
+      <p class="section-label reveal">Échangeons</p>
       <h2 class="reveal reveal-delay-1">Voyons ensemble<br><span class="accent">si on peut vraiment vous aider</span></h2>
       <p class="subtitle reveal reveal-delay-2">30 minutes en visio avec un fondateur. Vous décrivez votre situation, on identifie 1 ou 2 quick wins concrets, et on vous dit honnêtement si l'IA a du sens pour vous aujourd'hui</p>
       <div class="reveal reveal-delay-3">

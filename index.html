@@ -219,7 +219,7 @@
 
     .nav-cta:hover {
       background: var(--amber);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     /* ========================================
@@ -599,7 +599,7 @@
 
     .benefit-card:hover {
       box-shadow: 0 12px 48px rgba(0,0,0,0.06);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
 
     .benefit-number {
@@ -839,7 +839,7 @@
     }
 
     .pillar-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(196, 122, 58, 0.2);
       box-shadow: 0 14px 44px rgba(0, 0, 0, 0.05);
     }
@@ -1334,6 +1334,32 @@
         transform: none;
       }
     }
+
+    /* ========================================
+       ACCESSIBILITY: FOCUS + REDUCED MOTION
+       ======================================== */
+    :focus { outline: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .btn-primary:focus-visible {
+      outline-color: var(--slate);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -1802,8 +1828,8 @@
   <!-- ===================== FINAL CTA ===================== -->
   <section class="final-cta bg-dark" id="booking">
     <div class="container--narrow">
-      <p class="section-label reveal" style="color: var(--amber)">Premier pas</p>
-      <h2 class="reveal reveal-delay-1">Quel process voulez-vous<br><span style="color: var(--amber);">ne plus jamais refaire à la main ?</span></h2>
+      <p class="section-label reveal">Premier pas</p>
+      <h2 class="reveal reveal-delay-1">Quel process voulez-vous<br><span class="accent">ne plus jamais refaire à la main ?</span></h2>
       <p class="subtitle reveal reveal-delay-2">30 minutes pour comprendre votre situation, identifier 1 ou 2 quick wins, et vous dire honnêtement si on peut vous aider</p>
       <div class="reveal reveal-delay-3">
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
