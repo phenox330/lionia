@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lionia — Formations IA sur-mesure pour PME</title>
+  <meta name="description" content="Des formations IA opérationnelles dès le premier jour. Construites sur vos vrais cas métier, vos documents, vos process. Présentiel ou distanciel, financement OPCO disponible">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lionia — Formations IA sur-mesure pour PME">
+  <meta property="og:description" content="Des formations IA opérationnelles dès le premier jour. Construites sur vos vrais cas métier">
+  <meta property="og:image" content="https://liona.fr/og-image.png">
+  <meta property="og:url" content="https://liona.fr/formation">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lionia — Formations IA sur-mesure pour PME">
+  <meta name="twitter:description" content="Des formations IA opérationnelles dès le premier jour">
+  <meta name="twitter:image" content="https://liona.fr/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS VARIABLES
+       ======================================== */
+    :root {
+      --cream: #faf9f5;
+      --cream-dark: #f0ede4;
+      --white: #ffffff;
+      --slate: #1a1a1a;
+      --slate-light: #3d3935;
+      --muted: #6b6561;
+      --muted-light: #9a9590;
+      --amber: #c47a3a;
+      --amber-light: #d4935e;
+      --amber-subtle: rgba(196, 122, 58, 0.08);
+      --amber-glow: rgba(196, 122, 58, 0.15);
+      --border: rgba(26, 26, 26, 0.08);
+      --border-strong: rgba(26, 26, 26, 0.12);
+
+      --font-display: 'Space Grotesk', Arial, sans-serif;
+      --font-body: 'Space Grotesk', Arial, sans-serif;
+
+      --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
+      --container: min(1200px, 100% - var(--gutter) * 2);
+      --container-narrow: min(720px, 100% - var(--gutter) * 2);
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      line-height: 1.65;
+      color: var(--slate);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+
+    ::selection { background: var(--amber-glow); color: var(--slate); }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 2rem + 2vw, 4.2rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 1.6rem + 1.4vw, 3rem);
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      margin-bottom: 0.625rem;
+    }
+
+    .accent { color: var(--amber); }
+
+    /* ========================================
+       LAYOUT
+       ======================================== */
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    section { padding: clamp(3.5rem, 3rem + 3vw, 5rem) 0; }
+
+    .bg-cream { background: var(--cream); }
+    .bg-white { background: var(--white); }
+    .bg-dark { background: var(--slate); color: var(--cream); }
+
+    /* ========================================
+       NAV
+       ======================================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: clamp(0.75rem, 0.5rem + 0.5vw, 1.25rem) 0;
+      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(250, 249, 245, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+      padding: clamp(0.5rem, 0.375rem + 0.25vw, 0.875rem) 0;
+    }
+
+    .nav-inner {
+      width: var(--container);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    .logo span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      font-size: 0.875rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--slate); }
+
+    .nav-links a.active {
+      color: var(--amber);
+      font-weight: 500;
+    }
+
+    .nav-links a.nav-cta,
+    .nav-cta {
+      padding: 0.625rem 1.375rem;
+      background: var(--slate);
+      color: var(--cream);
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .nav-links a.nav-cta:hover,
+    .nav-cta:hover {
+      background: var(--amber);
+      color: var(--cream);
+      transform: translateY(-1px);
+    }
+
+    /* ========================================
+       NAV — SERVICES MEGA-MENU
+       ======================================== */
+    .nav-services { position: static; }
+
+    .nav-services-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-light);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      user-select: none;
+    }
+
+    .nav-services-trigger:hover,
+    .nav-services.open .nav-services-trigger {
+      color: var(--amber);
+    }
+
+    .nav-services-trigger svg { transition: transform 0.25s ease; }
+    .nav-services.open .nav-services-trigger svg { transform: rotate(180deg); }
+
+    nav.menu-open {
+      background: rgba(250, 249, 245, 0.97) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .mega-menu {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      padding: 2rem 0 1.75rem;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+    }
+
+    nav.scrolled .mega-menu { top: 56px; }
+
+    .nav-services.open .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+    }
+
+    .mega-inner {
+      width: var(--container);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .mega-col {
+      padding: 0 1.75rem;
+      border-right: 1px solid var(--border);
+    }
+    .mega-col:last-child { border-right: none; }
+
+    .mega-col-head { margin-bottom: 1.25rem; }
+
+    .mega-tagline {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+
+    .mega-label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--slate);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .mega-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .mega-items {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 1.25rem;
+    }
+
+    .mega-item {
+      display: block;
+      padding: 0.5625rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+    .mega-item:hover { background: var(--cream-dark); }
+
+    .mega-item-title {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--slate);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .mega-item-sub {
+      font-size: 0.6875rem;
+      color: var(--muted);
+    }
+
+    .mega-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--amber);
+      padding: 0 0.75rem;
+      transition: gap 0.2s ease;
+    }
+    .mega-cta:hover { gap: 8px; }
+
+    @media (max-width: 960px) {
+      .nav-services { display: none; }
+    }
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: clamp(0.75rem, 0.5rem + 0.4vw, 0.9375rem) clamp(1.375rem, 1rem + 0.8vw, 2rem);
+      background: var(--amber);
+      color: white;
+      border-radius: 4px;
+      font-size: clamp(0.8125rem, 0.8rem + 0.15vw, 0.9375rem);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(196, 122, 58, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--amber-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary svg { transition: transform 0.3s ease; }
+    .btn-primary:hover svg { transform: translateX(3px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8125rem 1.375rem;
+      border: 1.5px solid var(--border-strong);
+      color: var(--slate);
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9375rem 1.5rem;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      color: var(--cream);
+      border-radius: 4px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      padding-top: clamp(7rem, 6rem + 3vw, 9rem);
+      padding-bottom: clamp(3rem, 2.5rem + 2vw, 4.5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(196, 122, 58, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26, 26, 26, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 26, 26, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 1rem + 2.5vw, 4rem);
+      align-items: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.875rem;
+      background: var(--amber-subtle);
+      border: 1px solid rgba(196, 122, 58, 0.15);
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    .hero-pill span:last-child {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .hero h1 {
+      margin-bottom: 1.375rem;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 0.95rem + 0.35vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.375rem;
+    }
+
+    .hero-stat-num {
+      font-size: 1.1875rem;
+      font-weight: 600;
+      color: var(--amber);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-lbl {
+      font-size: 0.75rem;
+      color: var(--muted-light);
+    }
+
+    /* Hero right card */
+    .hero-card-wrap {
+      position: relative;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-card-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      margin-bottom: 1.125rem;
+    }
+
+    .hero-card-list {
+      list-style: none;
+    }
+
+    .hero-card-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-card-list li:last-child { border-bottom: none; }
+
+    .hero-card-list .arrow {
+      color: var(--amber);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .hero-card-list .text {
+      font-size: 0.875rem;
+      color: var(--slate-light);
+      line-height: 1.55;
+    }
+
+    .hero-card-finance {
+      margin-top: 1.25rem;
+      padding: 0.875rem 1rem;
+      background: var(--amber-subtle);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+
+    .hero-card-finance .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #16a34a;
+      flex-shrink: 0;
+    }
+
+    .hero-card-finance-text {
+      font-size: 0.8125rem;
+      color: var(--slate-light);
+      font-weight: 500;
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: var(--slate);
+      color: var(--cream);
+      border-radius: 8px;
+      padding: 0.75rem 1.125rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-badge-num {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .hero-badge-lbl {
+      font-size: 0.625rem;
+      font-weight: 500;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+
+    /* ========================================
+       PROBLEM
+       ======================================== */
+    .section-header {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-header h2 {
+      margin-bottom: 0.625rem;
+    }
+
+    .section-header .lead {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: 1.25rem;
+    }
+
+    .problem-card {
+      padding: 1.75rem 1.5rem;
+      border-radius: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196, 122, 58, 0.18);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .problem-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--amber-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .problem-card h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--slate);
+      margin-bottom: 0.625rem;
+      line-height: 1.4;
+    }
+
+    .problem-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .problem-quote {
+      margin-top: 1.75rem;
+      padding: 1.375rem 1.75rem;
+      background: linear-gradient(135deg, rgba(196, 122, 58, 0.06), rgba(196, 122, 58, 0.02));
+      border-left: 3px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .problem-quote p {
+      font-size: 0.9375rem;
+      color: var(--slate-light);
+      line-height: 1.7;
+    }
+
+    .problem-quote strong { color: var(--amber); }
+
+    /* ========================================
+       PARCOURS
+       ======================================== */
+    .parcours-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.625rem 1.25rem;
+      border-radius: 6px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--muted);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--slate);
+      border-color: var(--border-strong);
+    }
+
+    .tab-btn.active {
+      border-color: var(--amber);
+      background: var(--amber);
+      color: white;
+    }
+
+    .parcours-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+    }
+
+    .parcours-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+    }
+
+    .parcours-card-main {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parcours-card-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--amber);
+    }
+
+    .parcours-tag {
+      display: inline-block;
+      padding: 0.25rem 0.625rem;
+      background: var(--amber-subtle);
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--amber);
+      margin-bottom: 0.875rem;
+    }
+
+    .parcours-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .parcours-pitch {
+      font-size: 0.875rem;
+      color: var(--amber);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .parcours-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .parcours-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .parcours-meta-item {
+      padding: 0.625rem 0.875rem;
+      background: var(--cream);
+      border-radius: 6px;
+    }
+
+    .parcours-meta-lbl {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted-light);
+      margin-bottom: 3px;
+    }
+
+    .parcours-meta-val {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--slate-light);
+    }
+
+    .parcours-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .parcours-side > div {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+
+    .parcours-side > div:first-child {
+      flex-grow: 1;
+      padding: 1.75rem;
+    }
+
+    .parcours-side-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .program-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .program-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .program-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--amber-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: var(--amber);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .program-text {
+      font-size: 0.8125rem;
+      color: var(--slate-light);
+      line-height: 1.55;
+    }
+
+    .livrables-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .livrables-list > div {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .livrables-list span {
+      font-size: 0.8125rem;
+      color: var(--slate-light);
+    }
+
+    /* ========================================
+       POUR QUI
+       ======================================== */
+    .pourqui-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: 1rem;
+    }
+
+    .pourqui-card {
+      padding: 1.75rem 1.375rem;
+      border-radius: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pourqui-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196, 122, 58, 0.2);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .pourqui-num {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 0.625rem;
+    }
+
+    .pourqui-card h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--slate);
+      margin-bottom: 0.75rem;
+    }
+
+    .pourqui-card p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex-grow: 1;
+      margin-bottom: 1.125rem;
+    }
+
+    .pourqui-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--amber);
+      transition: opacity 0.2s ease;
+    }
+
+    .pourqui-link:hover { opacity: 0.7; }
+
+    .section-header-inline {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header-inline p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      max-width: 340px;
+      line-height: 1.65;
+    }
+
+    /* ========================================
+       POURQUOI
+       ======================================== */
+    .pourquoi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 1.5rem + 2vw, 4.5rem);
+      align-items: start;
+    }
+
+    .pourquoi-left h2 { margin-bottom: 1rem; }
+
+    .pourquoi-left p {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
+    .pourquoi-micro {
+      font-size: 0.75rem;
+      color: var(--muted-light);
+      margin-top: 0.625rem;
+    }
+
+    .pourquoi-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    .pourquoi-item {
+      padding: 1.375rem 1.625rem;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .pourquoi-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.05);
+    }
+
+    .pourquoi-item-inner {
+      display: flex;
+      gap: 1.125rem;
+      align-items: flex-start;
+    }
+
+    .pourquoi-num {
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1;
+      min-width: 32px;
+    }
+
+    .pourquoi-item h3 {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--slate);
+      margin-bottom: 0.375rem;
+    }
+
+    .pourquoi-item p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ========================================
+       TÉMOIGNAGES
+       ======================================== */
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .temos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: 1.25rem;
+    }
+
+    .temo-card {
+      padding: 1.75rem;
+      border-radius: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .temo-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .temo-mark {
+      font-size: 2.75rem;
+      line-height: 1;
+      color: rgba(196, 122, 58, 0.15);
+      font-family: Georgia, serif;
+      margin-bottom: 4px;
+    }
+
+    .temo-quote {
+      font-size: 0.875rem;
+      color: var(--slate-light);
+      line-height: 1.75;
+      flex-grow: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .temo-author {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .temo-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--amber-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .temo-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--slate);
+    }
+
+    .temo-role {
+      font-size: 0.75rem;
+      color: var(--muted-light);
+    }
+
+    /* ========================================
+       FAQ
+       ======================================== */
+    .faq-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 400;
+      text-align: left;
+      color: var(--slate);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .faq-question:hover { color: var(--amber); }
+
+    .faq-item.open .faq-question { color: var(--amber); }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-strong);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      border-color: var(--amber);
+      background: var(--amber);
+    }
+
+    .faq-icon svg {
+      stroke: var(--slate);
+      transition: transform 0.3s ease, stroke 0.3s ease;
+    }
+
+    .faq-item.open .faq-icon svg {
+      transform: rotate(45deg);
+      stroke: white;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 320px; }
+
+    .faq-answer p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-bottom: 1.25rem;
+    }
+
+    /* ========================================
+       CTA FINAL
+       ======================================== */
+    .final-cta {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: clamp(4rem, 3rem + 4vw, 6.25rem) 0;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(196, 122, 58, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta .container { position: relative; z-index: 2; }
+
+    .final-cta h2 {
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .final-cta .subtitle {
+      font-size: 0.9375rem;
+      color: var(--muted-light);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+
+    .final-cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .micro-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    footer {
+      padding: clamp(1.25rem, 1rem + 1vw, 1.75rem) 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: var(--slate);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      width: var(--container);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-inner .logo {
+      color: var(--cream);
+      font-size: 0.9375rem;
+    }
+
+    /* ========================================
+       REVEAL
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .parcours-detail { grid-template-columns: 1fr; }
+      .pourquoi-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-badge { top: -12px; right: -12px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { gap: 1rem; }
+      .nav-links a:not(.active):not(.nav-cta) { display: none; }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+
+      .parcours-card { padding: 1.5rem; }
+      .parcours-meta { grid-template-columns: 1fr; }
+      .hero-card { padding: 1.5rem; }
+      .section-header-inline { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">LIONIA<span>.</span></a>
+      <div class="nav-links">
+        <div class="nav-services" id="nav-services">
+          <button class="nav-services-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="mega-menu" role="menu">
+            <div class="mega-inner">
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Identifiez vos vrais gains</p>
+                  <p class="mega-label">Audit &amp; Diagnostic</p>
+                  <p class="mega-desc">Avant de déployer quoi que ce soit, on comprend votre métier. Vous repartez avec un plan d'action</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Diagnostic maturité IA</span><span class="mega-item-sub">Où en est vraiment votre organisation face à l'IA</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Feuille de route stratégique</span><span class="mega-item-sub">Priorisez vos actions IA sur 6 à 12 mois</span></a>
+                </div>
+                <a href="/audit" class="mega-cta">Commencer par un audit
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Formez vos équipes sur vos cas réels</p>
+                  <p class="mega-label">Formation sur-mesure</p>
+                  <p class="mega-desc">Vos vrais documents, vos vrais clients, vos vrais outils. Opérationnel dès le premier jour</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Fondamentaux IA</span><span class="mega-item-sub">De zéro à opérationnel en 1 journée</span></a>
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Formation par métier</span><span class="mega-item-sub">RH, Finance, Commercial, Juridique, Direction</span></a>
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Formation Dirigeants</span><span class="mega-item-sub">Gouvernance IA, sécurité des données, feuille de route</span></a>
+                </div>
+                <a href="/formation" class="mega-cta">Voir toutes les formations
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Automatisez l'essentiel</p>
+                  <p class="mega-label">Agents IA sur mesure</p>
+                  <p class="mega-desc">Des agents IA connectés à vos outils existants, supervisés par votre équipe</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent traitement documentaire</span><span class="mega-item-sub">Analysez 100 documents en quelques minutes</span></a>
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent commercial</span><span class="mega-item-sub">Qualification de leads et relances automatisées</span></a>
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent reporting</span><span class="mega-item-sub">Synthèses et tableaux de bord générés en temps réel</span></a>
+                </div>
+                <a href="/agents" class="mega-cta">Découvrir les agents IA
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/">Accueil</a>
+        <a href="/formation" class="active">Formation</a>
+        <a href="/about">À propos</a>
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Réserver un appel</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero bg-cream">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-pill reveal">
+            <span class="dot"></span>
+            <span>Sur vos vrais cas métier · En présentiel ou à distance</span>
+          </div>
+          <h1 class="reveal reveal-delay-1">Vos équipes utilisent l'IA<br><span class="accent">dès le lendemain matin</span></h1>
+          <p class="subtitle reveal reveal-delay-2">
+            On les forme sur vos vrais documents, vos vrais outils, vos vrais clients. Le lendemain, c'est déjà en production. Pas dans 3 mois
+          </p>
+          <div class="hero-ctas reveal reveal-delay-3">
+            <a href="#parcours" class="btn-primary">
+              Voir les parcours
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn-secondary">Devis intra-entreprise</a>
+          </div>
+          <div class="hero-stats reveal reveal-delay-4">
+            <div class="hero-stat"><span class="hero-stat-num">80+</span><span class="hero-stat-lbl">PME formées</span></div>
+            <div class="hero-stat"><span class="hero-stat-num">98%</span><span class="hero-stat-lbl">de satisfaction</span></div>
+            <div class="hero-stat"><span class="hero-stat-num">1 jour</span><span class="hero-stat-lbl">pour être opérationnel</span></div>
+          </div>
+        </div>
+
+        <div class="hero-card-wrap reveal reveal-delay-2">
+          <div class="hero-card">
+            <p class="hero-card-label">Ce que vous allez maîtriser</p>
+            <ul class="hero-card-list">
+              <li><span class="arrow">→</span><span class="text">ChatGPT, Claude, Gemini, Copilot, appliqués à vos cas réels</span></li>
+              <li><span class="arrow">→</span><span class="text">Prompt Engineering structuré pour vos documents métier</span></li>
+              <li><span class="arrow">→</span><span class="text">Automatisation des tâches répétitives sans coder</span></li>
+              <li><span class="arrow">→</span><span class="text">RGPD et sécurité des données IA intégrés dès le départ</span></li>
+              <li><span class="arrow">→</span><span class="text">Gouvernance IA : cadre et bonnes pratiques pour votre organisation</span></li>
+            </ul>
+            <div class="hero-card-finance">
+              <span class="live-dot"></span>
+              <span class="hero-card-finance-text">Financement OPCO · France Travail · FNE disponible</span>
+            </div>
+          </div>
+          <div class="hero-badge">
+            <div class="hero-badge-num">100%</div>
+            <div class="hero-badge-lbl">PRATIQUE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROBLEM ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal">Le constat</p>
+        <h2 class="reveal reveal-delay-1">La formation IA qui ne change rien,<br><span class="accent">on connaît. On fait l'inverse</span></h2>
+        <p class="lead reveal reveal-delay-2">On a audité des dizaines de PME après d'autres formations. Voici ce qu'on retrouve toujours</p>
+      </div>
+      <div class="problem-grid">
+        <article class="problem-card reveal reveal-delay-1">
+          <div class="problem-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color: var(--amber)"><path d="M12 8v4M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+          </div>
+          <h3>Les formations génériques ne tiennent pas leurs promesses</h3>
+          <p>Un webinaire ChatGPT, quelques prompts copiés-collés, puis plus rien. Parce que personne n'a montré comment l'IA s'applique à vos vrais dossiers, vos vrais clients, vos vrais emails</p>
+        </article>
+        <article class="problem-card reveal reveal-delay-2">
+          <div class="problem-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color: var(--amber)"><path d="M12 8v4M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+          </div>
+          <h3>Vos équipes testent l'IA, mais sans méthode ni cadre</h3>
+          <p>Usage intuitif, résultats aléatoires, risques RGPD ignorés. L'IA utilisée sans structure crée autant de problèmes qu'elle n'en résout</p>
+        </article>
+        <article class="problem-card reveal reveal-delay-3">
+          <div class="problem-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color: var(--amber)"><path d="M12 8v4M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+          </div>
+          <h3>Chaque métier a ses cas d'usage, et les formations standard l'ignorent</h3>
+          <p>Un RH, un directeur commercial et un comptable n'ont pas les mêmes besoins. Former tout le monde de la même façon, c'est former personne efficacement</p>
+        </article>
+      </div>
+      <div class="problem-quote reveal">
+        <p>Nos formations sont construites <strong>sur vos documents réels, vos process réels, vos cas métier réels</strong>. Pas sur un cas fictif d'une entreprise imaginaire</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PARCOURS ===================== -->
+  <section id="parcours" class="bg-cream">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label reveal">Nos parcours</p>
+        <h2 class="reveal reveal-delay-1">Trois portes d'entrée, <span class="accent">une seule exigence : du concret</span></h2>
+        <p class="lead reveal reveal-delay-2">Pas trois étapes obligatoires. Commencez là où vous en êtes, chaque parcours est indépendant</p>
+      </div>
+
+      <div class="parcours-tabs" id="parcours-tabs">
+        <button class="tab-btn active" data-tab="0">Fondamentaux IA</button>
+        <button class="tab-btn" data-tab="1">Formation Métier</button>
+        <button class="tab-btn" data-tab="2">Formation Dirigeants</button>
+      </div>
+
+      <div class="parcours-detail" id="parcours-detail">
+        <!-- Filled by JS from data below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POUR QUI ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <p class="section-label reveal">Pour qui</p>
+      <div class="section-header-inline">
+        <h2 class="reveal reveal-delay-1">Nos formations sont faites <span class="accent">pour vous</span></h2>
+        <p class="reveal reveal-delay-2">Que vous gériez 200 personnes ou que vous soyez seul sur votre poste. Aucun prérequis technique</p>
+      </div>
+      <div class="pourqui-grid">
+        <article class="pourqui-card reveal reveal-delay-1">
+          <p class="pourqui-num">Profil 01</p>
+          <h3>Dirigeant · DG</h3>
+          <p>Vous voulez comprendre les enjeux stratégiques, sécuriser les usages dans votre organisation et repartir avec une feuille de route actionnée</p>
+          <a href="#contact" class="pourqui-link">Formation Dirigeants →</a>
+        </article>
+        <article class="pourqui-card reveal reveal-delay-2">
+          <p class="pourqui-num">Profil 02</p>
+          <h3>Responsable RH</h3>
+          <p>Recrutement, onboarding, GPEC, gestion des talents. Chaque tâche RH peut être augmentée par l'IA de façon conforme et efficace</p>
+          <a href="#contact" class="pourqui-link">Formation Métier RH →</a>
+        </article>
+        <article class="pourqui-card reveal reveal-delay-3">
+          <p class="pourqui-num">Profil 03</p>
+          <h3>Direction commerciale</h3>
+          <p>Qualification de leads, relances, propositions commerciales, reporting. Libérez 30% du temps administratif de vos équipes commerciales</p>
+          <a href="#contact" class="pourqui-link">Formation Métier Commercial →</a>
+        </article>
+        <article class="pourqui-card reveal reveal-delay-4">
+          <p class="pourqui-num">Profil 04</p>
+          <h3>Tous collaborateurs</h3>
+          <p>Aucun prérequis technique. En 1 journée, opérationnel sur les outils IA les plus utiles à votre poste, avec vos propres exemples</p>
+          <a href="#contact" class="pourqui-link">Formation Fondamentaux →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POURQUOI ===================== -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="pourquoi-grid">
+        <div class="pourquoi-left">
+          <p class="section-label reveal">Pourquoi Lionia</p>
+          <h2 class="reveal reveal-delay-1">Ce qui nous distingue,<br><span class="accent">c'est ce qu'on ne fait pas</span></h2>
+          <p class="reveal reveal-delay-2">On ne forme pas pour former. On cherche à ce que chaque participant soit plus efficace le lendemain. C'est une exigence, pas une promesse marketing</p>
+          <a href="#contact" class="btn-primary reveal reveal-delay-3">
+            Discutons de votre besoin
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p class="pourquoi-micro reveal reveal-delay-3">Réponse sous 24h · Sans engagement</p>
+        </div>
+        <div class="pourquoi-list">
+          <div class="pourquoi-item reveal reveal-delay-1">
+            <div class="pourquoi-item-inner">
+              <span class="pourquoi-num">01</span>
+              <div>
+                <h3>100% sur vos cas réels</h3>
+                <p>Exercices, exemples, mises en situation, tout est construit à partir de vos documents, vos clients, vos emails</p>
+              </div>
+            </div>
+          </div>
+          <div class="pourquoi-item reveal reveal-delay-2">
+            <div class="pourquoi-item-inner">
+              <span class="pourquoi-num">02</span>
+              <div>
+                <h3>Des formateurs actifs sur le terrain</h3>
+                <p>Nos formateurs ne sont pas des enseignants généralistes. Ils déploient des solutions IA chez des PME en parallèle. Ils savent ce qui marche vraiment</p>
+              </div>
+            </div>
+          </div>
+          <div class="pourquoi-item reveal reveal-delay-3">
+            <div class="pourquoi-item-inner">
+              <span class="pourquoi-num">03</span>
+              <div>
+                <h3>Opérationnel le lendemain matin</h3>
+                <p>À la fin de la journée, chaque participant repart avec ses prompts personnalisés, ses workflows documentés et les bons réflexes. Le lendemain</p>
+              </div>
+            </div>
+          </div>
+          <div class="pourquoi-item reveal reveal-delay-4">
+            <div class="pourquoi-item-inner">
+              <span class="pourquoi-num">04</span>
+              <div>
+                <h3>Financement facilité</h3>
+                <p>OPCO, France Travail, FNE-Formation, plan de développement des compétences. On vous accompagne dans les démarches pour que le reste à charge soit minimal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TÉMOIGNAGES ===================== -->
+  <section class="bg-white">
+    <div class="container">
+      <div class="section-header-center">
+        <p class="section-label reveal">Témoignages</p>
+        <h2 class="reveal reveal-delay-1">Ce que disent <span class="accent">ceux qui sont passés par là</span></h2>
+      </div>
+      <div class="temos-grid">
+        <article class="temo-card reveal reveal-delay-1">
+          <div class="temo-mark">"</div>
+          <p class="temo-quote">En 1 journée, mon équipe RH a appris à rédiger des fiches de poste et des comptes rendus d'entretien avec l'IA. On gagne 3h par semaine sur ces tâches. Le lendemain, c'était opérationnel</p>
+          <div class="temo-author">
+            <div class="temo-avatar">M</div>
+            <div>
+              <div class="temo-name">Marie D.</div>
+              <div class="temo-role">DRH · Cabinet RH, 40 personnes</div>
+            </div>
+          </div>
+        </article>
+        <article class="temo-card reveal reveal-delay-2">
+          <div class="temo-mark">"</div>
+          <p class="temo-quote">Ce qui m'a frappé, c'est qu'on a travaillé sur nos vrais dossiers clients. Pas sur un exemple inventé. Mes commerciaux ont leur propre bibliothèque de prompts adaptés à notre secteur</p>
+          <div class="temo-author">
+            <div class="temo-avatar">J</div>
+            <div>
+              <div class="temo-name">Julien M.</div>
+              <div class="temo-role">Directeur commercial · Industrie, 85 personnes</div>
+            </div>
+          </div>
+        </article>
+        <article class="temo-card reveal reveal-delay-3">
+          <div class="temo-mark">"</div>
+          <p class="temo-quote">La formation Dirigeants m'a permis de structurer une vraie politique IA dans mon entreprise. Avant, chacun utilisait ChatGPT dans son coin. Maintenant on a un cadre et une feuille de route</p>
+          <div class="temo-author">
+            <div class="temo-avatar">S</div>
+            <div>
+              <div class="temo-name">Sophie L.</div>
+              <div class="temo-role">PDG · Cabinet conseil, 22 personnes</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="bg-cream">
+    <div class="container">
+      <div class="faq-wrap">
+        <div class="section-header-center">
+          <p class="section-label reveal">Questions fréquentes</p>
+          <h2 class="reveal reveal-delay-1">Tout ce que vous devez <span class="accent">savoir avant de vous lancer</span></h2>
+        </div>
+        <div id="faq-list">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="final-cta bg-dark" id="contact">
+    <div class="container">
+      <p class="section-label reveal">Prêt à commencer ?</p>
+      <h2 class="reveal reveal-delay-1">Quelle équipe, quels cas métier ?<br><span class="accent">On construit la formation autour</span></h2>
+      <p class="subtitle reveal reveal-delay-2">30 minutes pour comprendre votre contexte, identifier les bons cas d'usage et vous proposer un programme sur-mesure. Gratuit, sans engagement</p>
+      <div class="final-cta-actions reveal reveal-delay-3">
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
+          Réserver mon appel découverte
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="mailto:contact@lionia.fr" class="btn-ghost">Demander un devis intra</a>
+      </div>
+      <p class="micro-copy reveal reveal-delay-4">Gratuit · 30 min · Réponse sous 24h</p>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="logo">LIONIA<span>.</span></a>
+      <p>&copy; 2026 Lionia · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Services mega-menu
+    (() => {
+      const services = document.getElementById('nav-services');
+      if (!services) return;
+      const trigger = services.querySelector('.nav-services-trigger');
+      let closeTimer = null;
+      const open = () => { clearTimeout(closeTimer); services.classList.add('open'); nav.classList.add('menu-open'); trigger.setAttribute('aria-expanded', 'true'); };
+      const close = () => { closeTimer = setTimeout(() => { services.classList.remove('open'); nav.classList.remove('menu-open'); trigger.setAttribute('aria-expanded', 'false'); }, 120); };
+      services.addEventListener('mouseenter', open);
+      services.addEventListener('mouseleave', close);
+      trigger.addEventListener('click', (e) => { e.preventDefault(); services.classList.contains('open') ? close() : open(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && services.classList.contains('open')) close(); });
+    })();
+
+    // Reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ========================================
+    // PARCOURS TABS
+    // ========================================
+    const parcoursData = [
+      {
+        tag: 'Parcours 01 · 1 journée',
+        title: 'Fondamentaux IA',
+        pitch: 'Pour ceux qui partent de zéro ou veulent structurer un usage déjà instinctif',
+        desc: 'En une journée, vos collaborateurs passent de "j\'ai entendu parler de ChatGPT" à "je l\'utilise tous les jours de façon efficace et sécurisée"',
+        duree: '1 jour · 7h',
+        format: 'Présentiel ou distanciel',
+        public: 'Tous profils · Aucun prérequis',
+        prix: 'Sur devis',
+        modules: [
+          'IA générative : ce que c\'est vraiment, ce que ça change pour vous',
+          'Prompt Engineering structuré : rôle, contexte, objectif, format',
+          'Sécurité des données et RGPD appliqués à votre métier',
+          'Mise en pratique sur vos propres documents et cas réels',
+        ],
+        livrables: [
+          'Guide de prompts personnalisé par poste',
+          'Fiche de bonnes pratiques RGPD',
+          'Accès à notre bibliothèque de cas métier',
+        ],
+        cta: 'Je veux former mes équipes aux fondamentaux',
+      },
+      {
+        tag: 'Parcours 02 · 2 jours',
+        title: 'Formation Métier',
+        pitch: 'Pour aller au-delà des bases et appliquer l\'IA aux réalités de votre fonction',
+        desc: 'RH, Direction commerciale, Finance, Communication. Chaque formation est construite autour des cas d\'usage de votre fonction, avec vos outils, vos fichiers, votre vocabulaire métier',
+        duree: '2 jours · 14h',
+        format: 'Présentiel recommandé',
+        public: 'Par fonction métier',
+        prix: 'Sur devis',
+        modules: [
+          'Cartographie des tâches à fort potentiel IA dans votre fonction',
+          'Prompt Engineering avancé et chaînes de prompts',
+          'Automatisation légère : Make, Zapier connectés à vos outils',
+          'Cas pratiques sur vos documents réels (contrats, reporting, fiches de poste…)',
+          'Construction de vos premiers workflows IA opérationnels',
+        ],
+        livrables: [
+          '3 workflows IA documentés et prêts à l\'emploi',
+          'Guide de prompts métier sur-mesure',
+          'Support post-formation 30 jours',
+        ],
+        cta: 'Je veux une formation adaptée à mon métier',
+      },
+      {
+        tag: 'Parcours 03 · 1 journée',
+        title: 'Formation Dirigeants',
+        pitch: 'Pour les dirigeants et cadres qui veulent piloter, pas subir, la transformation IA',
+        desc: 'L\'IA est déjà dans votre organisation, souvent sans cadre ni gouvernance. En une journée, cartographiez les usages, sécurisez les pratiques et repartez avec une feuille de route IA sur 6 à 12 mois',
+        duree: '1 jour · 7h',
+        format: 'Présentiel ou distanciel',
+        public: 'Dirigeants · DG · Cadres',
+        prix: 'Sur devis',
+        modules: [
+          'État des lieux : IA générative, agents IA, où en est le marché',
+          'Cartographie des usages IA dans votre organisation (existants et manquants)',
+          'Risques et opportunités : RGPD, IA Act, souveraineté des données',
+          'Construction de votre feuille de route IA et plan de gouvernance',
+        ],
+        livrables: [
+          'Cartographie des usages IA de votre organisation',
+          'Feuille de route IA 6-12 mois',
+          'Principes de charte interne IA',
+        ],
+        cta: 'Je veux piloter l\'IA dans mon organisation',
+      },
+    ];
+
+    const detailEl = document.getElementById('parcours-detail');
+    function renderParcours(i) {
+      const p = parcoursData[i];
+      detailEl.innerHTML = `
+        <div class="parcours-card parcours-card-main">
+          <span class="parcours-tag">${p.tag}</span>
+          <h3 class="parcours-title">${p.title}</h3>
+          <p class="parcours-pitch">${p.pitch}</p>
+          <p class="parcours-desc">${p.desc}</p>
+          <div class="parcours-meta">
+            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Durée</p><p class="parcours-meta-val">${p.duree}</p></div>
+            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Format</p><p class="parcours-meta-val">${p.format}</p></div>
+            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Public</p><p class="parcours-meta-val">${p.public}</p></div>
+            <div class="parcours-meta-item"><p class="parcours-meta-lbl">Tarif</p><p class="parcours-meta-val">${p.prix}</p></div>
+          </div>
+          <a href="#contact" class="btn-primary" style="padding: 0.75rem 1.375rem; font-size: 0.8125rem;">
+            ${p.cta}
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="parcours-side">
+          <div>
+            <p class="parcours-side-label">Programme</p>
+            <ul class="program-list">
+              ${p.modules.map((m, idx) => `
+                <li>
+                  <span class="program-num">${idx + 1}</span>
+                  <span class="program-text">${m}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          <div>
+            <p class="parcours-side-label">Livrables inclus</p>
+            <div class="livrables-list">
+              ${p.livrables.map(l => `
+                <div>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color: var(--amber); flex-shrink: 0;"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>${l}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    document.querySelectorAll('#parcours-tabs .tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#parcours-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderParcours(Number(btn.dataset.tab));
+      });
+    });
+    renderParcours(0);
+
+    // ========================================
+    // FAQ ACCORDION
+    // ========================================
+    const faqData = [
+      { q: 'Faut-il des compétences techniques pour suivre ces formations ?', a: 'Non, aucune. Nos formations sont conçues pour des profils non-techniques. On part du niveau réel de chaque participant, et on ne survole pas : on reste sur ce qui est utile pour votre poste, sans jargon inutile' },
+      { q: 'Est-ce qu\'on peut former toute une équipe en même temps ?', a: 'Oui. On propose des sessions intra-entreprise sur site ou à distance pour des groupes de 4 à 12 personnes. Au-delà, on scinde en groupes pour garantir la qualité. Contactez-nous pour un devis adapté' },
+      { q: 'Combien de temps après la formation peut-on appliquer ce qu\'on a appris ?', a: 'Le lendemain matin. C\'est notre exigence. Chaque participant repart avec ses propres prompts, ses propres workflows et les outils directement applicables. La mise en pratique se fait pendant la formation, pas après' },
+      { q: 'Peut-on financer la formation via l\'OPCO ou France Travail ?', a: 'Oui. On vous accompagne dans les démarches de financement : OPCO, FNE-Formation, France Travail, plan de développement des compétences. Dites-nous votre situation et on trouve la meilleure option ensemble' },
+      { q: 'La formation peut-elle se dérouler dans nos locaux ?', a: 'Absolument. On se déplace en France entière pour les sessions intra-entreprise. C\'est d\'ailleurs recommandé pour les formations Métier : travailler dans votre environnement, sur vos vrais outils, change l\'impact' },
+      { q: 'Vos formateurs connaissent-ils notre secteur d\'activité ?', a: 'Avant chaque formation, on prend le temps de comprendre votre secteur, vos contraintes réglementaires et vos cas d\'usage prioritaires. Si vous opérez en santé, finance ou industrie, on adapte les contenus en conséquence' },
+    ];
+
+    const faqEl = document.getElementById('faq-list');
+    faqEl.innerHTML = faqData.map((f, i) => `
+      <div class="faq-item${i === 0 ? ' open' : ''}" data-faq="${i}">
+        <button class="faq-question" aria-expanded="${i === 0 ? 'true' : 'false'}">
+          ${f.q}
+          <span class="faq-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <p>${f.a}</p>
+        </div>
+      </div>
+    `).join('');
+
+    faqEl.querySelectorAll('.faq-item').forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        faqEl.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -22,7 +22,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     /* ========================================
@@ -43,8 +43,8 @@
       --border: rgba(26, 26, 26, 0.08);
       --border-strong: rgba(26, 26, 26, 0.12);
 
-      --font-display: 'Inter', Arial, sans-serif;
-      --font-body: 'Inter', Arial, sans-serif;
+      --font-display: 'Space Grotesk', Arial, sans-serif;
+      --font-body: 'Space Grotesk', Arial, sans-serif;
 
       --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
       --container: min(1200px, 100% - var(--gutter) * 2);
@@ -158,10 +158,11 @@
     }
 
     .logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: -0.03em;
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
       color: var(--slate);
     }
 
@@ -187,6 +188,7 @@
       font-weight: 500;
     }
 
+    .nav-links a.nav-cta,
     .nav-cta {
       padding: 0.625rem 1.375rem;
       background: var(--slate);
@@ -197,9 +199,154 @@
       transition: all 0.25s ease;
     }
 
+    .nav-links a.nav-cta:hover,
     .nav-cta:hover {
       background: var(--amber);
+      color: var(--cream);
       transform: translateY(-1px);
+    }
+
+    /* ========================================
+       NAV — SERVICES MEGA-MENU
+       ======================================== */
+    .nav-services { position: static; }
+
+    .nav-services-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-light);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      user-select: none;
+    }
+
+    .nav-services-trigger:hover,
+    .nav-services.open .nav-services-trigger {
+      color: var(--amber);
+    }
+
+    .nav-services-trigger svg { transition: transform 0.25s ease; }
+    .nav-services.open .nav-services-trigger svg { transform: rotate(180deg); }
+
+    nav.menu-open {
+      background: rgba(250, 249, 245, 0.97) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .mega-menu {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      padding: 2rem 0 1.75rem;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+    }
+
+    nav.scrolled .mega-menu { top: 56px; }
+
+    .nav-services.open .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+    }
+
+    .mega-inner {
+      width: var(--container);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .mega-col {
+      padding: 0 1.75rem;
+      border-right: 1px solid var(--border);
+    }
+    .mega-col:last-child { border-right: none; }
+
+    .mega-col-head { margin-bottom: 1.25rem; }
+
+    .mega-tagline {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+
+    .mega-label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--slate);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .mega-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .mega-items {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 1.25rem;
+    }
+
+    .mega-item {
+      display: block;
+      padding: 0.5625rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+    .mega-item:hover { background: var(--cream-dark); }
+
+    .mega-item-title {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--slate);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .mega-item-sub {
+      font-size: 0.6875rem;
+      color: var(--muted);
+    }
+
+    .mega-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--amber);
+      padding: 0 0.75rem;
+      transition: gap 0.2s ease;
+    }
+    .mega-cta:hover { gap: 8px; }
+
+    @media (max-width: 960px) {
+      .nav-services { display: none; }
     }
 
     /* ========================================
@@ -263,6 +410,78 @@
       font-size: 0.8125rem;
       font-weight: 500;
       color: var(--slate-light);
+    }
+
+    /* ========================================
+       MISSION
+       ======================================== */
+    .mission-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mission-wrap h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .mission-lead {
+      font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+      color: var(--slate-light);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .mission-body {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 640px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .mission-body strong {
+      color: var(--slate);
+      font-weight: 500;
+    }
+
+    .mission-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: 1.25rem;
+      max-width: 760px;
+      margin: 2.5rem auto 0;
+      text-align: left;
+    }
+
+    .mission-pillar {
+      padding: 1.25rem 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .mission-pillar-num {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .mission-pillar h3 {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--slate);
+      margin-bottom: 0.375rem;
+      letter-spacing: -0.015em;
+    }
+
+    .mission-pillar p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
     /* ========================================
@@ -338,6 +557,10 @@
       width: 72px;
       height: 72px;
       border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    div.avatar-lg {
       background: linear-gradient(135deg, var(--amber), var(--amber-light));
       display: flex;
       align-items: center;
@@ -345,8 +568,14 @@
       font-size: 1.75rem;
       font-weight: 600;
       color: white;
-      flex-shrink: 0;
       box-shadow: 0 4px 16px rgba(196, 122, 58, 0.25);
+    }
+
+    img.avatar-lg {
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     }
 
     .linkedin-btn {
@@ -434,6 +663,10 @@
       width: 52px;
       height: 52px;
       border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    div.avatar-sm {
       background: var(--cream-dark);
       border: 1.5px solid var(--border);
       display: flex;
@@ -442,6 +675,13 @@
       font-size: 1.25rem;
       font-weight: 600;
       color: var(--amber);
+    }
+
+    img.avatar-sm {
+      object-fit: cover;
+      object-position: top;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     }
 
     .linkedin-btn--sm {
@@ -575,7 +815,7 @@
 
     .footer-inner .logo {
       color: var(--cream);
-      font-size: 1.25rem;
+      font-size: 0.9375rem;
     }
 
     /* ========================================
@@ -602,7 +842,7 @@
        ======================================== */
     @media (max-width: 640px) {
       .nav-links { gap: 1rem; }
-      .nav-links a:not(.active) { display: none; }
+      .nav-links a:not(.active):not(.nav-cta) { display: none; }
 
       .footer-inner {
         flex-direction: column;
@@ -621,9 +861,65 @@
   <!-- ===================== NAV ===================== -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="/" class="logo">lion<span>IA</span></a>
+      <a href="/" class="logo">LIONIA<span>.</span></a>
       <div class="nav-links">
+        <div class="nav-services" id="nav-services">
+          <button class="nav-services-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="mega-menu" role="menu">
+            <div class="mega-inner">
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Identifiez vos vrais gains</p>
+                  <p class="mega-label">Audit &amp; Diagnostic</p>
+                  <p class="mega-desc">Avant de déployer quoi que ce soit, on comprend votre métier. Vous repartez avec un plan d'action</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Diagnostic maturité IA</span><span class="mega-item-sub">Où en est vraiment votre organisation face à l'IA</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Feuille de route stratégique</span><span class="mega-item-sub">Priorisez vos actions IA sur 6 à 12 mois</span></a>
+                </div>
+                <a href="/audit" class="mega-cta">Commencer par un audit
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Formez vos équipes sur vos cas réels</p>
+                  <p class="mega-label">Formation sur-mesure</p>
+                  <p class="mega-desc">Vos vrais documents, vos vrais clients, vos vrais outils. Opérationnel dès le premier jour</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Fondamentaux IA</span><span class="mega-item-sub">De zéro à opérationnel en 1 journée</span></a>
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Formation par métier</span><span class="mega-item-sub">RH, Finance, Commercial, Juridique, Direction</span></a>
+                  <a href="/formation" class="mega-item"><span class="mega-item-title">Formation Dirigeants</span><span class="mega-item-sub">Gouvernance IA, sécurité des données, feuille de route</span></a>
+                </div>
+                <a href="/formation" class="mega-cta">Voir toutes les formations
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-head">
+                  <p class="mega-tagline">Automatisez l'essentiel</p>
+                  <p class="mega-label">Agents IA sur mesure</p>
+                  <p class="mega-desc">Des agents IA connectés à vos outils existants, supervisés par votre équipe</p>
+                </div>
+                <div class="mega-items">
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent traitement documentaire</span><span class="mega-item-sub">Analysez 100 documents en quelques minutes</span></a>
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent commercial</span><span class="mega-item-sub">Qualification de leads et relances automatisées</span></a>
+                  <a href="/agents" class="mega-item"><span class="mega-item-title">Agent reporting</span><span class="mega-item-sub">Synthèses et tableaux de bord générés en temps réel</span></a>
+                </div>
+                <a href="/agents" class="mega-cta">Découvrir les agents IA
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
         <a href="/">Accueil</a>
+        <a href="/formation">Formation</a>
         <a href="/about" class="active">À propos</a>
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Réserver un appel</a>
       </div>
@@ -633,10 +929,10 @@
   <!-- ===================== HERO ABOUT ===================== -->
   <section class="hero-about bg-cream">
     <div class="container">
-      <p class="section-label reveal">À propos de Lionia</p>
-      <h1 class="reveal reveal-delay-1">On a créé Lionia parce que<br><span class="accent">les PME méritent mieux</span></h1>
+      <p class="section-label reveal">À propos</p>
+      <h1 class="reveal reveal-delay-1">L'IA des grandes entreprises,<br><span class="accent">accessible à toutes les PME</span></h1>
       <p class="subtitle reveal reveal-delay-2">
-        Trop de cabinets vendent de l'IA comme un produit fini. On préfère une approche différente : comprendre votre métier en profondeur, identifier les vrais gains, et livrer des résultats concrets — pas des présentations PowerPoint
+        Pas un cabinet de plus qui vend de l'IA en kit. Une équipe à taille humaine qui plonge dans votre métier, identifie les vrais gains et livre des résultats mesurables, jamais des slides
       </p>
       <div class="values-strip reveal reveal-delay-3">
         <span class="value-tag">Concret avant tout</span>
@@ -647,47 +943,83 @@
     </div>
   </section>
 
-  <!-- ===================== FOUNDERS ===================== -->
+  <!-- ===================== MISSION ===================== -->
   <section class="bg-cream" style="padding-top: 0">
+    <div class="container">
+      <div class="mission-wrap">
+        <p class="section-label reveal">Notre mission</p>
+        <h2 class="reveal reveal-delay-1">Libérer vos équipes <span class="accent">du travail répétitif</span></h2>
+        <p class="mission-lead reveal reveal-delay-2">
+          L'IA n'a de valeur que si elle se traduit en temps gagné, en marge dégagée, et en équipes qui se concentrent enfin sur ce qui compte vraiment
+        </p>
+        <p class="mission-body reveal reveal-delay-3">
+          On aide les PME à accélérer leur transformation grâce à <strong>l'automatisation intelligente et aux agents IA</strong>. Pas en 18 mois de roadmap. En 30 jours, sur vos vrais process, avec votre vraie équipe
+        </p>
+        <p class="mission-body reveal reveal-delay-3">
+          Pour vos collaborateurs : moins de saisie, plus d'innovation et de stratégie. Pour les dirigeants : du temps gagné, des coûts opérationnels allégés, et une compétitivité reprise pied à pied sur les concurrents qui hésitent encore
+        </p>
+        <div class="mission-pillars">
+          <div class="mission-pillar reveal reveal-delay-1">
+            <p class="mission-pillar-num">01</p>
+            <h3>Automatisation intelligente</h3>
+            <p>Des agents IA autonomes qui exécutent les tâches répétitives, connectés à vos outils existants</p>
+          </div>
+          <div class="mission-pillar reveal reveal-delay-2">
+            <p class="mission-pillar-num">02</p>
+            <h3>Sur-mesure, pas catalogue</h3>
+            <p>On part de votre métier, vos process, votre culture. Aucune solution copiée d'un autre client</p>
+          </div>
+          <div class="mission-pillar reveal reveal-delay-3">
+            <p class="mission-pillar-num">03</p>
+            <h3>Souveraineté des données</h3>
+            <p>Option hébergement 100% français. Vos données ne quittent jamais votre périmètre</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOUNDERS ===================== -->
+  <section class="bg-white">
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Les fondateurs</p>
-        <h2 class="reveal reveal-delay-1">Les deux personnes derrière <span class="accent">Lionia</span></h2>
+        <h2 class="reveal reveal-delay-1">Vos interlocuteurs <span class="accent">directs, sans intermédiaire</span></h2>
       </div>
 
       <div class="founders-grid">
-        <!-- Fondateur 1 -->
+        <!-- Fondateur 1 — Emmanuel -->
         <article class="founder-card reveal reveal-delay-1">
           <div class="founder-body">
             <div class="founder-top">
-              <div class="avatar-lg">?</div>
-              <a href="https://linkedin.com/in/votre-profil" target="_blank" rel="noopener" class="linkedin-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                LinkedIn
-              </a>
-            </div>
-            <h3 class="founder-name">Prénom <span class="accent">Nom</span></h3>
-            <p class="founder-role">Co-fondateur</p>
-            <p class="founder-desc is-placeholder">
-              Votre description ici — parcours, expertise, ce qui vous a amené à créer Lionia. Quelques phrases qui donnent envie de travailler avec vous
-            </p>
-          </div>
-        </article>
-
-        <!-- Fondateur 2 -->
-        <article class="founder-card reveal reveal-delay-2">
-          <div class="founder-body">
-            <div class="founder-top">
-              <div class="avatar-lg">E</div>
+              <img class="avatar-lg" src="/uploads/emmanuel-bardet.jpeg" alt="Emmanuel Bardet">
               <a href="https://linkedin.com/in/emmanuel" target="_blank" rel="noopener" class="linkedin-btn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                 LinkedIn
               </a>
             </div>
-            <h3 class="founder-name">Emmanuel <span class="accent">Nom</span></h3>
-            <p class="founder-role">Co-fondateur</p>
+            <h3 class="founder-name">Emmanuel <span class="accent">Bardet</span></h3>
+            <p class="founder-role">Co-fondateur · CEO</p>
             <p class="founder-desc is-placeholder">
-              Description d'Emmanuel ici — parcours, expertise, approche. Quelques phrases qui reflètent sa vision de l'IA appliquée aux PME
+              Co-fondateur et CEO de Lionia. Pilote la stratégie, les partenariats et l'accompagnement des dirigeants dans leur transformation IA. Bio complète à venir
+            </p>
+          </div>
+        </article>
+
+        <!-- Fondateur 2 — Anthony -->
+        <article class="founder-card reveal reveal-delay-2">
+          <div class="founder-body">
+            <div class="founder-top">
+              <img class="avatar-lg" src="/uploads/anthony-gombert.png" alt="Anthony Gombert">
+              <a href="https://linkedin.com/in/anthony-gombert" target="_blank" rel="noopener" class="linkedin-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+              </a>
+            </div>
+            <h3 class="founder-name">Anthony <span class="accent">Gombert</span></h3>
+            <p class="founder-role">Co-fondateur · CTO</p>
+            <p class="founder-desc">
+              Depuis la sortie de ChatGPT en 2022, j'ai suivi de près chaque avancée de l'IA, en particulier les LLM appliqués au monde du travail. Après avoir donné des formations et vu mon propre métier de développeur se transformer, j'ai décidé d'aider les entreprises à prendre ce virage plutôt que de le subir
             </p>
           </div>
         </article>
@@ -696,70 +1028,29 @@
   </section>
 
   <!-- ===================== INTERVENANTS ===================== -->
-  <section class="bg-white">
+  <section class="bg-cream">
     <div class="container">
       <p class="section-label reveal">Notre équipe</p>
       <div class="section-header-inline">
-        <h2 class="reveal reveal-delay-1">Les intervenants <span class="accent">terrain</span></h2>
-        <p class="reveal reveal-delay-2">Des experts métier qui animent nos formations et déploient nos agents IA sur le terrain</p>
+        <h2 class="reveal reveal-delay-1">Des experts métier <span class="accent">qui déploient sur le terrain</span></h2>
+        <p class="reveal reveal-delay-2">Pour chaque mission, on mobilise les bons profils — formateurs et intégrateurs IA qui connaissent votre secteur</p>
       </div>
 
       <div class="intervenants-grid">
-        <!-- Intervenant 1 -->
+        <!-- Intervenant 1 — Ellina -->
         <article class="intervenant-card reveal reveal-delay-1">
           <div class="intervenant-top">
-            <div class="avatar-sm">?</div>
-            <a href="https://linkedin.com/in/intervenant-1" target="_blank" rel="noopener" class="linkedin-btn linkedin-btn--sm">
+            <img class="avatar-sm" src="/uploads/ellina-chhay.jpeg" alt="Ellina Chhay">
+            <a href="https://linkedin.com/in/ellina-chhay" target="_blank" rel="noopener" class="linkedin-btn linkedin-btn--sm">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn
             </a>
           </div>
-          <h3 class="intervenant-name">Prénom Nom</h3>
-          <p class="intervenant-role">Intervenant</p>
-          <span class="specialite-tag is-placeholder">Domaine d'expertise</span>
+          <h3 class="intervenant-name">Ellina Chhay</h3>
+          <p class="intervenant-role">Intervenante</p>
+          <span class="specialite-tag">NoCode / IA</span>
         </article>
 
-        <!-- Intervenant 2 -->
-        <article class="intervenant-card reveal reveal-delay-2">
-          <div class="intervenant-top">
-            <div class="avatar-sm">?</div>
-            <a href="https://linkedin.com/in/intervenant-2" target="_blank" rel="noopener" class="linkedin-btn linkedin-btn--sm">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-          </div>
-          <h3 class="intervenant-name">Prénom Nom</h3>
-          <p class="intervenant-role">Intervenant</p>
-          <span class="specialite-tag is-placeholder">Domaine d'expertise</span>
-        </article>
-
-        <!-- Intervenant 3 -->
-        <article class="intervenant-card reveal reveal-delay-3">
-          <div class="intervenant-top">
-            <div class="avatar-sm">?</div>
-            <a href="https://linkedin.com/in/intervenant-3" target="_blank" rel="noopener" class="linkedin-btn linkedin-btn--sm">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-          </div>
-          <h3 class="intervenant-name">Prénom Nom</h3>
-          <p class="intervenant-role">Intervenant</p>
-          <span class="specialite-tag is-placeholder">Domaine d'expertise</span>
-        </article>
-
-        <!-- Intervenant 4 -->
-        <article class="intervenant-card reveal reveal-delay-4">
-          <div class="intervenant-top">
-            <div class="avatar-sm">?</div>
-            <a href="https://linkedin.com/in/intervenant-4" target="_blank" rel="noopener" class="linkedin-btn linkedin-btn--sm">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-          </div>
-          <h3 class="intervenant-name">Prénom Nom</h3>
-          <p class="intervenant-role">Intervenant</p>
-          <span class="specialite-tag is-placeholder">Domaine d'expertise</span>
-        </article>
       </div>
     </div>
   </section>
@@ -767,9 +1058,9 @@
   <!-- ===================== FINAL CTA ===================== -->
   <section class="final-cta bg-dark" id="contact">
     <div class="container--narrow">
-      <p class="section-label reveal" style="color: var(--amber)">Travailler ensemble</p>
-      <h2 class="reveal reveal-delay-1">Prenez rendez-vous<br><span class="accent">directement avec nous</span></h2>
-      <p class="subtitle reveal reveal-delay-2">30 minutes pour échanger sur votre situation. On vous dit honnêtement si on peut vous aider</p>
+      <p class="section-label reveal" style="color: var(--amber)">Échangeons</p>
+      <h2 class="reveal reveal-delay-1">Voyons ensemble<br><span class="accent">si on peut vraiment vous aider</span></h2>
+      <p class="subtitle reveal reveal-delay-2">30 minutes en visio avec un fondateur. Vous décrivez votre situation, on identifie 1 ou 2 quick wins concrets, et on vous dit honnêtement si l'IA a du sens pour vous aujourd'hui</p>
       <div class="reveal reveal-delay-3">
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
           Réserver un appel découverte
@@ -783,8 +1074,8 @@
   <!-- ===================== FOOTER ===================== -->
   <footer>
     <div class="footer-inner">
-      <a href="/" class="logo">lion<span>IA</span></a>
-      <p>&copy; 2026 Lionia — Tous droits réservés</p>
+      <a href="/" class="logo">LIONIA<span>.</span></a>
+      <p>&copy; 2026 Lionia · Tous droits réservés</p>
     </div>
   </footer>
 
@@ -794,6 +1085,20 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
     });
+
+    // Services mega-menu
+    (() => {
+      const services = document.getElementById('nav-services');
+      if (!services) return;
+      const trigger = services.querySelector('.nav-services-trigger');
+      let closeTimer = null;
+      const open = () => { clearTimeout(closeTimer); services.classList.add('open'); nav.classList.add('menu-open'); trigger.setAttribute('aria-expanded', 'true'); };
+      const close = () => { closeTimer = setTimeout(() => { services.classList.remove('open'); nav.classList.remove('menu-open'); trigger.setAttribute('aria-expanded', 'false'); }, 120); };
+      services.addEventListener('mouseenter', open);
+      services.addEventListener('mouseleave', close);
+      trigger.addEventListener('click', (e) => { e.preventDefault(); services.classList.contains('open') ? close() : open(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && services.classList.contains('open')) close(); });
+    })();
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
