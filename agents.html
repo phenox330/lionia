@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lionia — Agents IA sur mesure pour PME</title>
+  <title>Lionia · Agents IA sur mesure pour PME</title>
   <meta name="description" content="Des agents IA qui exécutent des tâches réelles, connectés à vos outils existants et supervisés par votre équipe. ROI amorti en 6 semaines en moyenne">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lionia — Agents IA sur mesure pour PME">
+  <meta property="og:title" content="Lionia · Agents IA sur mesure pour PME">
   <meta property="og:description" content="Des agents IA qui exécutent des tâches réelles, connectés à vos outils existants">
   <meta property="og:image" content="https://liona.fr/og-image.png">
   <meta property="og:url" content="https://liona.fr/agents">
   <meta property="og:locale" content="fr_FR">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Lionia — Agents IA sur mesure pour PME">
+  <meta name="twitter:title" content="Lionia · Agents IA sur mesure pour PME">
   <meta name="twitter:description" content="Des agents IA qui travaillent pour vous, pas à votre place">
   <meta name="twitter:image" content="https://liona.fr/og-image.png">
 
@@ -104,7 +104,7 @@
     .mega-label { font-size: 0.9375rem; font-weight: 600; color: var(--slate); letter-spacing: -0.02em; margin-bottom: 6px; }
     .mega-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
     .mega-items { display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.25rem; }
-    .mega-item { display: block; padding: 0.5625rem 0.75rem; border-radius: 6px; transition: background 0.15s ease; }
+    .mega-item { display: block; padding: 0.5625rem 0.75rem; border-radius: 4px; transition: background 0.15s ease; }
     .mega-item:hover { background: var(--cream-dark); }
     .mega-item-title { font-size: 0.8125rem; font-weight: 500; color: var(--slate); display: block; margin-bottom: 2px; }
     .mega-item-sub { font-size: 0.6875rem; color: var(--muted); }
@@ -144,7 +144,7 @@
 
     /* Dark agent preview card */
     .agent-card-wrap { position: relative; }
-    .agent-card { background: var(--slate); border-radius: 12px; padding: 1.75rem; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12); }
+    .agent-card { background: var(--slate); border-radius: 12px; padding: 1.75rem; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.06); }
     .agent-card-dots { display: flex; gap: 0.375rem; margin-bottom: 1.25rem; }
     .agent-card-dots span { width: 10px; height: 10px; border-radius: 50%; display: block; }
     .agent-card-dots span:nth-child(1) { background: #ff5f56; }
@@ -161,7 +161,7 @@
     .agent-step-label { font-size: 0.6875rem; font-weight: 600; color: var(--muted-light); min-width: 64px; }
     .agent-step-value { font-size: 0.8125rem; color: var(--cream-dark); }
     .agent-step-value.pending { color: var(--muted); }
-    .agent-summary { margin-top: 1.125rem; padding: 0.75rem 0.875rem; background: rgba(196, 122, 58, 0.12); border-radius: 6px; display: flex; align-items: center; gap: 0.5rem; }
+    .agent-summary { margin-top: 1.125rem; padding: 0.75rem 0.875rem; background: rgba(196, 122, 58, 0.12); border-radius: 4px; display: flex; align-items: center; gap: 0.5rem; }
     .agent-summary .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
     .agent-summary span:last-child { font-size: 0.75rem; color: var(--amber-light); }
 
@@ -181,27 +181,27 @@
        AGENT CATALOGUE (tabs)
        ======================================== */
     .agent-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
-    .tab-btn { padding: 0.625rem 1.25rem; border-radius: 6px; border: 1.5px solid var(--border); background: var(--white); color: var(--muted); font-size: 0.8125rem; font-weight: 500; cursor: pointer; transition: all 0.25s ease; }
+    .tab-btn { padding: 0.625rem 1.25rem; border-radius: 4px; border: 1.5px solid var(--border); background: var(--white); color: var(--muted); font-size: 0.8125rem; font-weight: 500; cursor: pointer; transition: all 0.25s ease; }
     .tab-btn:hover { color: var(--slate); border-color: var(--border-strong); }
     .tab-btn.active { border-color: var(--amber); background: var(--amber); color: white; }
 
     .agent-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
-    .agent-main { background: var(--cream); border-radius: 10px; border: 1px solid var(--border); padding: 2rem; position: relative; overflow: hidden; }
+    .agent-main { background: var(--cream); border-radius: 12px; border: 1px solid var(--border); padding: 2rem; position: relative; overflow: hidden; }
     .agent-main::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--amber); }
     .agent-tag { display: inline-block; padding: 0.25rem 0.625rem; background: var(--amber-subtle); border-radius: 4px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 0.875rem; }
     .agent-title { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; color: var(--slate); margin-bottom: 0.5rem; }
     .agent-pitch { font-size: 0.875rem; color: var(--amber); font-weight: 500; margin-bottom: 1rem; }
     .agent-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
     .agent-kpis { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .agent-kpi { flex: 1; min-width: 130px; padding: 0.875rem 1rem; background: var(--white); border-radius: 6px; border: 1px solid var(--border); }
+    .agent-kpi { flex: 1; min-width: 130px; padding: 0.875rem 1rem; background: var(--white); border-radius: 4px; border: 1px solid var(--border); }
     .agent-kpi-num { font-size: 1.5rem; font-weight: 600; color: var(--amber); letter-spacing: -0.02em; margin-bottom: 4px; }
     .agent-kpi-lbl { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
-    .agent-tools { padding: 0.75rem 0.875rem; background: var(--white); border-radius: 6px; border: 1px solid var(--border); }
+    .agent-tools { padding: 0.75rem 0.875rem; background: var(--white); border-radius: 4px; border: 1px solid var(--border); }
     .agent-tools-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-light); margin-bottom: 0.5rem; }
     .agent-tools p { font-size: 0.8125rem; color: var(--slate-light); margin-bottom: 4px; }
     .agent-tools p:last-child { margin-bottom: 0; }
 
-    .agent-usecases { background: var(--cream); border-radius: 10px; border: 1px solid var(--border); padding: 1.75rem; }
+    .agent-usecases { background: var(--cream); border-radius: 12px; border: 1px solid var(--border); padding: 1.75rem; }
     .agent-usecases-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); margin-bottom: 1.125rem; }
     .usecases-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
     .usecase { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.875rem 1rem; background: var(--white); border-radius: 8px; border: 1px solid var(--border); }
@@ -230,7 +230,7 @@
     .garantie-item { padding: 1.375rem 1.5rem; border-radius: 8px; background: var(--cream); border: 1px solid var(--border); transition: all 0.3s ease; }
     .garantie-item:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(0, 0, 0, 0.05); }
     .garantie-inner { display: flex; gap: 0.875rem; align-items: flex-start; }
-    .garantie-icon { width: 28px; height: 28px; border-radius: 6px; background: var(--amber-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .garantie-icon { width: 28px; height: 28px; border-radius: 4px; background: var(--amber-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
     .garantie-icon svg { color: var(--amber); }
     .garantie-item h3 { font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.015em; color: var(--slate); margin-bottom: 0.375rem; }
     .garantie-item p { font-size: 0.8125rem; color: var(--muted); line-height: 1.65; }
