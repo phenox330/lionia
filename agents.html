@@ -280,6 +280,132 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
 
     /* ========================================
+       NAV: MOBILE BURGER + OVERLAY
+       ======================================== */
+    .nav-burger {
+      display: none;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      z-index: 101;
+      position: relative;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--slate);
+      border-radius: 1px;
+      transition: transform 0.3s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      transition: opacity 0.3s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.3s ease, transform 0.35s ease, visibility 0s;
+    }
+    .mobile-menu-inner {
+      width: var(--container);
+      margin-inline: auto;
+      padding: clamp(8.5rem, 6rem + 8vw, 11rem) 0 3rem;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-menu-label {
+      font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted-light);
+      margin-bottom: 2.25rem;
+    }
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-menu-link {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.875rem, 1.25rem + 4vw, 2.75rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--slate);
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: color 0.25s ease, padding-left 0.3s ease;
+    }
+    .mobile-menu-link::after {
+      content: '→';
+      font-family: 'Space Mono', ui-monospace, monospace;
+      font-size: 1.25rem;
+      color: var(--muted-light);
+      transition: transform 0.3s ease, color 0.2s ease;
+    }
+    .mobile-menu-link:hover,
+    .mobile-menu-link:focus-visible { color: var(--amber); padding-left: 0.5rem; }
+    .mobile-menu-link:hover::after,
+    .mobile-menu-link:focus-visible::after { color: var(--amber); transform: translateX(4px); }
+    .mobile-menu-link.active { color: var(--amber); }
+    .mobile-menu-link.active::after { color: var(--amber); }
+    .mobile-menu-footer { margin-top: auto; padding-top: 2.5rem; }
+    .mobile-menu-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: var(--slate);
+      color: var(--cream);
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+    .mobile-menu-cta:hover { background: var(--amber); transform: translateY(-2px); }
+    .mobile-menu-cta svg { width: 18px; height: 18px; }
+    .mobile-menu-meta {
+      margin-top: 1rem;
+      font-size: 0.8125rem;
+      color: var(--muted-light);
+      text-align: center;
+    }
+    body.mobile-menu-open { overflow: hidden; }
+    body.mobile-menu-open nav { background: var(--cream); box-shadow: none; }
+    body.mobile-menu-open nav.scrolled { background: var(--cream); box-shadow: none; }
+
+    /* ========================================
        RESPONSIVE
        ======================================== */
     @media (max-width: 960px) {
@@ -288,10 +414,11 @@
       .agent-detail { grid-template-columns: 1fr; }
       .garanties-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .nav-services { display: none; }
+      .nav-burger { display: flex; }
+      .nav-links > a,
+      .nav-links > .nav-cta { display: none; }
     }
     @media (max-width: 640px) {
-      .nav-links { gap: 1rem; }
-      .nav-links a:not(.active):not(.nav-cta) { display: none; }
       .footer-inner { flex-direction: column; gap: 0.75rem; text-align: center; }
       .agent-card { padding: 1.25rem; }
       .agent-main, .agent-usecases { padding: 1.5rem; }
@@ -392,9 +519,32 @@
         <a href="/agents" class="active">Agents IA</a>
         <a href="/about">À propos</a>
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Réserver un appel</a>
+        <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
+
+  <!-- ===================== MOBILE MENU ===================== -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <p class="mobile-menu-label">Menu</p>
+      <nav class="mobile-menu-links" aria-label="Navigation principale">
+        <a href="/audit" class="mobile-menu-link">Audit</a>
+        <a href="/formation" class="mobile-menu-link">Formation</a>
+        <a href="/agents" class="mobile-menu-link active">Agents IA</a>
+        <a href="/about" class="mobile-menu-link">À propos</a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="mobile-menu-cta">
+          Réserver un appel
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="mobile-menu-meta">Gratuit · 30 min · Sans engagement</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero bg-cream">
@@ -634,6 +784,38 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle (hamburger)
+    (() => {
+      const burger = document.getElementById('nav-burger');
+      const menu = document.getElementById('mobile-menu');
+      if (!burger || !menu) return;
+      const open = () => {
+        burger.classList.add('open');
+        menu.classList.add('open');
+        burger.setAttribute('aria-expanded', 'true');
+        burger.setAttribute('aria-label', 'Fermer le menu');
+        menu.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('mobile-menu-open');
+      };
+      const close = () => {
+        burger.classList.remove('open');
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Ouvrir le menu');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('mobile-menu-open');
+      };
+      burger.addEventListener('click', () => {
+        burger.classList.contains('open') ? close() : open();
+      });
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && burger.classList.contains('open')) close();
+      });
+      const mq = window.matchMedia('(min-width: 961px)');
+      mq.addEventListener('change', (e) => { if (e.matches) close(); });
+    })();
 
     // Services mega-menu
     (() => {
