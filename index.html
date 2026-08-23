@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lionia · L'IA intégrée à vos process</title>
+  <title>Lionia · L'IA intégrée à vos process en 30 jours</title>
   <meta name="description" content="Audit, formation sur-mesure et agents IA pour les PME. Adaptés à votre métier, vos outils, vos équipes">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -11,15 +11,15 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lionia · L'IA intégrée à vos process en 30 jours">
   <meta property="og:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes">
-  <meta property="og:image" content="https://liona.fr/og-image.png">
-  <meta property="og:url" content="https://liona.fr">
+  <meta property="og:image" content="https://lionia.fr/og-image.png">
+  <meta property="og:url" content="https://lionia.fr">
   <meta property="og:locale" content="fr_FR">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lionia · L'IA intégrée à vos process en 30 jours">
   <meta name="twitter:description" content="Audit, formation sur-mesure et agents IA adaptés à votre métier, vos outils, vos équipes">
-  <meta name="twitter:image" content="https://liona.fr/og-image.png">
+  <meta name="twitter:image" content="https://lionia.fr/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -34,9 +34,12 @@
       --slate: #1a1a1a;
       --slate-light: #3d3935;
       --muted: #6b6561;
-      --muted-light: #9a9590;
+      --muted-light: #767068;
+      --muted-on-dark: #9a9590;
       --amber: #c47a3a;
       --amber-light: #d4935e;
+      --amber-deep: #aa5f1e;
+      --amber-deep-hover: #9d5313;
       --amber-subtle: rgba(196, 122, 58, 0.08);
       --amber-glow: rgba(196, 122, 58, 0.15);
       --border: rgba(26, 26, 26, 0.08);
@@ -118,12 +121,14 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 1rem;
     }
 
+    .bg-dark .section-label { color: var(--amber); }
+
     .accent { color: var(--amber); }
-    .italic { }
+
 
     /* ========================================
        LAYOUT
@@ -217,8 +222,8 @@
 
     .nav-cta {
       padding: 0.625rem 1.5rem;
-      background: var(--slate);
-      color: var(--cream);
+      background: var(--amber-deep);
+      color: var(--white);
       border-radius: 4px;
       font-size: 0.875rem;
       font-weight: 500;
@@ -226,7 +231,7 @@
     }
 
     .nav-cta:hover {
-      background: var(--amber);
+      background: var(--amber-deep-hover);
       transform: translateY(-2px);
     }
 
@@ -314,11 +319,11 @@
     .mega-col-head { margin-bottom: 1.25rem; }
 
     .mega-tagline {
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 4px;
     }
 
@@ -371,7 +376,7 @@
       gap: 5px;
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--amber);
+      color: var(--amber-deep);
       padding: 0 0.75rem;
       transition: gap 0.2s ease;
     }
@@ -461,9 +466,9 @@
     }
 
     .mobile-menu-link {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: var(--font-display);
       font-size: clamp(1.875rem, 1.25rem + 4vw, 2.75rem);
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -0.02em;
       line-height: 1.15;
       color: var(--slate);
@@ -511,8 +516,8 @@
       gap: 0.5rem;
       width: 100%;
       padding: 1rem 1.5rem;
-      background: var(--slate);
-      color: var(--cream);
+      background: var(--amber-deep);
+      color: var(--white);
       border-radius: 4px;
       font-size: 1rem;
       font-weight: 500;
@@ -578,8 +583,10 @@
       height: 100%;
       z-index: 1;
       overflow: hidden;
-      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,1) 50%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,1) 50%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, rgba(0,0,0,1) 38%), linear-gradient(to bottom, transparent 2%, rgba(0,0,0,1) 14%);
+      mask-composite: intersect;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, rgba(0,0,0,1) 38%), linear-gradient(to bottom, transparent 2%, rgba(0,0,0,1) 14%);
+      -webkit-mask-composite: source-in;
     }
 
     .hero-ascii canvas {
@@ -608,7 +615,7 @@
       align-items: center;
       gap: 0.5rem;
       padding: clamp(0.75rem, 0.5rem + 0.5vw, 1rem) clamp(1.25rem, 1rem + 1vw, 2rem);
-      background: var(--amber);
+      background: var(--amber-deep);
       color: white;
       border-radius: 4px;
       font-size: clamp(0.875rem, 0.85rem + 0.15vw, 1rem);
@@ -618,9 +625,9 @@
     }
 
     .btn-primary:hover {
-      background: var(--amber-light);
+      background: var(--amber-deep-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(196, 122, 58, 0.35);
+      box-shadow: 0 6px 30px rgba(170, 95, 30, 0.35);
     }
 
     .btn-primary svg {
@@ -731,6 +738,8 @@
       font-family: var(--font-display);
       font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
       line-height: 1.65;
+      max-width: 65ch;
+      margin-inline: auto;
       color: var(--slate-light);
     }
 
@@ -744,45 +753,6 @@
 
     .solution-header h2 {
       margin-bottom: 1.25rem;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-      gap: clamp(1rem, 0.5rem + 1.5vw, 1.5rem);
-      container-type: inline-size;
-    }
-
-    .benefit-card {
-      padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
-      border-radius: 8px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-      container-type: inline-size;
-    }
-
-    .benefit-card:hover {
-      box-shadow: 0 12px 48px rgba(0,0,0,0.06);
-      transform: translateY(-4px);
-    }
-
-    .benefit-number {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
-      font-weight: 300;
-      color: var(--amber);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .benefit-card h3 {
-      margin-bottom: 0.75rem;
-    }
-
-    .benefit-card p {
-      color: var(--muted);
-      font-size: 0.9375rem;
     }
 
     /* ========================================
@@ -841,7 +811,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 1.25rem;
       width: fit-content;
     }
@@ -915,7 +885,8 @@
        ======================================== */
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+      /* 4 cartes : 2x2 plutot que 3 + 1 orpheline */
+      grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
       gap: clamp(1rem, 0.5rem + 1.5vw, 1.5rem);
       margin-top: clamp(1.5rem, 1rem + 2vw, 3rem);
       container-type: inline-size;
@@ -1020,7 +991,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 0.875rem;
     }
 
@@ -1084,7 +1055,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--amber);
+      color: var(--amber-deep);
       flex-shrink: 0;
     }
 
@@ -1270,21 +1241,26 @@
     }
 
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s ease;
     }
 
     .faq-item.open .faq-answer {
-      max-height: 300px;
-      padding-bottom: 1.5rem;
+      grid-template-rows: 1fr;
     }
 
     .faq-answer p {
+      overflow: hidden;
+      min-height: 0;
       color: var(--muted);
       font-size: 0.9375rem;
       line-height: 1.7;
-      max-width: 680px;
+      max-width: 65ch;
+    }
+
+    .faq-item.open .faq-answer p {
+      padding-bottom: 1.5rem;
     }
 
     /* ========================================
@@ -1316,7 +1292,7 @@
     }
 
     .final-cta .subtitle {
-      color: var(--muted-light);
+      color: var(--muted-on-dark);
       max-width: min(550px, 100%);
       margin-inline: auto;
       margin-bottom: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
@@ -1332,7 +1308,7 @@
     .final-cta .micro-copy {
       margin-top: 1rem;
       position: relative;
-      color: var(--muted);
+      color: var(--muted-on-dark);
     }
 
     /* ========================================
@@ -1342,7 +1318,7 @@
       padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem) 0;
       border-top: 1px solid rgba(255,255,255,0.06);
       background: var(--slate);
-      color: var(--muted);
+      color: var(--muted-on-dark);
     }
 
     .footer-inner {
@@ -1484,7 +1460,7 @@
     /* Disable hover effects on touch */
     @media (hover: none) {
       .problem-card:hover,
-      .benefit-card:hover,
+
       .offer-card:hover,
       .why-card:hover {
         transform: none;
@@ -1539,7 +1515,7 @@
             Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="mega-menu" role="menu">
+          <div class="mega-menu">
             <div class="mega-inner">
               <div class="mega-col">
                 <div class="mega-col-head">
@@ -1550,7 +1526,7 @@
                 <div class="mega-items">
                   <a href="/audit" class="mega-item">
                     <span class="mega-item-title">Audit IA express</span>
-                    <span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span>
+                    <span class="mega-item-sub">Cartographiez vos process et gains rapides en 2 jours</span>
                   </a>
                   <a href="/audit" class="mega-item">
                     <span class="mega-item-title">Diagnostic maturité IA</span>
@@ -1621,7 +1597,7 @@
         </div>
         <a href="/formation" class="nav-link">Formation</a>
         <a href="/about" class="nav-link">À propos</a>
-        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Prendre rendez-vous</a>
+        <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="nav-cta">Réserver un appel</a>
         <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
           <span></span><span></span><span></span>
         </button>
@@ -1641,7 +1617,7 @@
       </nav>
       <div class="mobile-menu-footer">
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="mobile-menu-cta">
-          Prendre rendez-vous
+          Réserver un appel
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <p class="mobile-menu-meta">Gratuit · 30 min · Sans engagement</p>
@@ -1650,15 +1626,16 @@
   </div>
 
   <!-- ===================== HERO ===================== -->
+  <main>
   <section class="hero bg-cream">
     <div class="container">
       <div class="hero-content">
         <p class="section-label reveal">Audit · Formation · Agents IA sur mesure</p>
-        <h1 class="reveal reveal-delay-1">Arrêtez de regarder vos concurrents <span class="accent">prendre de l'avance sur l'IA</span></h1>
+        <h1 class="reveal reveal-delay-1">L'IA intégrée à vos process, par des gens qui <span class="accent">comprennent votre métier</span></h1>
         <p class="subtitle reveal reveal-delay-2">On audite vos process, on forme vos équipes sur vos vrais cas métier, et on construit les agents IA qui font le boulot répétitif. Premier livrable en 30 jours</p>
         <div class="cta-group reveal reveal-delay-3">
           <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
-            Réserver mon audit découverte
+            Réserver mon appel découverte
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <span class="micro-copy">Gratuit &middot; 30 min &middot; Sans engagement</span>
@@ -1677,7 +1654,7 @@
       </div>
     </div>
     <div class="hero-ascii">
-      <canvas id="ascii-canvas"></canvas>
+      <canvas id="ascii-canvas" aria-hidden="true"></canvas>
     </div>
   </section>
 
@@ -1707,7 +1684,7 @@
   <section class="bg-cream">
     <div class="container">
       <p class="section-label reveal">Le constat</p>
-      <h2 class="reveal reveal-delay-1">Vous savez que l'IA va tout changer.<br><span class="accent">Mais par où commencer ?</span></h2>
+      <h2 class="reveal reveal-delay-1">Vous savez que l'IA va tout changer.<br>Mais par où commencer ?</h2>
 
       <div class="problem-grid">
         <div class="problem-card reveal reveal-delay-1">
@@ -1736,7 +1713,7 @@
       </div>
 
       <div class="agitation reveal">
-        <p>Chaque mois qui passe creuse l'écart. Les entreprises qui intègrent l'IA aujourd'hui gagnent 30 à 40% de productivité sur leurs tâches opérationnelles. Celles qui attendent devront rattraper leur retard dans l'urgence, plus cher, plus stressant, moins efficace</p>
+        <p>Les entreprises qui intègrent l'IA aujourd'hui gagnent en moyenne 30% de temps sur leurs tâches opérationnelles. Ce n'est pas une question d'outils : c'est une question de méthode. Commencer maintenant, calmement, coûte moins cher que rattraper dans l'urgence</p>
       </div>
     </div>
   </section>
@@ -1745,21 +1722,21 @@
   <section class="bg-white section--key">
     <div class="container">
       <p class="section-label reveal">Nos offres</p>
-      <h2 class="reveal reveal-delay-1">Trois étapes pour intégrer l'IA <span class="accent">dans votre entreprise</span></h2>
+      <h2 class="reveal reveal-delay-1">Trois étapes pour intégrer l'IA dans votre entreprise</h2>
 
       <div class="offers-grid">
         <div class="offer-card reveal reveal-delay-1">
           <span class="offer-tag">Point de départ</span>
           <h3>Audit IA</h3>
-          <p>On analyse vos process, vos outils et vos pain points. Vous recevez un rapport avec les 3 à 5 opportunités IA les plus rentables pour votre activité</p>
+          <p>On analyse vos process, vos outils et vos points de friction. Vous recevez un rapport avec les 3 à 5 opportunités IA les plus rentables pour votre activité</p>
           <ul class="offer-list">
             <li>Cartographie de vos process actuels</li>
-            <li>Identification des quick wins à fort ROI</li>
+            <li>Identification des gains rapides à fort ROI</li>
             <li>Rapport avec plan d'action priorisé</li>
             <li>Estimation des gains de temps et de coûts</li>
           </ul>
-          <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
-            Commencer par l'audit
+          <a href="/audit" class="btn-outline">
+            Découvrir l'audit
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -1774,7 +1751,7 @@
             <li>Guides pratiques personnalisés par poste</li>
             <li>Support post-formation pendant 30 jours</li>
           </ul>
-          <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
+          <a href="/formation" class="btn-outline">
             Découvrir la formation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1790,8 +1767,8 @@
             <li>Formation à la supervision de l'agent</li>
             <li>Maintenance et optimisation continues</li>
           </ul>
-          <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-outline">
-            En savoir plus
+          <a href="/agents" class="btn-outline">
+            Découvrir les agents IA
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <p class="offer-sovereignty">Option hébergement 100% français disponible pour vos données sensibles</p>
@@ -1804,7 +1781,7 @@
   <section class="bg-cream">
     <div class="container">
       <p class="section-label reveal">Notre approche</p>
-      <h2 class="reveal reveal-delay-1">Notre méthode, <span class="accent">pragmatique, sectorielle, souveraine</span></h2>
+      <h2 class="reveal reveal-delay-1">Notre méthode, pragmatique, sectorielle, souveraine</h2>
       <p class="subtitle reveal reveal-delay-2" style="margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); max-width: 620px;">On ne vend pas de l'IA en kit. On part de votre réalité métier, on avance par étapes que vous validez, et vos données ne quittent jamais votre périmètre</p>
 
       <div class="why-grid">
@@ -1855,8 +1832,8 @@
   <section class="bg-white">
     <div class="container">
       <p class="section-label reveal">Formations IA</p>
-      <h2 class="reveal reveal-delay-1">Trois piliers pour passer <span class="accent">de la théorie à la pratique</span></h2>
-      <p class="subtitle reveal reveal-delay-2 formation-intro">De l'initiation pour vos équipes aux programmes sectoriels métier. Sur vos vrais cas, dès le premier jour. Aucun prérequis technique</p>
+      <h2 class="reveal reveal-delay-1">Trois piliers pour passer de la théorie à la pratique</h2>
+      <p class="subtitle reveal reveal-delay-2 formation-intro">Le détail de notre offre de formation sur-mesure : de l'initiation pour vos équipes aux programmes sectoriels métier, sur vos vrais cas dès le premier jour. Aucun prérequis technique</p>
 
       <div class="pillars-grid">
         <article class="pillar-card reveal reveal-delay-1">
@@ -1924,12 +1901,12 @@
   <section class="bg-cream section--brief">
     <div class="container">
       <p class="section-label reveal" style="text-align:center">En chiffres</p>
-      <h2 class="reveal reveal-delay-1" style="text-align:center">Des résultats concrets, <span class="accent">pas des promesses</span></h2>
+      <h2 class="reveal reveal-delay-1" style="text-align:center">Des résultats concrets, pas des promesses</h2>
 
       <div class="stats-row">
         <div class="stat reveal reveal-delay-1">
           <div class="stat-number">30%</div>
-          <div class="stat-label">de temps gagné chez nos clients PME sur leurs tâches documentaires</div>
+          <div class="stat-label">de temps gagné en moyenne chez nos clients PME sur leurs tâches opérationnelles</div>
         </div>
         <div class="stat reveal reveal-delay-2">
           <div class="stat-number">2-3j</div>
@@ -1947,7 +1924,7 @@
   <section class="bg-white">
     <div class="container">
       <p class="section-label reveal" style="text-align:center">Questions fréquentes</p>
-      <h2 class="reveal reveal-delay-1" style="text-align:center">Tout ce que vous devez <span class="accent">savoir</span></h2>
+      <h2 class="reveal reveal-delay-1" style="text-align:center">Tout ce que vous devez savoir</h2>
 
       <div class="faq-list">
         <div class="faq-item reveal">
@@ -2018,7 +1995,7 @@
     <div class="container--narrow">
       <p class="section-label reveal">Premier pas</p>
       <h2 class="reveal reveal-delay-1">Quel process voulez-vous<br><span class="accent">ne plus jamais refaire à la main ?</span></h2>
-      <p class="subtitle reveal reveal-delay-2">30 minutes pour comprendre votre situation, identifier 1 ou 2 quick wins, et vous dire honnêtement si on peut vous aider</p>
+      <p class="subtitle reveal reveal-delay-2">30 minutes pour comprendre votre situation, identifier 1 ou 2 gains rapides, et vous dire honnêtement si on peut vous aider</p>
       <div class="reveal reveal-delay-3">
         <a href="https://cal.com/lionia/emmanuel" target="_blank" rel="noopener" class="btn-primary">
           Réserver mon appel découverte
@@ -2031,6 +2008,7 @@
   </section>
 
   <!-- ===================== FOOTER ===================== -->
+  </main>
   <footer>
     <div class="footer-inner">
       <a href="/" class="logo">LIONIA<span>.</span></a>
@@ -2142,27 +2120,36 @@
       window.addEventListener('resize', resize);
 
       // Lion face shape - distance field
+      // Une criniere en anneau dense autour d'une face plus claire :
+      // le contraste de densite fait lire la silhouette, pas le remplissage
+      const FACE_R = 0.24;
+      function inEye(nx, ny) {
+        const eyeL = Math.sqrt(((nx - 0.42) / 1.5) ** 2 + (ny - 0.43) ** 2);
+        const eyeR = Math.sqrt(((nx - 0.58) / 1.5) ** 2 + (ny - 0.43) ** 2);
+        return eyeL < 0.028 || eyeR < 0.028;
+      }
       function lionShape(nx, ny) {
-        // Head circle
         const dx = nx - 0.5, dy = ny - 0.48;
-        const headDist = Math.sqrt(dx * dx + dy * dy);
-        let v = Math.max(0, 1 - headDist / 0.42);
-
-        // Mane - radial petals
+        const dist = Math.sqrt(dx * dx + dy * dy);
         const angle = Math.atan2(dy, dx);
-        const maneRadius = 0.38 + 0.08 * Math.sin(angle * 8) + 0.04 * Math.sin(angle * 13);
-        const maneDist = Math.sqrt(dx * dx + dy * dy);
-        const mane = Math.max(0, 1 - maneDist / maneRadius) * 0.7;
-        v = Math.max(v, mane);
 
-        // Eyes
-        const eyeL = Math.sqrt((nx - 0.38) ** 2 + (ny - 0.42) ** 2);
-        const eyeR = Math.sqrt((nx - 0.62) ** 2 + (ny - 0.42) ** 2);
-        if (eyeL < 0.035 || eyeR < 0.035) v = 1;
+        // Criniere : anneau a petales, dense au coeur, effile aux bords
+        const rim = 0.40 + 0.06 * Math.sin(angle * 9) + 0.03 * Math.sin(angle * 15 + 1.7);
+        let v = 0;
+        if (dist > FACE_R && dist < rim) {
+          const mid = (FACE_R + rim) / 2, half = (rim - FACE_R) / 2;
+          v = 0.55 + 0.45 * (1 - Math.abs(dist - mid) / half);
+        }
 
-        // Nose
-        const noseDist = Math.sqrt((nx - 0.5) ** 2 + (ny - 0.54) ** 2);
-        if (noseDist < 0.025) v = 0.9;
+        // Face : disque uniforme, plus clair que la criniere
+        if (dist <= FACE_R) v = 0.32;
+
+        // Truffe triangulaire + ligne de museau
+        if (ny > 0.50 && ny < 0.565 && Math.abs(nx - 0.5) < (ny - 0.50) * 0.85 + 0.012) v = 0.95;
+        if (Math.abs(nx - 0.5) < 0.009 && ny >= 0.565 && ny < 0.62) v = 0.8;
+
+        // Yeux : espace negatif
+        if (inEye(nx, ny)) v = 0;
 
         return v;
       }
@@ -2192,26 +2179,23 @@
             const nx = col / (cols - 1);
             const ny = row / (rows - 1);
 
-            // Base shape
-            let v = lionShape(nx, ny);
-
-            // Animate: ripple from center
-            const dx = nx - 0.5, dy = ny - 0.48;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const ripple = Math.sin(dist * 14 - time * 2.5) * 0.15 * breathe;
-            const wave = Math.sin(nx * 6 + time * 1.2) * Math.sin(ny * 5 + time * 0.9) * 0.1 * breathe2;
-
-            v += ripple + wave;
-            v = Math.max(0, Math.min(1, v));
-
             // Scale breathing - expand/contract mane
-            const breatheScale = 1 + breathe * 0.06;
+            const breatheScale = 1 + breathe * 0.04;
             const snx = 0.5 + (nx - 0.5) / breatheScale;
             const sny = 0.48 + (ny - 0.48) / breatheScale;
-            const breatheV = lionShape(snx, sny);
-            v = v * 0.6 + breatheV * 0.4;
+            let v = lionShape(nx, ny) * 0.7 + lionShape(snx, sny) * 0.3;
 
-            if (v < 0.05) continue;
+            // Ondulation confinee a la criniere : la face reste nette
+            const dx = nx - 0.5, dy = ny - 0.48;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist > FACE_R && v > 0.05) {
+              v += Math.sin(dist * 14 - time * 2.5) * 0.08 * breathe
+                 + Math.sin(nx * 6 + time * 1.2) * Math.sin(ny * 5 + time * 0.9) * 0.05 * breathe2;
+            }
+            v = Math.max(0, Math.min(1, v));
+
+            if (inEye(nx, ny)) continue;
+            if (v < 0.07) continue;
 
             const charIdx = Math.floor(v * (chars.length - 1));
             const char = chars[Math.min(charIdx, chars.length - 1)];
@@ -2221,17 +2205,30 @@
             const r = Math.round(slateRGB.r + (amberRGB.r - slateRGB.r) * t);
             const g = Math.round(slateRGB.g + (amberRGB.g - slateRGB.g) * t);
             const b = Math.round(slateRGB.b + (amberRGB.b - slateRGB.b) * t);
-            const alpha = 0.15 + v * 0.65;
+            const alpha = 0.22 + v * 0.72;
 
             ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
             ctx.fillText(char, col * cellW + cellW / 2, row * cellH + cellH / 2);
           }
         }
 
-        requestAnimationFrame(draw);
+        if (animating) requestAnimationFrame(draw);
       }
 
-      draw();
+      let animating = true;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (reducedMotion.matches) {
+        animating = false;
+        draw(); // une frame statique
+      } else {
+        const observer = new IntersectionObserver(entries => {
+          const wasAnimating = animating;
+          animating = entries[0].isIntersecting;
+          if (animating && !wasAnimating) draw();
+        });
+        observer.observe(canvas);
+        draw();
+      }
     })();
 
     // FAQ accordion
@@ -2239,10 +2236,26 @@
       const item = btn.parentElement;
       const wasOpen = item.classList.contains('open');
       // Close all
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
       // Toggle current
-      if (!wasOpen) item.classList.add('open');
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     }
+
+    // FAQ ARIA wiring
+    document.querySelectorAll('.faq-item').forEach((item, i) => {
+      const btn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      if (!btn || !answer) return;
+      answer.id = 'faq-answer-' + (i + 1);
+      btn.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+      btn.setAttribute('aria-controls', answer.id);
+    });
   </script>
 </body>
 </html>

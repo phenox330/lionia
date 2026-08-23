@@ -8,9 +8,12 @@ colors:
   ink: "#1a1a1a"
   soft-ink: "#3d3935"
   stone: "#6b6561"
-  pale-stone: "#9a9590"
+  pale-stone: "#767068"
+  pale-stone-on-dark: "#9a9590"
   burnt-amber: "#c47a3a"
   light-amber: "#d4935e"
+  deep-amber: "#aa5f1e"
+  deep-amber-hover: "#9d5313"
   hairline: "rgba(26, 26, 26, 0.08)"
   hairline-strong: "rgba(26, 26, 26, 0.12)"
   amber-wash: "rgba(196, 122, 58, 0.08)"
@@ -74,13 +77,13 @@ spacing:
   gutter: "clamp(1rem, 0.5rem + 2vw, 2rem)"
 components:
   button-primary:
-    backgroundColor: "{colors.burnt-amber}"
+    backgroundColor: "{colors.deep-amber}"
     textColor: "{colors.plain-white}"
     typography: "{typography.body}"
     rounded: "{rounded.flat}"
     padding: "clamp(0.75rem, 0.5rem + 0.5vw, 1rem) clamp(1.25rem, 1rem + 1vw, 2rem)"
   button-primary-hover:
-    backgroundColor: "{colors.light-amber}"
+    backgroundColor: "{colors.deep-amber-hover}"
   button-outline:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -139,7 +142,9 @@ A single hue family carried across the entire system: warm earth tones with one 
 
 ### Primary
 - **Burnt Amber** (`#c47a3a`): The only accent. Used on primary CTAs, section eyebrow labels, key inline emphasis, hover state revelations on offer cards, and amber-tinted shadows under amber elements. The accent rate is low by design.
-- **Light Amber** (`#d4935e`): Hover state for primary buttons only.
+- **Deep Amber** (`#aa5f1e`): Burnt amber pushed to AA. Fills primary CTAs (white text reaches 4.8:1) and colors every small amber text on light surfaces (section labels, eyebrow tags, mega-menu accents). Burnt amber stays for large text, borders, and amber on dark.
+- **Deep Amber Hover** (`#9d5313`): Hover state for primary buttons only.
+- **Light Amber** (`#d4935e`): Decorative amber lightening; no longer used as a button hover (2.6:1 with white text).
 
 ### Neutral
 - **Parchment Cream** (`#faf9f5`): The page surface. The canvas on which everything else sits. Used as the default `body` background and on offer cards (which sit on a white section to invert).
@@ -148,7 +153,7 @@ A single hue family carried across the entire system: warm earth tones with one 
 - **Ink** (`#1a1a1a`): Primary text. Near-black with a faint warm tilt that keeps it from feeling clinical against the cream.
 - **Soft Ink** (`#3d3935`): Body emphasis, slightly relaxed from full ink.
 - **Stone** (`#6b6561`): Muted body text, subtitles, nav links at rest.
-- **Pale Stone** (`#9a9590`): Quietest text, captions, meta.
+- **Pale Stone** (`#767068`): Quietest text, captions, meta on light surfaces (AA 4.65:1 on cream). On dark surfaces use Pale Stone On Dark (`#9a9590`, 5.9:1 on ink).
 - **Hairline** (`rgba(26, 26, 26, 0.08)`): Default borders on cards and inputs.
 - **Hairline Strong** (`rgba(26, 26, 26, 0.12)`): Borders on interactive outline elements.
 
@@ -218,7 +223,7 @@ Amber-tinted shadows are reserved for amber elements (the primary CTA, accent mo
 **Character:** Quietly confident, never decorative. Buttons declare action through color, weight, and a single 2px translate on hover. No bounces, no scales, no rotations.
 
 - **Primary (`.btn-primary`):** Burnt amber (`#c47a3a`) fill, white text, `4px` radius, `clamp(0.75rem, 0.5rem + 0.5vw, 1rem) clamp(1.25rem, 1rem + 1vw, 2rem)` padding, weight 500, amber-tinted shadow at rest. Inline-flex with an arrow SVG that nudges `translateX(3px)` on hover.
-- **Primary Hover:** Background shifts to Light Amber (`#d4935e`), button lifts `translateY(-2px)`, shadow deepens to `0 6px 30px rgba(196, 122, 58, 0.35)`.
+- **Primary Hover:** Background shifts to Deep Amber Hover (`#9d5313`), button lifts `translateY(-2px)`, shadow deepens to `0 6px 30px rgba(170, 95, 30, 0.35)`.
 - **Outline (`.btn-outline`):** Transparent fill, `1.5px solid rgba(26, 26, 26, 0.12)` border, ink text, `4px` radius, weight 500. Used when the primary CTA is also on screen and an outline alternative is needed.
 - **Outline Hover:** Background fills to parchment cream, border tightens to soft ink.
 - **Final CTA Variant:** The hero CTA and footer CTA carry slightly larger padding (`clamp(0.875rem, 0.75rem + 0.5vw, 1.125rem)` × `clamp(1.5rem, 1.25rem + 1vw, 2.5rem)`) and a hair-larger font (`clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem)`). Same shape, more presence.
