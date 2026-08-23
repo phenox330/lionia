@@ -160,7 +160,7 @@
     /* ========================================
        NAV
        ======================================== */
-    nav {
+    #nav {
       position: fixed;
       top: 0;
       left: 0;
@@ -170,7 +170,7 @@
       transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
     }
 
-    nav.scrolled {
+    #nav.scrolled {
       background: rgba(250, 249, 245, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -264,7 +264,7 @@
       transform: rotate(180deg);
     }
 
-    nav.menu-open {
+    #nav.menu-open {
       background: rgba(250, 249, 245, 0.97) !important;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -287,7 +287,7 @@
       transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
     }
 
-    nav.scrolled .mega-menu { top: 56px; }
+    #nav.scrolled .mega-menu { top: 56px; }
 
     .nav-services.open .mega-menu {
       opacity: 1;
@@ -530,8 +530,8 @@
     }
 
     body.mobile-menu-open { overflow: hidden; }
-    body.mobile-menu-open nav { background: var(--cream); box-shadow: none; }
-    body.mobile-menu-open nav.scrolled { background: var(--cream); box-shadow: none; }
+    body.mobile-menu-open #nav { background: var(--cream); box-shadow: none; }
+    body.mobile-menu-open #nav.scrolled { background: var(--cream); box-shadow: none; }
 
     @media (max-width: 960px) {
       .nav-burger { display: flex; }

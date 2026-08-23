@@ -67,8 +67,8 @@
     /* ========================================
        NAV
        ======================================== */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: clamp(0.75rem, 0.5rem + 0.5vw, 1.25rem) 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease; }
-    nav.scrolled { background: rgba(250, 249, 245, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); padding: clamp(0.5rem, 0.375rem + 0.25vw, 0.875rem) 0; }
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: clamp(0.75rem, 0.5rem + 0.5vw, 1.25rem) 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease; }
+    #nav.scrolled { background: rgba(250, 249, 245, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); padding: clamp(0.5rem, 0.375rem + 0.25vw, 0.875rem) 0; }
     .nav-inner { width: var(--container); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
     .logo { font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.125rem; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: var(--slate); }
     .logo span { color: var(--amber); }
@@ -92,9 +92,9 @@
     .nav-services-trigger:hover, .nav-services.open .nav-services-trigger { color: var(--amber); }
     .nav-services-trigger svg { transition: transform 0.25s ease; }
     .nav-services.open .nav-services-trigger svg { transform: rotate(180deg); }
-    nav.menu-open { background: rgba(250, 249, 245, 0.97) !important; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); }
+    #nav.menu-open { background: rgba(250, 249, 245, 0.97) !important; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border); }
     .mega-menu { position: fixed; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08); padding: 2rem 0 1.75rem; z-index: 99; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s; }
-    nav.scrolled .mega-menu { top: 56px; }
+    #nav.scrolled .mega-menu { top: 56px; }
     .nav-services.open .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s; }
     .mega-inner { width: var(--container); margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr 1fr; }
     .mega-col { padding: 0 1.75rem; border-right: 1px solid var(--border); }
@@ -402,8 +402,8 @@
       text-align: center;
     }
     body.mobile-menu-open { overflow: hidden; }
-    body.mobile-menu-open nav { background: var(--cream); box-shadow: none; }
-    body.mobile-menu-open nav.scrolled { background: var(--cream); box-shadow: none; }
+    body.mobile-menu-open #nav { background: var(--cream); box-shadow: none; }
+    body.mobile-menu-open #nav.scrolled { background: var(--cream); box-shadow: none; }
 
     /* ========================================
        RESPONSIVE
