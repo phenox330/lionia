@@ -10,14 +10,14 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lionia · Audit IA pour PME">
   <meta property="og:description" content="Avant de déployer l'IA, on comprend votre métier. Livrables en 2 à 3 jours">
-  <meta property="og:image" content="https://liona.fr/og-image.png">
-  <meta property="og:url" content="https://liona.fr/audit">
+  <meta property="og:image" content="https://lionia.fr/og-image.png">
+  <meta property="og:url" content="https://lionia.fr/audit">
   <meta property="og:locale" content="fr_FR">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lionia · Audit IA pour PME">
   <meta name="twitter:description" content="Avant de déployer l'IA, on comprend votre métier">
-  <meta name="twitter:image" content="https://liona.fr/og-image.png">
+  <meta name="twitter:image" content="https://lionia.fr/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,9 +31,12 @@
       --slate: #1a1a1a;
       --slate-light: #3d3935;
       --muted: #6b6561;
-      --muted-light: #9a9590;
+      --muted-light: #767068;
+      --muted-on-dark: #9a9590;
       --amber: #c47a3a;
       --amber-light: #d4935e;
+      --amber-deep: #aa5f1e;
+      --amber-deep-hover: #9d5313;
       --amber-subtle: rgba(196, 122, 58, 0.08);
       --amber-glow: rgba(196, 122, 58, 0.15);
       --border: rgba(26, 26, 26, 0.08);
@@ -55,7 +58,8 @@
     h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
     h1 { font-size: clamp(2.4rem, 2rem + 2vw, 4.2rem); letter-spacing: -0.03em; line-height: 1.08; }
     h2 { font-size: clamp(1.9rem, 1.6rem + 1.4vw, 3rem); letter-spacing: -0.025em; line-height: 1.12; }
-    .section-label { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 1rem; }
+    .section-label { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-deep); margin-bottom: 1rem; }
+    .bg-dark .section-label { color: var(--amber); }
     .accent { color: var(--amber); }
 
     .container { width: var(--container); margin-inline: auto; }
@@ -133,7 +137,7 @@
     .mega-col { padding: 0 1.75rem; border-right: 1px solid var(--border); }
     .mega-col:last-child { border-right: none; }
     .mega-col-head { margin-bottom: 1.25rem; }
-    .mega-tagline { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 4px; }
+    .mega-tagline { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-deep); margin-bottom: 4px; }
     .mega-label { font-size: 0.9375rem; font-weight: 600; color: var(--slate); letter-spacing: -0.02em; margin-bottom: 6px; }
     .mega-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
     .mega-items { display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.25rem; }
@@ -141,7 +145,7 @@
     .mega-item:hover { background: var(--cream-dark); }
     .mega-item-title { font-size: 0.8125rem; font-weight: 500; color: var(--slate); display: block; margin-bottom: 2px; }
     .mega-item-sub { font-size: 0.6875rem; color: var(--muted); }
-    .mega-cta { display: inline-flex; align-items: center; gap: 5px; font-size: 0.75rem; font-weight: 600; color: var(--amber); padding: 0 0.75rem; transition: gap 0.2s ease; }
+    .mega-cta { display: inline-flex; align-items: center; gap: 5px; font-size: 0.75rem; font-weight: 600; color: var(--amber-deep); padding: 0 0.75rem; transition: gap 0.2s ease; }
     .mega-cta:hover { gap: 8px; }
 
     /* ========================================
@@ -150,11 +154,11 @@
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: clamp(0.75rem, 0.5rem + 0.4vw, 0.9375rem) clamp(1.375rem, 1rem + 0.8vw, 2rem);
-      background: var(--amber); color: white;
+      background: var(--amber-deep); color: white;
       border-radius: 4px; font-size: clamp(0.8125rem, 0.8rem + 0.15vw, 0.9375rem); font-weight: 500;
-      transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(196, 122, 58, 0.28);
+      transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(170, 95, 30, 0.28);
     }
-    .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--amber-deep-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(170, 95, 30, 0.32); }
     .btn-primary svg { transition: transform 0.3s ease; }
     .btn-primary:hover svg { transform: translateX(3px); }
 
@@ -185,7 +189,7 @@
       border: 1px solid rgba(196, 122, 58, 0.15); border-radius: 100px; margin-bottom: 1.5rem;
     }
     .hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
-    .hero-pill span:last-child { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+    .hero-pill span:last-child { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-deep); }
     .hero h1 { margin-bottom: 1.375rem; }
     .hero .subtitle { font-size: clamp(1rem, 0.95rem + 0.35vw, 1.2rem); color: var(--muted); line-height: 1.75; max-width: 480px; margin-bottom: 2rem; }
     .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
@@ -196,7 +200,7 @@
 
     .hero-card-wrap { position: relative; }
     .hero-card { background: var(--white); border-radius: 12px; border: 1px solid var(--border); padding: 2rem; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.06); }
-    .hero-card-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 1.125rem; }
+    .hero-card-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-deep); margin-bottom: 1.125rem; }
     .hero-card-list { list-style: none; }
     .hero-card-list li { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.625rem 0; border-bottom: 1px solid var(--border); }
     .hero-card-list li:last-child { border-bottom: none; }
@@ -210,7 +214,7 @@
       box-shadow: 0 16px 64px rgba(0, 0, 0, 0.06);
     }
     .hero-badge-num { font-size: 1.25rem; font-weight: 600; line-height: 1; }
-    .hero-badge-lbl { font-size: 0.625rem; font-weight: 500; opacity: 0.7; margin-top: 2px; }
+    .hero-badge-lbl { font-size: 0.75rem; font-weight: 500; opacity: 0.7; margin-top: 2px; }
 
     /* ========================================
        SECTION HEADERS
@@ -276,13 +280,13 @@
       display: inline-block; padding: 0.25rem 0.625rem;
       background: var(--amber-subtle); border-radius: 4px;
       font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--amber); margin-bottom: 0.875rem;
+      letter-spacing: 0.08em; color: var(--amber-deep); margin-bottom: 0.875rem;
     }
     .format-card h3 {
       font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em;
       color: var(--slate); margin-bottom: 0.5rem;
     }
-    .format-pitch { font-size: 0.875rem; color: var(--amber); font-weight: 500; margin-bottom: 1.25rem; }
+    .format-pitch { font-size: 0.875rem; color: var(--amber-deep); font-weight: 500; margin-bottom: 1.25rem; }
     .format-list { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 1.5rem; }
     .format-list li { display: flex; gap: 0.625rem; align-items: flex-start; }
     .format-list .dot {
@@ -292,7 +296,7 @@
     .format-list span:last-child { font-size: 0.8125rem; color: var(--slate-light); line-height: 1.55; }
     .format-link {
       display: inline-flex; align-items: center; gap: 0.375rem;
-      font-size: 0.8125rem; font-weight: 500; color: var(--amber);
+      font-size: 0.8125rem; font-weight: 500; color: var(--amber-deep);
       transition: opacity 0.2s ease;
     }
     .format-link:hover { opacity: 0.7; }
@@ -341,10 +345,10 @@
     .final-cta .container { position: relative; z-index: 2; }
     .final-cta h2 { color: var(--cream); margin-bottom: 1rem; }
     .final-cta .subtitle {
-      font-size: 0.9375rem; color: var(--muted-light); line-height: 1.7;
+      font-size: 0.9375rem; color: var(--muted-on-dark); line-height: 1.7;
       max-width: 460px; margin: 0 auto 2rem;
     }
-    .micro-copy { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+    .micro-copy { font-size: 0.75rem; color: var(--muted-on-dark); margin-top: 0.75rem; }
 
     /* ========================================
        FOOTER
@@ -352,7 +356,7 @@
     footer {
       padding: clamp(1.25rem, 1rem + 1vw, 1.75rem) 0;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      background: var(--slate); color: var(--muted);
+      background: var(--slate); color: var(--muted-on-dark);
     }
     .footer-inner {
       width: var(--container); margin-inline: auto;
@@ -553,7 +557,7 @@
             Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="mega-menu" role="menu">
+          <div class="mega-menu">
             <div class="mega-inner">
               <div class="mega-col">
                 <div class="mega-col-head">
@@ -635,6 +639,7 @@
     </div>
   </div>
 
+  <main id="main">
   <!-- ===================== HERO ===================== -->
   <section class="hero bg-cream">
     <div class="container">
@@ -831,6 +836,7 @@
       <p class="micro-copy reveal reveal-delay-4">Gratuit · 30 min · Sans engagement</p>
     </div>
   </section>
+  </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer>
@@ -928,8 +934,11 @@
       </div>
     `).join('');
 
-    faqEl.querySelectorAll('.faq-item').forEach(item => {
+    faqEl.querySelectorAll('.faq-item').forEach((item, i) => {
       const btn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      answer.id = 'faq-answer-' + (i + 1);
+      btn.setAttribute('aria-controls', answer.id);
       btn.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
         faqEl.querySelectorAll('.faq-item').forEach(other => {

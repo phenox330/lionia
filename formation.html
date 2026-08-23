@@ -11,14 +11,14 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lionia · Formations IA sur-mesure pour PME">
   <meta property="og:description" content="Des formations IA opérationnelles dès le premier jour. Construites sur vos vrais cas métier">
-  <meta property="og:image" content="https://liona.fr/og-image.png">
-  <meta property="og:url" content="https://liona.fr/formation">
+  <meta property="og:image" content="https://lionia.fr/og-image.png">
+  <meta property="og:url" content="https://lionia.fr/formation">
   <meta property="og:locale" content="fr_FR">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lionia · Formations IA sur-mesure pour PME">
   <meta name="twitter:description" content="Des formations IA opérationnelles dès le premier jour">
-  <meta name="twitter:image" content="https://liona.fr/og-image.png">
+  <meta name="twitter:image" content="https://lionia.fr/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,9 +35,12 @@
       --slate: #1a1a1a;
       --slate-light: #3d3935;
       --muted: #6b6561;
-      --muted-light: #9a9590;
+      --muted-light: #767068;
+      --muted-on-dark: #9a9590;
       --amber: #c47a3a;
       --amber-light: #d4935e;
+      --amber-deep: #aa5f1e;
+      --amber-deep-hover: #9d5313;
       --amber-subtle: rgba(196, 122, 58, 0.08);
       --amber-glow: rgba(196, 122, 58, 0.15);
       --border: rgba(26, 26, 26, 0.08);
@@ -105,9 +108,11 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 1rem;
     }
+
+    .bg-dark .section-label { color: var(--amber); }
 
     .accent { color: var(--amber); }
 
@@ -182,7 +187,7 @@
     .nav-links a:hover { color: var(--slate); }
 
     .nav-links a.active {
-      color: var(--amber);
+      color: var(--amber-deep);
       font-weight: 500;
     }
 
@@ -281,11 +286,11 @@
     .mega-col-head { margin-bottom: 1.25rem; }
 
     .mega-tagline {
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 4px;
     }
 
@@ -337,7 +342,7 @@
       gap: 5px;
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--amber);
+      color: var(--amber-deep);
       padding: 0 0.75rem;
       transition: gap 0.2s ease;
     }
@@ -487,17 +492,17 @@
       align-items: center;
       gap: 0.5rem;
       padding: clamp(0.75rem, 0.5rem + 0.4vw, 0.9375rem) clamp(1.375rem, 1rem + 0.8vw, 2rem);
-      background: var(--amber);
+      background: var(--amber-deep);
       color: white;
       border-radius: 4px;
       font-size: clamp(0.8125rem, 0.8rem + 0.15vw, 0.9375rem);
       font-weight: 500;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(196, 122, 58, 0.28);
+      box-shadow: 0 4px 20px rgba(170, 95, 30, 0.28);
     }
 
     .btn-primary:hover {
-      background: var(--amber-light);
+      background: var(--amber-deep-hover);
       transform: translateY(-2px);
     }
 
@@ -607,7 +612,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--amber);
+      color: var(--amber-deep);
     }
 
     .hero h1 {
@@ -673,7 +678,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 1.125rem;
     }
 
@@ -692,7 +697,7 @@
     .hero-card-list li:last-child { border-bottom: none; }
 
     .hero-card-list .arrow {
-      color: var(--amber);
+      color: var(--amber-deep);
       font-weight: 600;
       font-size: 0.875rem;
       line-height: 1.55;
@@ -747,7 +752,7 @@
     }
 
     .hero-badge-lbl {
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 500;
       opacity: 0.7;
       margin-top: 2px;
@@ -830,7 +835,7 @@
       line-height: 1.7;
     }
 
-    .problem-quote strong { color: var(--amber); }
+    .problem-quote strong { color: var(--amber-deep); }
 
     /* ========================================
        PARCOURS
@@ -902,7 +907,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 0.875rem;
     }
 
@@ -916,7 +921,7 @@
 
     .parcours-pitch {
       font-size: 0.875rem;
-      color: var(--amber);
+      color: var(--amber-deep);
       font-weight: 500;
       margin-bottom: 1rem;
     }
@@ -942,7 +947,7 @@
     }
 
     .parcours-meta-lbl {
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -979,7 +984,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 1rem;
     }
 
@@ -1004,9 +1009,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      color: var(--amber);
+      color: var(--amber-deep);
       flex-shrink: 0;
       margin-top: 1px;
     }
@@ -1064,7 +1069,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--amber);
+      color: var(--amber-deep);
       margin-bottom: 0.625rem;
     }
 
@@ -1087,7 +1092,7 @@
     .pourqui-link {
       font-size: 0.8125rem;
       font-weight: 500;
-      color: var(--amber);
+      color: var(--amber-deep);
       transition: opacity 0.2s ease;
     }
 
@@ -1245,7 +1250,7 @@
       justify-content: center;
       font-size: 0.8125rem;
       font-weight: 600;
-      color: var(--amber);
+      color: var(--amber-deep);
       flex-shrink: 0;
     }
 
@@ -1368,7 +1373,7 @@
 
     .final-cta .subtitle {
       font-size: 0.9375rem;
-      color: var(--muted-light);
+      color: var(--muted-on-dark);
       line-height: 1.7;
       max-width: 480px;
       margin: 0 auto 2rem;
@@ -1384,7 +1389,7 @@
 
     .micro-copy {
       font-size: 0.75rem;
-      color: var(--muted);
+      color: var(--muted-on-dark);
     }
 
     /* ========================================
@@ -1394,7 +1399,7 @@
       padding: clamp(1.25rem, 1rem + 1vw, 1.75rem) 0;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       background: var(--slate);
-      color: var(--muted);
+      color: var(--muted-on-dark);
     }
 
     .footer-inner {
@@ -1485,7 +1490,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--amber);
+      color: var(--amber-deep);
     }
 
     .pilier-block h3 {
@@ -1547,7 +1552,7 @@
     }
 
     .formation-meta span {
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -1559,7 +1564,7 @@
     }
 
     .formation-meta span.is-price {
-      color: var(--amber);
+      color: var(--amber-deep);
       border-color: rgba(196, 122, 58, 0.2);
       background: var(--amber-subtle);
     }
@@ -1672,7 +1677,7 @@
     }
 
     .profil-path strong {
-      color: var(--amber);
+      color: var(--amber-deep);
       font-weight: 600;
     }
 
@@ -1788,7 +1793,7 @@
             Services
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="mega-menu" role="menu">
+          <div class="mega-menu">
             <div class="mega-inner">
               <div class="mega-col">
                 <div class="mega-col-head">
@@ -1869,6 +1874,7 @@
     </div>
   </div>
 
+  <main>
   <!-- ===================== HERO ===================== -->
   <section class="hero bg-cream">
     <div class="container">
@@ -2349,6 +2355,7 @@
       <p class="micro-copy reveal reveal-delay-4">Gratuit · 30 min · Réponse sous 24h</p>
     </div>
   </section>
+  </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer>
@@ -2438,13 +2445,13 @@
     const faqEl = document.getElementById('faq-list');
     faqEl.innerHTML = faqData.map((f, i) => `
       <div class="faq-item${i === 0 ? ' open' : ''}" data-faq="${i}">
-        <button class="faq-question" aria-expanded="${i === 0 ? 'true' : 'false'}">
+        <button class="faq-question" aria-expanded="${i === 0 ? 'true' : 'false'}" aria-controls="faq-answer-${i + 1}">
           ${f.q}
           <span class="faq-icon">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </button>
-        <div class="faq-answer">
+        <div class="faq-answer" id="faq-answer-${i + 1}">
           <p>${f.a}</p>
         </div>
       </div>
