@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lionia · Audit IA pour PME</title>
-  <meta name="description" content="Avant de déployer l'IA, on comprend votre métier. Cartographie des process, identification des quick wins et plan d'action livrable en 2 à 3 jours">
+  <meta name="description" content="Avant de déployer l'IA, on comprend votre métier. Cartographie des process, identification des gains rapides et plan d'action livrable en 2 à 3 jours">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <meta property="og:type" content="website">
@@ -95,12 +95,12 @@
     .nav-links a.nav-cta,
     .nav-cta {
       padding: 0.625rem 1.375rem;
-      background: var(--slate); color: var(--cream);
+      background: var(--amber-deep); color: var(--white);
       border-radius: 4px; font-size: 0.875rem; font-weight: 500;
       transition: all 0.25s ease;
     }
     .nav-links a.nav-cta:hover,
-    .nav-cta:hover { background: var(--amber); color: var(--cream); transform: translateY(-2px); }
+    .nav-cta:hover { background: var(--amber-deep-hover); color: var(--white); transform: translateY(-2px); }
 
     /* Services mega-menu */
     .nav-services { position: static; }
@@ -325,9 +325,10 @@
     .faq-item.open .faq-icon { border-color: var(--amber); background: var(--amber); }
     .faq-icon svg { stroke: var(--slate); transition: transform 0.3s ease, stroke 0.3s ease; }
     .faq-item.open .faq-icon svg { transform: rotate(45deg); stroke: white; }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-item.open .faq-answer { max-height: 320px; }
-    .faq-answer p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; padding-bottom: 1.25rem; }
+    .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s ease; }
+    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+    .faq-answer p { overflow: hidden; min-height: 0; font-size: 0.875rem; color: var(--muted); line-height: 1.7; max-width: 65ch; }
+    .faq-item.open .faq-answer p { padding-bottom: 1.25rem; }
 
     /* ========================================
        CTA FINAL
@@ -447,9 +448,9 @@
       border-top: 1px solid var(--border);
     }
     .mobile-menu-link {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: var(--font-display);
       font-size: clamp(1.875rem, 1.25rem + 4vw, 2.75rem);
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -0.02em;
       line-height: 1.15;
       color: var(--slate);
@@ -482,14 +483,14 @@
       gap: 0.5rem;
       width: 100%;
       padding: 1rem 1.5rem;
-      background: var(--slate);
-      color: var(--cream);
+      background: var(--amber-deep);
+      color: var(--white);
       border-radius: 4px;
       font-size: 1rem;
       font-weight: 500;
       transition: background 0.25s ease, transform 0.2s ease;
     }
-    .mobile-menu-cta:hover { background: var(--amber); transform: translateY(-2px); }
+    .mobile-menu-cta:hover { background: var(--amber-deep-hover); transform: translateY(-2px); }
     .mobile-menu-cta svg { width: 18px; height: 18px; }
     .mobile-menu-meta {
       margin-top: 1rem;
@@ -566,7 +567,7 @@
                   <p class="mega-desc">Avant de déployer quoi que ce soit, on comprend votre métier. Vous repartez avec un plan d'action</p>
                 </div>
                 <div class="mega-items">
-                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et gains rapides en 2 jours</span></a>
                   <a href="/audit" class="mega-item"><span class="mega-item-title">Diagnostic maturité IA</span><span class="mega-item-sub">Où en est vraiment votre organisation face à l'IA</span></a>
                   <a href="/audit" class="mega-item"><span class="mega-item-title">Feuille de route stratégique</span><span class="mega-item-sub">Priorisez vos actions IA sur 6 à 12 mois</span></a>
                 </div>
@@ -651,7 +652,7 @@
           </div>
           <h1 class="reveal reveal-delay-1">Avant de déployer<br>l'IA, <span class="accent">comprenons<br>votre métier</span></h1>
           <p class="subtitle reveal reveal-delay-2">
-            Trop d'entreprises investissent dans l'IA sans savoir où. On cartographie vos process, on identifie vos 3 à 5 quick wins les plus rentables, et on vous remet un plan d'action chiffré. Pas une présentation PowerPoint
+            Trop d'entreprises investissent dans l'IA sans savoir où. On cartographie vos process, on identifie vos 3 à 5 gains rapides les plus rentables, et on vous remet un plan d'action chiffré. Pas une présentation PowerPoint
           </p>
           <div class="hero-ctas reveal reveal-delay-3">
             <a href="#contact" class="btn-primary">
@@ -661,7 +662,7 @@
           </div>
           <div class="hero-stats reveal reveal-delay-4">
             <div class="hero-stat"><span class="hero-stat-num">2 à 3j</span><span class="hero-stat-lbl">pour cartographier vos process</span></div>
-            <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-lbl">quick wins identifiés en moyenne</span></div>
+            <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-lbl">gains rapides identifiés en moyenne</span></div>
             <div class="hero-stat"><span class="hero-stat-num">0€</span><span class="hero-stat-lbl">de surprise, prix fixé à l'avance</span></div>
           </div>
         </div>
@@ -710,7 +711,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Comment ça se passe</p>
-        <h2 class="reveal reveal-delay-1">Un processus en 4 temps,<br><span class="accent">bouclé en moins d'une semaine</span></h2>
+        <h2 class="reveal reveal-delay-1">Un processus en 4 temps,<br>bouclé en moins d'une semaine</h2>
         <p class="lead reveal reveal-delay-2">Aucun questionnaire de 40 pages. On préfère parler à vos équipes et voir vos outils de près</p>
       </div>
       <div class="process-grid">
@@ -755,14 +756,14 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Nos formats</p>
-        <h2 class="reveal reveal-delay-1">Trois niveaux d'audit,<br><span class="accent">selon votre situation</span></h2>
+        <h2 class="reveal reveal-delay-1">Trois niveaux d'audit,<br>selon votre situation</h2>
         <p class="lead reveal reveal-delay-2">Chaque format est indépendant. On commence là où vous en êtes</p>
       </div>
       <div class="formats-grid">
         <article class="format-card reveal reveal-delay-1">
           <span class="format-tag">Format 01</span>
           <h3>Audit IA express</h3>
-          <p class="format-pitch">Pour identifier rapidement vos 3 quick wins prioritaires</p>
+          <p class="format-pitch">Pour identifier rapidement vos 3 gains rapides prioritaires</p>
           <ul class="format-list">
             <li><span class="dot"></span><span>Entretien de cadrage + 1 jour d'immersion</span></li>
             <li><span class="dot"></span><span>Rapport de 10 à 15 pages avec plan d'action</span></li>
@@ -814,7 +815,7 @@
       <div class="faq-wrap">
         <div class="section-header-center">
           <p class="section-label reveal">Questions fréquentes</p>
-          <h2 class="reveal reveal-delay-1">Ce que vous voulez <span class="accent">savoir avant de commencer</span></h2>
+          <h2 class="reveal reveal-delay-1">Ce que vous voulez savoir avant de commencer</h2>
         </div>
         <div id="faq-list">
           <!-- Filled by JS -->

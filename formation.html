@@ -194,8 +194,8 @@
     .nav-links a.nav-cta,
     .nav-cta {
       padding: 0.625rem 1.375rem;
-      background: var(--slate);
-      color: var(--cream);
+      background: var(--amber-deep);
+      color: var(--white);
       border-radius: 4px;
       font-size: 0.875rem;
       font-weight: 500;
@@ -204,8 +204,8 @@
 
     .nav-links a.nav-cta:hover,
     .nav-cta:hover {
-      background: var(--amber);
-      color: var(--cream);
+      background: var(--amber-deep-hover);
+      color: var(--white);
       transform: translateY(-2px);
     }
 
@@ -424,9 +424,9 @@
       border-top: 1px solid var(--border);
     }
     .mobile-menu-link {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: var(--font-display);
       font-size: clamp(1.875rem, 1.25rem + 4vw, 2.75rem);
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -0.02em;
       line-height: 1.15;
       color: var(--slate);
@@ -459,14 +459,14 @@
       gap: 0.5rem;
       width: 100%;
       padding: 1rem 1.5rem;
-      background: var(--slate);
-      color: var(--cream);
+      background: var(--amber-deep);
+      color: var(--white);
       border-radius: 4px;
       font-size: 1rem;
       font-weight: 500;
       transition: background 0.25s ease, transform 0.2s ease;
     }
-    .mobile-menu-cta:hover { background: var(--amber); transform: translateY(-2px); }
+    .mobile-menu-cta:hover { background: var(--amber-deep-hover); transform: translateY(-2px); }
     .mobile-menu-cta svg { width: 18px; height: 18px; }
     .mobile-menu-meta {
       margin-top: 1rem;
@@ -833,6 +833,7 @@
       font-size: 0.9375rem;
       color: var(--slate-light);
       line-height: 1.7;
+      max-width: 65ch;
     }
 
     .problem-quote strong { color: var(--amber-deep); }
@@ -1131,6 +1132,7 @@
       color: var(--muted);
       line-height: 1.75;
       margin-bottom: 1.75rem;
+      max-width: 65ch;
     }
 
     .pourquoi-micro {
@@ -1220,7 +1222,7 @@
       font-size: 2.75rem;
       line-height: 1;
       color: rgba(196, 122, 58, 0.15);
-      font-family: Georgia, serif;
+      font-family: var(--font-display);
       margin-bottom: 4px;
     }
 
@@ -1328,17 +1330,23 @@
     }
 
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s ease;
     }
 
-    .faq-item.open .faq-answer { max-height: 320px; }
+    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
 
     .faq-answer p {
+      overflow: hidden;
+      min-height: 0;
       font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.7;
+      max-width: 65ch;
+    }
+
+    .faq-item.open .faq-answer p {
       padding-bottom: 1.25rem;
     }
 
@@ -1802,7 +1810,7 @@
                   <p class="mega-desc">Avant de déployer quoi que ce soit, on comprend votre métier. Vous repartez avec un plan d'action</p>
                 </div>
                 <div class="mega-items">
-                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et gains rapides en 2 jours</span></a>
                   <a href="/audit" class="mega-item"><span class="mega-item-title">Diagnostic maturité IA</span><span class="mega-item-sub">Où en est vraiment votre organisation face à l'IA</span></a>
                   <a href="/audit" class="mega-item"><span class="mega-item-title">Feuille de route stratégique</span><span class="mega-item-sub">Priorisez vos actions IA sur 6 à 12 mois</span></a>
                 </div>
@@ -1931,7 +1939,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Le constat</p>
-        <h2 class="reveal reveal-delay-1">La formation IA qui ne change rien,<br><span class="accent">on connaît. On fait l'inverse</span></h2>
+        <h2 class="reveal reveal-delay-1">La formation IA qui ne change rien,<br>on connaît. On fait l'inverse</h2>
         <p class="lead reveal reveal-delay-2">On a audité des dizaines de PME après d'autres formations. Voici ce qu'on retrouve toujours</p>
       </div>
       <div class="problem-grid">
@@ -1968,7 +1976,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Nos parcours</p>
-        <h2 class="reveal reveal-delay-1">Des formations IA structurées <span class="accent">en 3 piliers</span></h2>
+        <h2 class="reveal reveal-delay-1">Des formations IA structurées en 3 piliers</h2>
         <p class="lead reveal reveal-delay-2">De l'initiation à l'expertise métier. Pas 3 étapes obligatoires mais 3 portes d'entrée, selon vos compétences et vos besoins</p>
       </div>
 
@@ -2128,7 +2136,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">La méthode Lionia</p>
-        <h2 class="reveal reveal-delay-1">Notre approche pédagogique, <span class="accent">de la curiosité aux compétences opérationnelles</span></h2>
+        <h2 class="reveal reveal-delay-1">Notre approche pédagogique, de la curiosité aux compétences opérationnelles</h2>
         <p class="lead reveal reveal-delay-2">Quel que soit votre point de départ, on transforme l'apprentissage en réflexe métier dès la fin de la formation</p>
       </div>
       <div class="methode-grid">
@@ -2153,7 +2161,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Quel parcours choisir</p>
-        <h2 class="reveal reveal-delay-1">Trois profils d'apprenants, <span class="accent">un parcours pour chacun</span></h2>
+        <h2 class="reveal reveal-delay-1">Trois profils d'apprenants, un parcours pour chacun</h2>
         <p class="lead reveal reveal-delay-2">Aucun prérequis technique. On part du niveau réel de chaque participant, et on construit autour de vos vrais cas métier</p>
       </div>
       <div class="profils-grid">
@@ -2190,7 +2198,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Bénéfices mesurables</p>
-        <h2 class="reveal reveal-delay-1">Ce qu'une formation IA change <span class="accent">concrètement dans votre quotidien</span></h2>
+        <h2 class="reveal reveal-delay-1">Ce qu'une formation IA change concrètement dans votre quotidien</h2>
         <p class="lead reveal reveal-delay-2">Maîtrisez les outils d'IA générative et appliquez-les dès le premier jour dans votre métier. Voici ce que mesurent nos clients PME</p>
       </div>
       <div class="benefices-grid">
@@ -2229,7 +2237,7 @@
       <div class="pourquoi-grid">
         <div class="pourquoi-left">
           <p class="section-label reveal">Pourquoi Lionia</p>
-          <h2 class="reveal reveal-delay-1">Ce qui nous distingue,<br><span class="accent">c'est ce qu'on ne fait pas</span></h2>
+          <h2 class="reveal reveal-delay-1">Ce qui nous distingue,<br>c'est ce qu'on ne fait pas</h2>
           <p class="reveal reveal-delay-2">On ne forme pas pour former. On cherche à ce que chaque participant soit plus efficace le lendemain. C'est une exigence, pas une promesse marketing</p>
           <a href="#contact" class="btn-primary reveal reveal-delay-3">
             Discutons de votre besoin
@@ -2284,7 +2292,7 @@
     <div class="container">
       <div class="section-header-center">
         <p class="section-label reveal">Témoignages</p>
-        <h2 class="reveal reveal-delay-1">Ce que disent <span class="accent">ceux qui sont passés par là</span></h2>
+        <h2 class="reveal reveal-delay-1">Ce que disent ceux qui sont passés par là</h2>
       </div>
       <div class="temos-grid">
         <article class="temo-card reveal reveal-delay-1">
@@ -2330,7 +2338,7 @@
       <div class="faq-wrap">
         <div class="section-header-center">
           <p class="section-label reveal">Questions fréquentes</p>
-          <h2 class="reveal reveal-delay-1">Tout ce que vous devez <span class="accent">savoir avant de vous lancer</span></h2>
+          <h2 class="reveal reveal-delay-1">Tout ce que vous devez savoir avant de vous lancer</h2>
         </div>
         <div id="faq-list">
           <!-- Filled by JS -->

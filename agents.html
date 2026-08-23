@@ -83,12 +83,12 @@
     .nav-links a.nav-cta,
     .nav-cta {
       padding: 0.625rem 1.375rem;
-      background: var(--slate); color: var(--cream);
+      background: var(--amber-deep); color: var(--white);
       border-radius: 4px; font-size: 0.875rem; font-weight: 500;
       transition: all 0.25s ease;
     }
     .nav-links a.nav-cta:hover,
-    .nav-cta:hover { background: var(--amber); color: var(--cream); transform: translateY(-2px); }
+    .nav-cta:hover { background: var(--amber-deep-hover); color: var(--white); transform: translateY(-2px); }
 
     /* Services mega-menu */
     .nav-services { position: static; }
@@ -251,9 +251,10 @@
     .faq-item.open .faq-icon { border-color: var(--amber); background: var(--amber); }
     .faq-icon svg { stroke: var(--slate); transition: transform 0.3s ease, stroke 0.3s ease; }
     .faq-item.open .faq-icon svg { transform: rotate(45deg); stroke: white; }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-item.open .faq-answer { max-height: 320px; }
-    .faq-answer p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; padding-bottom: 1.25rem; }
+    .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s ease; }
+    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+    .faq-answer p { overflow: hidden; min-height: 0; font-size: 0.875rem; color: var(--muted); line-height: 1.7; max-width: 65ch; }
+    .faq-item.open .faq-answer p { padding-bottom: 1.25rem; }
 
     /* ========================================
        CTA FINAL
@@ -355,9 +356,9 @@
       border-top: 1px solid var(--border);
     }
     .mobile-menu-link {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: var(--font-display);
       font-size: clamp(1.875rem, 1.25rem + 4vw, 2.75rem);
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -0.02em;
       line-height: 1.15;
       color: var(--slate);
@@ -390,14 +391,14 @@
       gap: 0.5rem;
       width: 100%;
       padding: 1rem 1.5rem;
-      background: var(--slate);
-      color: var(--cream);
+      background: var(--amber-deep);
+      color: var(--white);
       border-radius: 4px;
       font-size: 1rem;
       font-weight: 500;
       transition: background 0.25s ease, transform 0.2s ease;
     }
-    .mobile-menu-cta:hover { background: var(--amber); transform: translateY(-2px); }
+    .mobile-menu-cta:hover { background: var(--amber-deep-hover); transform: translateY(-2px); }
     .mobile-menu-cta svg { width: 18px; height: 18px; }
     .mobile-menu-meta {
       margin-top: 1rem;
@@ -476,7 +477,7 @@
                   <p class="mega-desc">Avant de déployer quoi que ce soit, on comprend votre métier. Vous repartez avec un plan d'action</p>
                 </div>
                 <div class="mega-items">
-                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et quick wins en 2 jours</span></a>
+                  <a href="/audit" class="mega-item"><span class="mega-item-title">Audit IA express</span><span class="mega-item-sub">Cartographiez vos process et gains rapides en 2 jours</span></a>
                   <a href="/audit" class="mega-item"><span class="mega-item-title">Diagnostic maturité IA</span><span class="mega-item-sub">Où en est vraiment votre organisation face à l'IA</span></a>
                   <a href="/audit" class="mega-item"><span class="mega-item-title">Feuille de route stratégique</span><span class="mega-item-sub">Priorisez vos actions IA sur 6 à 12 mois</span></a>
                 </div>
@@ -626,7 +627,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Nos agents</p>
-        <h2 class="reveal reveal-delay-1">Trois agents qui couvrent<br><span class="accent">vos cas d'usage les plus courants</span></h2>
+        <h2 class="reveal reveal-delay-1">Trois agents qui couvrent<br>vos cas d'usage les plus courants</h2>
         <p class="lead reveal reveal-delay-2">Chaque agent est développé sur mesure. Ces exemples sont des points de départ, pas des produits finis</p>
       </div>
 
@@ -645,7 +646,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-label reveal">Notre méthode</p>
-        <h2 class="reveal reveal-delay-1">De l'idée à l'agent opérationnel<br><span class="accent">en 6 semaines</span></h2>
+        <h2 class="reveal reveal-delay-1">De l'idée à l'agent opérationnel<br>en 6 semaines</h2>
         <p class="lead reveal reveal-delay-2">Un processus itératif et transparent. Vous validez chaque étape, rien n'est livré sans votre accord</p>
       </div>
       <div class="process-grid">
@@ -684,7 +685,7 @@
       <div class="garanties-grid">
         <div class="garanties-left">
           <p class="section-label reveal">Nos garanties</p>
-          <h2 class="reveal reveal-delay-1">Une IA qui travaille pour vous,<br><span class="accent">pas à votre place</span></h2>
+          <h2 class="reveal reveal-delay-1">Une IA qui travaille pour vous,<br>pas à votre place</h2>
           <p class="reveal reveal-delay-2">On ne livre pas des agents IA pour impressionner votre CODIR. On livre des outils qui font gagner du temps à vos équipes, et qu'elles comprennent et maîtrisent</p>
           <a href="#contact" class="btn-primary reveal reveal-delay-3">
             Discutons de votre cas d'usage
@@ -739,7 +740,7 @@
       <div class="faq-wrap">
         <div class="section-header-center">
           <p class="section-label reveal">Questions fréquentes</p>
-          <h2 class="reveal reveal-delay-1">Ce que vous voulez <span class="accent">savoir sur les agents IA</span></h2>
+          <h2 class="reveal reveal-delay-1">Ce que vous voulez savoir sur les agents IA</h2>
         </div>
         <div id="faq-list"></div>
       </div>
